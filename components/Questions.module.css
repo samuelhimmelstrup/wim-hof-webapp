@@ -1,0 +1,53 @@
+.formContainer {
+    background: grey;
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    position: relative;
+    background: white;
+    height: 90%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    font-size: large;
+}
+
+.questionContainer {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.inputField {
+    width: 80%;
+    height: 2rem;
+    margin: 0.5rem 0 2rem;
+}
+
+.valueField {
+    margin-top: 1rem;
+    border-style: none;
+    border-color: white;
+    width: 10%;
+}
+
+.btnContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
