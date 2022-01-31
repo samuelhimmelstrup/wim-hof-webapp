@@ -15,7 +15,9 @@ function CustomSession() {
 }
 
 export async function getStaticProps() {
-    
+    return {
+        props: { }
+    }
 }
 
 export default CustomSession
