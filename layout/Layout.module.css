@@ -1,3 +1,8 @@
 .layout {
-    height: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--main-color);
+    width: 500px;
+    height: 500px;
 }

@@ -11,10 +11,12 @@
     "mongodb": "^4.3.1",
     "next": "12.0.8",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "use-sound": "^4.0.1"
   },
   "devDependencies": {
     "eslint": "8.7.0",
-    "eslint-config-next": "12.0.8"
+    "eslint-config-next": "12.0.8",
+    "file-loader": "^6.2.0"
   }
 }
