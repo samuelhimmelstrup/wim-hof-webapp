@@ -1,0 +1,26 @@
+.itemWrapper {
+    background-color: white;
+    border-radius: 20px; 
+    padding: 10px;
+    margin: 5%; 
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: height 1s ease-in-out;
+    overflow: hidden;
+}
+
+.itemWrapper:hover {
+    height: 400px;
+    cursor: pointer;
+}
+
+.title {
+    margin: 5px;
+}
+
+.allInfo {
+    margin: 5px;
+}

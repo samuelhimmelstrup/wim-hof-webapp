@@ -1,0 +1,23 @@
+.itemContainer {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    border-bottom: 3px solid black;
+    height: 85%;
+}
+
+.btnContainer {
+    height: ;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn {
+    margin: 10px;
+}
+
+.btnClose {
+    margin: 10px;
+    background-color: rgb(126, 2, 2);
+}

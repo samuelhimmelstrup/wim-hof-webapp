@@ -1,8 +1,10 @@
 .layout {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--main-color);
-    width: 500px;
-    height: 500px;
+    position: absolute;
+    background: var(--gradient);
+    width: clamp(200px, 500px, 100%);
+    height: max-content;
+    border-radius: 45px;
+    animation: var(--fadeIn)
 }
+
+

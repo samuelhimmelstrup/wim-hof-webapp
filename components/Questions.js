@@ -56,7 +56,7 @@ function RoundsQuestion(props) {
                     <label htmlFor="rounds">How many rounds would you like to do?</label>
                     <input type="number" required min="1" max="5" placeholder="1-5" className={styles.inputField} ref={roundsInputRef} />
                     <div className={styles.btnContainer}>
-                        <button type="button" onClick={roundsClickHandler}>Next</button>
+                        <button type="button" className={styles.btn} onClick={roundsClickHandler}>NEXT</button>
                     </div>
                 </div>
 
@@ -64,18 +64,18 @@ function RoundsQuestion(props) {
                     <label htmlFor="breaths">How many breaths pr round?</label>
                     <input type="number" required id="breaths" placeholder="10-50" min="10" max="50" className={styles.inputField} ref={breathsInputRef}></input>
                     <div className={styles.btnContainer}>
-                        <button onClick={backHandler}>Back</button>
-                        <button type="button" onClick={breathsClickHandler}>Next</button>
+                        <button onClick={backHandler} className={styles.btn}>BACK</button>
+                        <button type="button" onClick={breathsClickHandler} className={styles.btn}>NEXT</button>
                     </div>
                 </div>
 
                 <div className={question === 3 ? styles.questionContainer : styles.hidden}>
                     <label htmlFor="breathholds">How long do you want the breathholds to be? (seconds)</label>
                     <input type="text" className={styles.valueField} ref={valueRef} defaultValue="90" />
-                    <input type="range" required id="breathholds" min="30" max="150" onChange={updateValueField} className={styles.inputField} ref={holdsInputRef} />
+                    <input type="range" required id="breathholds" min="30" max="150" onChange={updateValueField} className={styles.slider} ref={holdsInputRef} />
                         <div className={styles.btnContainer}>
-                        <button onClick={backHandler}>Back</button>
-                        <button type="submit">Make my breathing session</button>
+                        <button onClick={backHandler} className={styles.btn}>BACK</button>
+                        <button type="submit" className={styles.btn}>LETS GO</button>
                     </div>
                 </div>
             </form>

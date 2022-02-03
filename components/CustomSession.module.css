@@ -1,6 +1,20 @@
-/* .infoContainer {
-    background: grey;
-} */
+.infoContainer {
+    height: 90%;    
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.btn {
+    padding: 0.5rem;
+    margin-top: 2rem;
+    border: 10px solid;
+    font-size: 2rem;
+    cursor: pointer;
+}
 
 .hidden {
     display: none;
