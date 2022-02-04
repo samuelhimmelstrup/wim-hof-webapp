@@ -1,7 +1,8 @@
 .formContainer {
     background: var(--gradient);
-    width: 500px;
-    height: 500px;
+    border-radius: 45px;
+    width: clamp(200px, 500px, 100%);
+    height: clamp(200px, 500px, 100%);
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -10,6 +11,7 @@
 
 .form {
     position: relative;
+    border-radius: 45px;
     background: white;
     height: 90%;
     width: 90%;
@@ -61,7 +63,7 @@
     border-radius: 10px;
     border: none;
     font-family: inherit;
-    background: var(--color)
+    background: var(--color);
 }
 
 .hidden {

@@ -1,34 +1,30 @@
 import styles from "./CustomSession.module.css"
-import Layout from "../layout/Layout"
+import Wrapper from "../layout/Wrapper"
 import { useState } from "react"
-// import useSound from "use-sound"
-// import breathSound from "../public/sighBreath.mp3"
+import BreathingSession from "./BreathingSession"
+
 
 function CustomSession({sessionData}) {
 
     const { rounds, breaths, holds } = sessionData
     const [isReady, setIsReady] = useState(false);
     
-    // const [play] = useSound(breathSound);
+
     
 
     return ( 
-        <Layout>
+        <Wrapper>
             <div className={isReady ? styles.hidden : styles.infoContainer}>
                 <h1>Are you ready?</h1>
-                {/* <section className={styles.infoBox}> */}
                     <p>{rounds} round(s) <br/>
                     of {breaths} breaths 
                     <br/>with {holds} seconds breathhold in between</p>
-                {/* </section> */}
                 <button onClick={() => setIsReady(true)} className={styles.btn}>START MY SESSION</button>
             </div>
 
-            <div className={isReady ? styles.sessionContainer : styles.hidden}>
-                HER ER DIN SESSION BRATTA
-                {/* <button onClick={play}>play sound</button> */}
-            </div>
-        </Layout>
+            { isReady && <BreathingSession data={sessionData}/> }
+
+        </Wrapper>
     )
 }
 

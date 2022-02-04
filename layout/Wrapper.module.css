@@ -1,0 +1,10 @@
+.wrapper {
+    background: var(--gradient);
+    border-radius: 45px;
+    width: clamp(200px, 500px, 100%);
+    height: clamp(200px, 500px, 100%);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

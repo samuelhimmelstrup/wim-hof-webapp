@@ -21,7 +21,7 @@ export default function Home() {
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <div className={styles.titleAndBtnBox}>
-          <h1 className={styles.title}>Welcome my beautiful friend</h1>
+          <h1 className={styles.title}>Test</h1>
           <button type="button" className={styles.btn} onClick={showSessionsHandler}>SESSIONS</button>
         </div>
         

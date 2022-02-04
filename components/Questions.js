@@ -42,8 +42,8 @@ function RoundsQuestion(props) {
         
         const sessionData = {
             rounds: rounds, 
-            breaths:breaths,
-            holds: holds
+            breaths: [breaths],
+            holds: [holds]
         }
 
         props.onSubmitForm(sessionData)
@@ -72,7 +72,7 @@ function RoundsQuestion(props) {
                 <div className={question === 3 ? styles.questionContainer : styles.hidden}>
                     <label htmlFor="breathholds">How long do you want the breathholds to be? (seconds)</label>
                     <input type="text" className={styles.valueField} ref={valueRef} defaultValue="90" />
-                    <input type="range" required id="breathholds" min="30" max="150" onChange={updateValueField} className={styles.slider} ref={holdsInputRef} />
+                    <input type="range" required id="breathholds" min="30" max="150" defaultValue="90" onChange={updateValueField} className={styles.slider} ref={holdsInputRef} />
                         <div className={styles.btnContainer}>
                         <button onClick={backHandler} className={styles.btn}>BACK</button>
                         <button type="submit" className={styles.btn}>LETS GO</button>

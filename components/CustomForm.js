@@ -1,7 +1,7 @@
 import Questions from "./Questions"
 import CustomSession from "./CustomSession"
-import styles from "./CustomForm.module.css"
 import { useState } from "react"
+import Layout from "../layout/Layout"
 
 function CustomForm() {
     
@@ -24,14 +24,10 @@ function CustomForm() {
     }
 
     return (
-        <>
-            <div className={submitted ? styles.hidden : styles.outerContainer}>
-                <Questions onSubmitForm={formHandler}/> 
-            </div>    
-            <div className={submitted ? styles.link : styles.hidden}>
-                <CustomSession sessionData={sessionData}/>
-            </div>
-        </>
+        <Layout>
+                {!submitted && <Questions onSubmitForm={formHandler}/>}
+                {submitted && <CustomSession sessionData={sessionData}/>}
+        </Layout>        
      );
 }
 

@@ -45,22 +45,25 @@
   align-items: center;
 }
 
-/* .btn {
-  width: clamp(80px, 30%, 200px);
-  background: green;
-  font-family: inherit;
-  border: none;
-  border-radius: 20px;
-  height: 45px;
-} */
-
 .mainContent {
+  position: relative;
   background: var(--gradient2);
-  height: 600px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.mainContent::before {
+  position: absolute;
+  background: inherit;
+  top: -20%;
+  content: "";
+  height: 40%;
+  width: 100%;
+  z-index: -1;
+  border-radius: 50%;
 }
 
 .hidden {

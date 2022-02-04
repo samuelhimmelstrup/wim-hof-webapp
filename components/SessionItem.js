@@ -27,6 +27,7 @@ function SessionItem(props) {
                 </p> 
                 })
             }
+            <button onClick={props.onChooseSession} className={styles.letsGoBtn}>LETS GO</button>
         </div>
      );
 }
