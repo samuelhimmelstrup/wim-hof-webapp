@@ -24,7 +24,6 @@ button {
 }
 
 button:hover {
-  width: 35%;
   font-size: large;
   cursor: pointer;
 }
