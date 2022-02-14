@@ -26,29 +26,12 @@
     height: 100px;
     border-radius: 50%;
     background-color: blue;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
 }
 
-/* .breathBubble:after {
-    content: "";
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    z-index: -1;
-    width: 400px;
-    height: 400px;
-    background-color: lightblue;
-}
-
-.innerBubble {
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    background-color: red;
-    text-align: center;
+/* .hidden {
+    display: none;
 } */
-
-.breathCount {
-    font-size: 5rem;
-    color: white;
-}

@@ -6,15 +6,23 @@ function CountDown(props) {
 
     const { time } = props;
 
+
     const countdown = useCountdown({
         seconds: time,
         onCompleted: props.onComplete,
+        isRunning: props.isRunning
     })
+
+    const { minutes, seconds, isRunning, pause, resume } = countdown
     
     return ( 
         <div className={styles.countDownContainer}>
-            minutes: {countdown.minutes}
-            seconds: {countdown.seconds}
+            minutes: {minutes}
+            seconds: {seconds}
+            <button onClick={isRunning ? pause : resume}>
+                {isRunning ? "Pause" : "Resume"}
+            </button>
+            
         </div>
      );
 }
