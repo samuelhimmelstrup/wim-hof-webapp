@@ -1,0 +1,14 @@
+
+SÆT FIRESTORE OP\
+- FÅ [id] siden til at snuppe paths derfra 
+- (ved at mappe over "sessions" eller sådan noget)
+
+
+- FÅ SAMLET DYNAMIC FORM DATAEN\
+	- i det format du har defineret
+	- pass den til en session
+	- senere: gør det muligt at gemme på db, hvilket leder videre til:
+
+- LOG IN!
+
+- LYD

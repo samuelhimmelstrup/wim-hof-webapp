@@ -6,7 +6,6 @@ import Backdrop from "../layout/Backdrop"
 import Footer from "../components/Footer"
 
 export default function Home() {
-
   const [showSessions, setShowSessions] = useState(false);
 
   const showSessionsHandler = () => {

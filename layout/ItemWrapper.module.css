@@ -1,0 +1,15 @@
+.itemWrapper {
+  background: white;
+  border-radius: 45px;
+  border: 2px solid black;
+  width: clamp(400px, 200px, 50px);
+  height: clamp(400px, 200px, 50px);
+  /* overflow: hidden; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemWrapper:hover {
+  cursor: pointer;
+}

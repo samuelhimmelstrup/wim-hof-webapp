@@ -1,8 +1,9 @@
 .wrapper {
-    background: var(--gradient);
+    background: grey;
     border-radius: 45px;
-    width: clamp(200px, 500px, 100%);
-    height: clamp(200px, 500px, 100%);
+    border: 2px solid black;
+    width: clamp(95%, 600px, 50%);
+    height: clamp(80vh, 600px, 50vh);
     overflow: hidden;
     display: flex;
     justify-content: center;

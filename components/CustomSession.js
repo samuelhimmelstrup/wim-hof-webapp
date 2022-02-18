@@ -1,16 +1,14 @@
 import styles from "./CustomSession.module.css"
 import Wrapper from "../layout/Wrapper"
 import { useState } from "react"
-import BreathingSession from "./BreathingSession"
+import BreathingRound from "./BreathingRound"
 
 
 function CustomSession({sessionData}) {
 
     const { rounds, breaths, holds } = sessionData
     const [isReady, setIsReady] = useState(false);
-    
 
-    
 
     return ( 
         <Wrapper>
@@ -22,7 +20,7 @@ function CustomSession({sessionData}) {
                 <button onClick={() => setIsReady(true)} className={styles.btn}>START MY SESSION</button>
             </div>
 
-            { isReady && <BreathingSession data={sessionData}/> }
+            { isReady && <BreathingRound data={sessionData}/> }
 
         </Wrapper>
     )

@@ -2,7 +2,7 @@
     position: absolute;
     background: var(--gradient);
     width: clamp(200px, 500px, 100%);
-    height: max-content;
+    height: auto;
     border-radius: 45px;
     animation: var(--fadeIn)
 }
