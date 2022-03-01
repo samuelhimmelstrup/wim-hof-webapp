@@ -35,7 +35,7 @@ export default function Home() {
         {whatToShow == 'sessions' && <Sessions letsGoClick={(props) => startSessionHandler(props)}/>}
         {whatToShow == 'form' && <DynamicForm />} 
         {whatToShow == 'breathing' && <BreathingSession props={currentSession} />}
-        
+
         <button 
         className={whatToShow == 'sessions' ? styles.formBtn : styles.hidden} 
         onClick={showForm}>

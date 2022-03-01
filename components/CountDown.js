@@ -5,7 +5,7 @@ import { useCallback, useEffect } from "react";
 
 function CountDown(props) {
 
-    const { time, title, breathLength } = props; 
+    const { time, breathLength } = props; 
 
     const countdown = useCountdown({
         seconds: time,
@@ -21,10 +21,15 @@ function CountDown(props) {
         props.onPaused(); 
     })
 
+    // Informs parent that a breath has been taken (to increment counter)
     useEffect(() => {
-        if (seconds % breathLength == 0) props.onEachBreath();
+        if (seconds % breathLength == breathLength / 2) props.onEachBreath();
+        if (seconds == breathLength) props.onLastBreath();
     }, [seconds])
 
+
+
+    // Handles space = pause
     useEffect(() => {
 
         function handleKeyPress(e) {
@@ -41,11 +46,12 @@ function CountDown(props) {
 
     return ( 
         <div className={styles.countDownContainer}>
-            <p>{title}</p>
-            {minutes !== 0 ? `${minutes}:` : " "}{seconds}
-            <button onClick={pauseHandler}>
+            <p className={styles.time}>
+                {minutes !== 0 ? `${minutes}:` : " "}{seconds}
+            </p>
+            {/* <button onClick={pauseHandler}>
                 {isRunning ? "Pause" : "Resume"}
-            </button>   
+            </button>    */}
         </div>
      );
 }

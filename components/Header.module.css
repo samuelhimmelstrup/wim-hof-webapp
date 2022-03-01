@@ -16,10 +16,3 @@
   .info {
     color: var(--color1);
   }
-
-  .exampleDiv {
-      position: absolute;
-      right: 2rem;
-      top: 2rem;
-      background-color: var(--color1);
-  }

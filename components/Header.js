@@ -1,5 +1,5 @@
 import styles from './Header.module.css'
-import Link from 'next/link'
+import { motion } from 'framer-motion';
 // import { GoogleAuthProvider } from "firebase/auth";
 // import { signInWithPopup } from "firebase/auth";
 
@@ -23,8 +23,6 @@ function Header() {
             <h1 className={styles.title}>Wim Hof Breathing App</h1>     
             <p className={styles.info}>Do this and then that and then this again. <br/>
             If you press this then this will happen. Do it.</p>  
-            <div className={styles.exampleDiv}>
-            </div>
         </div>
      );
 }

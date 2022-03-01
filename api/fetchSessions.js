@@ -22,15 +22,15 @@
 export const DUMMY_SESSIONS = [
     { 
         id: 10,
-        title: "Better You Now",
+        title: "Quick Test",
         level: "Beginner",
         noOfRounds: 3,
         sessionData:[
         { 
             round: 1,
-            breaths: 8,
+            breaths: 4,
             breathPace: "quick",
-            hold: 8,
+            hold: 4,
             silentHold: false
         },
         { 
@@ -87,43 +87,43 @@ export const DUMMY_SESSIONS = [
     },
     { 
         id: 12,
-        title: "Yes Boss",
+        title: "Real type",
         level: "Advanced",
         noOfRounds: 5,
         sessionData:[
             { 
                 round: 1,
-                breaths: 8,
+                breaths: 30,
                 breathPace: "quick",
-                hold: 8,
+                hold: 90,
                 silentHold: false
             },
             { 
                 round: 2,
-                breaths: 6,
+                breaths: 30,
                 breathPace: "medium", 
-                hold: 8,
+                hold: 90,
                 silentHold: false 
             },
             { 
                 round: 3,
-                breaths: 4,
-                breathPace: "slow", // ("slow", "medium") 
-                hold: 6,
+                breaths: 30,
+                breathPace: "quick", 
+                hold: 120,
                 silentHold: false 
             },
             { 
                 round: 4,
-                breaths: 4,
-                breathPace: "quick", // ("slow", "medium") 
-                hold: 6,
+                breaths: 40,
+                breathPace: "quick", 
+                hold: 120,
                 silentHold: false 
             },
             { 
                 round: 5,
-                breaths: 4,
-                breathPace: "quick", // ("slow", "medium") 
-                hold: 6,
+                breaths: 40,
+                breathPace: "quick",
+                hold: 150,
                 silentHold: false 
             },
             ]

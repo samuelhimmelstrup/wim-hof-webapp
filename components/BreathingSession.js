@@ -19,7 +19,7 @@ function BreathingSession({props}) {
           <div key={round} className={styles.roundContainer}>
               {roundNumber == round && 
               <BreathingRound roundData={roundObj} 
-                              onEndOfHold={nextRoundHandler}/>}
+                              onEndOfRound={nextRoundHandler}/>}
           </div>
           )
       })}
