@@ -1,0 +1,56 @@
+.wideDiv {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centerDiv {
+    overflow: hidden;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: clamp(500px, 600px, 90%);
+    width: clamp(500px, 650px, 1000px);
+}
+
+.itemWrapper {
+    background-image: url('../public/images/wavesDark.svg');
+    border-radius: 20px; 
+    padding: 10px;
+    margin: 5%; 
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: height 1s ease-in-out;
+    overflow: hidden;
+}
+
+.itemWrapper:hover {
+    cursor: pointer;
+}
+
+.btn,
+.btnBack {
+    background: none;
+    background-image: url('../public/images/arrows.svg');
+    background-repeat: no-repeat;
+}
+
+.btnBack {
+    transform: rotate(0.5turn);
+}
+
+.btnDiv {
+    width: 100px;
+}
+
+.hidden {
+    display: none;
+}

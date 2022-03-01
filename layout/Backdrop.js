@@ -1,12 +1,21 @@
-import styles from "./Backdrop.module.css";
+import styles from './Backdrop.module.css'
+import { motion } from "framer-motion";
 
-function Backdrop(props) {
-    return ( 
-    <div className={styles.backdrop} onClick={props.onClicking}>
-        <p className={styles.infoOne}>Click anywhere to close</p>
-        <p className={styles.infoTwo}>Hold mouse over sessions to see more</p>
-    </div>
-);
-}
+const Backdrop = ({ children, onClick }) => {
+ 
+  return (
+    <motion.div
+      onClick={onClick}
+      className={styles.backdrop}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1,
+      transition: {duration: 0.5}
+      }}
+      exit={{ opacity: 0 }}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 export default Backdrop;

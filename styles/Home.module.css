@@ -1,69 +1,19 @@
-
-.wrapper {
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  perspective: 10px;
-}
-
-.header {
-  position: relative;
+.centerDiv {
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100%;
-  transform-style: preserve-3d;
-  z-index: -1;
 }
 
-.title {
-  font-size: 5rem;
-  text-shadow: 3px 4px 7px rgba(81,67,21,0.8);
-  /* width: 50%; */
-  text-align: center;
-}
-
-.nightsky {
+.formBtn {
   position: absolute;
-  height: 100%;
-  width: 100%;
-  transform: translateZ(-10px) scale(2);
+  top: 0;
+  right: 0;
 }
 
-.clouds {
+.backBtn {
   position: absolute;
-  height: 100%;
-  width: 100%;
-  transform: translateZ(-5px) scale(1.5);
-}
-
-.titleAndBtnBox {
-  width: 50%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.mainContent {
-  position: relative;
-  background: var(--gradient2);
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.mainContent::before {
-  position: absolute;
-  background: inherit;
-  top: -20%;
-  content: "";
-  height: 40%;
-  width: 100%;
-  z-index: -1;
-  border-radius: 50%;
+  top: 0;
+  left: 0;
 }
 
 .hidden {

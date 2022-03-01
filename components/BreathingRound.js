@@ -3,24 +3,27 @@ import { useState, useEffect } from "react"
 import { motion, useMotionValue } from "framer-motion"
 import CountDown from "./CountDown"
 
-// REMOVE TITLE PROP FROM COUNTDOWN 
-// HIDE THE BREATH TIMER, ONLY SHOW HOLD TIMER (AND THREE COUNT)
-
 function BreathingRound(props) {
 
-    const { round, breaths, hold, breathType, silentHold} = props.roundData;
+    const { round, breaths, hold, breathPace, silentHold} = props.roundData;
 
-    const breathLength = breathType == "slow" ? 6 
-                         : breathType == "quick" ? 2 
+    const breathLength = breathPace == "slow" ? 6 
+                         : breathPace == "quick" ? 2 
                          : 4;
                          
+    // Stages: 1 = 3 Count, 2 = Breathing, 3 = Breathhold, 4 = 15 Count
+    const [stage, setStage] = useState(1);
+    const [count, setCount] = useState(0);
     const [isBreathing, setIsBreathing] = useState(true);
-    const [count, setCount] = useState(1);
     const [threeCount, setThreeCount] = useState(true);
-    const [isPaused, setIsPaused] = useState(false);    
+    const [isPaused, setIsPaused] = useState(false); 
+    
+    
+    // ADD 15 COUNT AT END OF ROUND
 
     const endOfBreaths = () => {
         setIsBreathing(false);
+        // setStage(3);
     }
     
     const endOfCountDown = () => {
@@ -34,52 +37,51 @@ function BreathingRound(props) {
         }
         if (!isPaused) {
             setIsPaused(true);
-            console.log("PAUSE G") // TODO: console
-
         }        
     }
 
     const scaleOfBubble = useMotionValue(1);
     const colorOfBubble = useMotionValue("#982132");
 
+    const color1 = "#a8e2ca"
+    const color2 = "#58a685"
+    
     const bubbleVariants = {
         animationOne: {
             scale: [1, 3],
-            backgroundColor: ["#982132" , "#202132"],
+            backgroundColor: [color1 , color2],
             transition: {
                 duration: breathLength / 2,
-                repeat: breaths + 1,
+                easing: "easeInOut",
+                repeat: breaths * 2,
                 repeatType: "reverse"
             }
         }, 
         animationPaused: {
-            scale: scaleOfBubble.get(),
+            scale: [scaleOfBubble.get(), 1],
             backgroundColor: colorOfBubble.get(),
+            transition: {
+                duration: 0.6,
+                easing: "easeOut",
+            }
         },
         animationEnd: {
-            scale: [1, 4],
-            backgroundColor: ["#982132" , "#202132"],
+            scale: [1, 4, 3, 4, 3, 4, 3, 4],
+            backgroundColor: [color1 , color2],
             transition: {
-                duration: hold / breaths, 
+                duration: hold, 
                 easing: "easeInOut",
                 repeat: Infinity,
                 repeatType: "reverse"
             }
         },
-
     }
-
-    // TODO: Only increases once??
-    useEffect(() => {
-        const interval = setInterval(() => {
-          setCount(count + 1);
-        }, breathLength*1000);
-        return () => clearInterval(interval);
-      }, []);
 
     // RETURNS
     if (threeCount) {
-        return <CountDown time={3} onPaused={pauseRound} onComplete={() => setThreeCount(false)} />
+        return (
+            <CountDown time={3} onPaused={pauseRound} onComplete={() => setThreeCount(false)} />
+        )
     }
 
     if (!threeCount) {
@@ -92,7 +94,9 @@ function BreathingRound(props) {
                 <motion.div className={styles.breathBubble}
                 variants={bubbleVariants}
                 style={{scale:scaleOfBubble, backgroundColor:colorOfBubble}}
-                animate={isBreathing && !isPaused ? "animationOne" : isPaused ? "animationPaused" : "animationEnd"}
+                animate={isBreathing && !isPaused ? "animationOne" 
+                                        : isPaused ? "animationPaused" 
+                                        : "animationEnd"}
                 >
                 <p className={styles.counter}>{isBreathing ? count : "Hold that breath"}</p>
                 </motion.div>
@@ -100,12 +104,26 @@ function BreathingRound(props) {
 
             {!isBreathing && 
                 <div className={styles.breathHoldContainer}>
-                    <CountDown time={hold} title="Breathhold timer" onComplete={endOfCountDown} onPaused={pauseRound} />
+                    <CountDown 
+                        time={hold} 
+                        title="Breathhold timer" 
+                        onComplete={endOfCountDown} 
+                        onPaused={pauseRound} 
+                    />
                 </div>}
 
             <div className={styles.hidden}>
-                <CountDown time={breaths*breathLength} title="Breath timer (hidden)" onComplete={endOfBreaths} onPaused={pauseRound} />
+                <CountDown 
+                    time={breaths*breathLength}
+                    onEachBreath={() => setCount(count + 1)} 
+                    title="Breath timer (hidden)"
+                    breathLength={breathLength} 
+                    onComplete={endOfBreaths} 
+                    onPaused={pauseRound} 
+                />
             </div>
+
+            {isPaused && <div>PAUSED</div>}
 
         </div>
         );

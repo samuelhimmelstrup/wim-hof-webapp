@@ -1,34 +1,35 @@
-import styles from './SessionItem.module.css';
+import styles from './SessionItem.module.css'
+import { motion } from 'framer-motion';
 
-function SessionItem(props) {
-    // const { title, rounds, breaths, holds } = props
+function SessionItem({props, onChildClick}) {
+    const { id, title, noOfRounds, level, sessionData } = props;
     
-    let counter = 0; 
 
-    const DUMMY_SESSION = {
-        rounds: 3,
-        breaths: [30, 40, 50],
-        holds: [60, 90, 120]
-    }
-    const { rounds, breaths, holds } = DUMMY_SESSION
-    
-    return ( 
-        <div className={styles.itemWrapper}>
-            <h1 className={styles.title}>{props.title}</h1>
-            <p>Description</p>
-            {breaths.map(_ => {
+    return (
+        <motion.div 
+            className={
+                level == 'Beginner' ? styles.itemWrapper1 : 
+                level == 'Intermediate' ? styles.itemWrapper2 : styles.itemWrapper3}
+            whileHover={{scale: 1.1, transition: { duration: 0.4 }}}
+            whileTap={{ scale: 0.95 }}
+            onClick={onChildClick}
+            >
             
-            counter++ 
+            <h1 className={styles.title}>{title}</h1>
+            <p className={styles.roundsInfo}>{noOfRounds} rounds</p>
+            <div className={styles.holdsInfo}>
 
-            return <p className={styles.allInfo}>
-                <span className={styles.rounds}>Round {counter}: </span><br/>
-                <span className={styles.breaths}>{breaths[-1 + counter]} breaths</span><br/>
-                <span className={styles.holds}>{holds[-1 + counter]} seconds breathhold</span>
-                </p> 
-                })
-            }
-            <button onClick={props.onChooseSession} className={styles.letsGoBtn}>LETS GO</button>
-        </div>
+                {sessionData.map(roundObj => {
+                    const { hold } = roundObj
+                    const min = Math.floor(hold / 60)
+                    const sec = hold % 60
+
+                    return (
+                        <p className={styles.singleHoldInfo}>{min}:{sec < 10 ? `0${sec}` : sec}</p>
+                    )
+                })}
+            </div>
+        </motion.div>   
      );
 }
 

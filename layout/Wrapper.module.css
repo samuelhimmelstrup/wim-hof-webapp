@@ -1,11 +1,15 @@
 .wrapper {
-    background: grey;
+    position: relative;
+    background-image:  url("../public/images/wavesLight.svg");
+    background-size: cover;
     border-radius: 45px;
-    border: 2px solid black;
+    border: 2px solid var(--color1);
     width: clamp(95%, 600px, 50%);
-    height: clamp(80vh, 600px, 50vh);
+    height: 80vh;
     overflow: hidden;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    animation: var(--fadeIn);
   }

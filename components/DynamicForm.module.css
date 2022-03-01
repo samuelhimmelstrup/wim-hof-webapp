@@ -1,3 +1,50 @@
+.container {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.allInputsDiv {
+    display: flex;
+}
+
+.formElement {
+    padding: 1rem;
+}
+
+.singleInputDiv {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: center;
+}
+
+.smallBtn {
+    width: 40px;
+    height: 40px;
+    border-radius: 0;
+    margin: 0.5rem;
+}
+
+.smallBtn:hover {
+    background-color: var(--color2)
+}
+
+/* .addBtn {
+    position: absolute;
+    left: 50%;
+} */
+
 .redBtn {
-    background-color: grey;
+    background-color: red;
+}
+
+.submitBtn {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
 }

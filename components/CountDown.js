@@ -1,10 +1,11 @@
 import styles from "./CountDown.module.css"
 import useCountdown from "@bradgarropy/use-countdown"
+import { useCallback, useEffect } from "react";
 
 
 function CountDown(props) {
 
-    const { time, title, showMinutes } = props; 
+    const { time, title, breathLength } = props; 
 
     const countdown = useCountdown({
         seconds: time,
@@ -13,31 +14,36 @@ function CountDown(props) {
 
     const { minutes, seconds, isRunning, pause, resume } = countdown
     
-    const pauseHandler = () => {
-        if (isRunning) {
-            pause();
-            props.onPaused(); 
-        }         
-        if (!isRunning) {
-            resume();
-            props.onPaused(); 
-        }
-    }
+    const pauseHandler = useCallback(() => {
+        if (isRunning) pause(); 
+        if (!isRunning) resume();
 
-    const handleKeyDown = (event) => {
-        if (event.keyCode === 32 || event.keyCode === 13) {
+        props.onPaused(); 
+    })
+
+    useEffect(() => {
+        if (seconds % breathLength == 0) props.onEachBreath();
+    }, [seconds])
+
+    useEffect(() => {
+
+        function handleKeyPress(e) {
+          if (e.key === " ") {
             pauseHandler();
-        }
-    }
-    // LORTET VIRKER IKK
-    // TODO: implement spacebar == pause
-    // https://thewebdev.info/2021/05/24/how-to-listen-for-key-press-for-document-in-react-js/
+          }}
+
+        window.addEventListener("keydown", handleKeyPress);
+    
+        return () => {
+          window.removeEventListener("keydown", handleKeyPress);
+        };
+     }, [pause, resume])
 
     return ( 
         <div className={styles.countDownContainer}>
             <p>{title}</p>
-            {minutes !== 0 ? `minutes: ${minutes}:` : " "}{seconds}
-            <button onKeyDown={handleKeyDown} onClick={pauseHandler}>
+            {minutes !== 0 ? `${minutes}:` : " "}{seconds}
+            <button onClick={pauseHandler}>
                 {isRunning ? "Pause" : "Resume"}
             </button>   
         </div>

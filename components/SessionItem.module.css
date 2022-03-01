@@ -1,31 +1,58 @@
-.itemWrapper {
-    background-color: white;
+.itemWrapper1,
+.itemWrapper2,
+.itemWrapper3 {
+    background-image: url('../public/images/wavesDark.svg');
     border-radius: 20px; 
-    padding: 10px;
+    padding: 5px;
     margin: 5%; 
-    height: 100px;
+    width: 200px;
+    height: 200px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
     align-items: center;
-    transition: height 1s ease-in-out;
-    overflow: hidden;
+    overflow: scroll;
 }
 
-.itemWrapper:hover {
-    height: 400px;
+.itemWrapper1 {
+    border: 5px solid green;
+}
+
+.itemWrapper2 {
+    border: 5px solid yellow;
+}
+
+.itemWrapper3 {
+    border: 5px solid blue;
+}
+
+.itemWrapper1:hover,
+.itemWrapper2:hover,
+.itemWrapper3:hover {
     cursor: pointer;
 }
 
+
 .title {
-    margin: 5px;
+    text-align: center;
+    padding: 0;
+    margin-top: 0.5rem;
+    height: 35%;
 }
 
-.allInfo {
-    margin: 5px;
+.roundsInfo {
+    margin: 0;
 }
 
-.letsGoBtn {
-    margin-top: 10px;
-    margin-bottom: 0px;
+.holdsInfo {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.singleHoldInfo {
+    padding: 0 0.4rem;
+    margin: 0.3rem 0;
+    border-left: 1px solid grey;
 }

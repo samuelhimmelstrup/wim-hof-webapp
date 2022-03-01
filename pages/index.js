@@ -1,48 +1,55 @@
 import styles from '../styles/Home.module.css'
 import { useState } from "react"
-import SessionsBox from "../components/SessionsBox"
-import Image from "next/image"
-import Backdrop from "../layout/Backdrop"
-import Footer from "../components/Footer"
+import Wrapper from '../layout/Wrapper'
+import Sessions from '../components/Sessions';
+import BreathingSession from '../components/BreathingSession';
+import DynamicForm from '../components/DynamicForm';
+import Header from '../components/Header';
 
 export default function Home() {
-  const [showSessions, setShowSessions] = useState(false);
+  const [whatToShow, setWhatToShow] = useState('sessions');
+  const [currentSession, setCurrentSession] = useState({});
 
-  const showSessionsHandler = () => {
-    if (showSessions) {
-      setShowSessions(false)
-    }
-    else
-      setShowSessions(true)
-    }
+  const showSessions = () => {
+    if (whatToShow !== 'sessions') {
+      setWhatToShow('sessions')
+    }};
 
-  return (    
-    <div className={styles.wrapper}>
-      <div className={styles.header}>
-        <div className={styles.titleAndBtnBox}>
-          <h1 className={styles.title}>Welcome my beautiful friend</h1>
-          <button type="button" className={styles.btn} onClick={showSessionsHandler}>SESSIONS</button>
-        </div>
+  const showForm = () => {
+    if (whatToShow !== 'form') {
+      setWhatToShow('form')
+    }};
+
+  const startSessionHandler = (props) => {
+    setWhatToShow('breathing')
+    setCurrentSession(props);
+  }
+
+  return (  
+    <>
+    
+    <Header />
+
+    <div className={styles.centerDiv}>
+      <Wrapper>
+        {whatToShow == 'sessions' && <Sessions letsGoClick={(props) => startSessionHandler(props)}/>}
+        {whatToShow == 'form' && <DynamicForm />} 
+        {whatToShow == 'breathing' && <BreathingSession props={currentSession} />}
         
-        <div className={styles.nightsky}>
-          <Image src="/../public/images/nightsky.jpg" layout="fill" priority="true" />
-        </div>
+        <button 
+        className={whatToShow == 'sessions' ? styles.formBtn : styles.hidden} 
+        onClick={showForm}>
+        Build your own
+        </button>
 
-        <div className={styles.clouds}>
-          <Image src="/../public/images/clouds.png" layout="fill" />
-        </div>
-        
-        { showSessions && <SessionsBox onClicking={showSessionsHandler}/>}   
-        { showSessions && <Backdrop onClicking={showSessionsHandler}/> } 
-      </div>
+        <button 
+        className={whatToShow == 'form' ? styles.backBtn : styles.hidden} 
+        onClick={showSessions}>
+        Back
+        </button>
+      </Wrapper>
+    </div>  
 
-      <main className={styles.mainContent}>
-        <h1>Description</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adip</p>
-      </main>
-
-      <Footer />
-
-    </div>
+    </>
   )
 }

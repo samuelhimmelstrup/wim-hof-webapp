@@ -1,14 +1,16 @@
 
-SÆT FIRESTORE OP\
-- FÅ [id] siden til at snuppe paths derfra 
-- (ved at mappe over "sessions" eller sådan noget)
+IMPLEMENTER SPACEBAR == PAUSE
 
+- PRØV AT FÅ SVG'ER TIL AT VIRKE
+- ELLERS BRUG .PNG
 
-- FÅ SAMLET DYNAMIC FORM DATAEN\
-	- i det format du har defineret
-	- pass den til en session
-	- senere: gør det muligt at gemme på db, hvilket leder videre til:
+- FIND UD AF HVORDAN DU PASSER DATA OG KØRER SESSION
 
-- LOG IN!
+- FÅ STYR PÅ DYNAMIC FORM DATAEN
+og formen generelt :-)
 
 - LYD
+
+- DB 
+- AUTH og personal page
+

@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from 'firebase/auth'
 import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
@@ -14,5 +15,19 @@ const firebaseConfig = {
    
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+export const auth = getAuth(app);
 
 // export const analytics = getAnalytics(app);
+
+// import { GoogleAuthProvider } from "firebase/auth";
+// import { signInWithPopup } from "firebase/auth";
+
+// const signInWithGoogle = async () => {
+//   const provider = new GoogleAuthProvider();
+//   provider.addScope('profile');
+//   provider.addScope('email');
+//   const result = await signInWithPopup(auth, provider);
+// }
+
+// brug den der firebase hook der returnerer "user"
+// {user ? <button onClick={() => auth.signOut()}>Sign Out</button> : <button onClick={signInWithGoogle}>Sign In With Google</button>}

@@ -1,0 +1,42 @@
+.modalWrapper {
+    background-image: url('../public/images/wavesDark.svg');
+    border-radius: 20px; 
+    padding: 5px;
+    margin: 5%; 
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: scroll;
+}
+
+.modalWrapper:hover {
+    cursor: pointer;
+}
+
+.title {
+    text-align: center;
+}   
+
+.roundInfo {
+    display: flex;
+    margin-bottom: 5%;
+    border-bottom: 1px solid black;
+}
+
+.breathAndPaceInfo,
+.holdInfo {
+    display: flex;
+    justify-content: center;
+    margin-left: 1rem;
+}
+
+.lungs {
+    width: 40px;
+    height: 40px;
+    background-image: url('../public/images/lungs.svg');
+    background-repeat: no-repeat; 
+    margin-left: 0.5rem;
+}
+
