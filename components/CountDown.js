@@ -44,7 +44,7 @@ function CountDown(props) {
         };
      }, [pause, resume])
 
-    return ( 
+    return (
         <div className={styles.countDownContainer}>
             <p className={styles.time}>
                 {minutes !== 0 ? `${minutes}:` : " "}{seconds}

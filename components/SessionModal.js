@@ -1,9 +1,25 @@
 import styles from './SessionModal.module.css'
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 
 function SessionModal({props, letsGoClick}) {
     const { id, title, noOfRounds, level, sessionData } = props;
     
+    // Handles enter = go || CANT GET IT TO WORK
+    // useEffect(() => {
+
+    //     function handleKeyPress(e) {
+    //         if (e.key === "Enter") {
+    //         props.letsGoClick;
+    //         }}
+
+    //     window.addEventListener("keydown", handleKeyPress);
+    
+    //     return () => {
+    //         window.removeEventListener("keydown", handleKeyPress);
+    //     };
+    //     }, [])
+
     return (
         <motion.div 
             className={styles.modalWrapper}

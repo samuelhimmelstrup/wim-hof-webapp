@@ -153,11 +153,3 @@ function BreathingRound(props) {
 }
 
 export default BreathingRound;
-
-
-// LYDRELATERET
-// import useSound from "use-sound"
-// import breathSound from "../public/sighBreath.mp3"
-
-// const [play] = useSound(breathSound);
-// <button onClick={play}>play sound</button> 
