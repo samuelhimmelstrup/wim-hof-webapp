@@ -1,6 +1,7 @@
 import styles from './BreathingSession.module.css'
 import { useState } from 'react'
 import BreathingRound from './BreathingRound'
+import Link from 'next/link'
 
 function BreathingSession({props}) {
 
@@ -13,16 +14,23 @@ function BreathingSession({props}) {
 
   return (
     <div className={styles.sessionContainer}>
+    
       {sessionData.map(roundObj => {
+        
         const { round } = roundObj;
+
         return (
           <div key={round} className={styles.roundContainer}>
               {roundNumber == round && 
-              <BreathingRound roundData={roundObj} 
-                              onEndOfRound={nextRoundHandler}/>}
+              <BreathingRound 
+                roundData={roundObj} 
+                onEndOfRound={nextRoundHandler}
+              />
+              }
           </div>
           )
-      })}
+        })
+      }
     </div>
   )
 }

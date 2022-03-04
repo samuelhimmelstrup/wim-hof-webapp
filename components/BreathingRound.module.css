@@ -1,4 +1,5 @@
 .container {
+    position: relative;
     height: 90%;
     width: 80%;
     display: flex;
@@ -34,6 +35,13 @@
     z-index: 1;
 }
 
-.hidden {
-    display: none;
+.pause {
+    font-size: 3rem;
+    opacity: 50%;
+    z-index: 2;
+    position: absolute;
 }
+
+/* .hidden {
+    opacity: 0;
+} */

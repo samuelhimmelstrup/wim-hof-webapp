@@ -20,13 +20,11 @@ function Sessions({letsGoClick}) {
         setShowIndex(showIndex - 4);
     }
 
+    // TODO: Make render 2 not 4 when screen is small
+    // const noOfSessions = (window.innerWidth > 600) ? 4 : 2
+
     const hoverHandler = () => {
-        if (!modalOpen) {
-            setModalOpen(true);
-        }
-        if (modalOpen) {
-            setModalOpen(false);
-        }
+        setModalOpen(!modalOpen);
     }
 
     const letsGoHandler = () => {

@@ -1,5 +1,6 @@
 import styles from './Header.module.css'
 import { motion } from 'framer-motion';
+
 // import { GoogleAuthProvider } from "firebase/auth";
 // import { signInWithPopup } from "firebase/auth";
 
@@ -18,6 +19,7 @@ import { motion } from 'framer-motion';
 // LAV LOGIN
 
 function Header() {
+
     return ( 
         <div className={styles.header}>
             <h1 className={styles.title}>Wim Hof Breathing App</h1>     

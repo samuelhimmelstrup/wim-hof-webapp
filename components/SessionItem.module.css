@@ -19,11 +19,11 @@
 }
 
 .itemWrapper2 {
-    border: 5px solid yellow;
+    border: 5px solid blue;
 }
 
 .itemWrapper3 {
-    border: 5px solid blue;
+    border: 5px solid black;
 }
 
 .itemWrapper1:hover,

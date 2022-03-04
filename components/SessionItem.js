@@ -20,12 +20,12 @@ function SessionItem({props, onChildClick}) {
             <div className={styles.holdsInfo}>
 
                 {sessionData.map(roundObj => {
-                    const { hold } = roundObj
+                    const { hold, round } = roundObj
                     const min = Math.floor(hold / 60)
                     const sec = hold % 60
 
                     return (
-                        <p className={styles.singleHoldInfo}>{min}:{sec < 10 ? `0${sec}` : sec}</p>
+                        <p className={styles.singleHoldInfo} key={round}>{min}:{sec < 10 ? `0${sec}` : sec}</p>
                     )
                 })}
             </div>
