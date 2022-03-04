@@ -5,7 +5,9 @@ import Link from 'next/link'
 
 function BreathingSession({props}) {
 
-  const { sessionData, title, noOfRounds } = props;
+  // Checks if props is 'array from DynamicForm' or 'object from Sessions'
+  const sessionData = Array.isArray(props) ? props : props.sessionData;
+  
   const [roundNumber, setRoundNumber] = useState(1);
 
   const nextRoundHandler = () => {

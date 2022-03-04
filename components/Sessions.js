@@ -2,11 +2,11 @@ import styles from './Sessions.module.css';
 import { useState, useEffect } from "react";
 import { motion } from 'framer-motion';
 import Backdrop from '../layout/Backdrop'
-import SessionItem from './SessionItem';
 import SessionModal from './SessionModal';
+import SessionItem from './SessionItem';
 import { DUMMY_SESSIONS } from '../api/fetchSessions';
 
-function Sessions({letsGoClick}) {
+function Sessions( { onletsGoClick } ) {
 
     const [modalOpen, setModalOpen] = useState(false);
     const [showIndex, setShowIndex] = useState(0);
@@ -29,7 +29,7 @@ function Sessions({letsGoClick}) {
 
     const letsGoHandler = () => {
         setModalOpen(false);
-        letsGoClick(DUMMY_SESSIONS[currentIndex]);
+        onletsGoClick(DUMMY_SESSIONS[currentIndex]);
     }
 
     return (
@@ -69,8 +69,8 @@ function Sessions({letsGoClick}) {
                 {modalOpen && 
                 <Backdrop onClick={hoverHandler}>
                     <SessionModal 
-                        props={DUMMY_SESSIONS[currentIndex]}
-                        letsGoClick={letsGoHandler}
+                        data={DUMMY_SESSIONS[currentIndex]}
+                        onChildClick={letsGoHandler}
                         />
                 </Backdrop>}
             </div>

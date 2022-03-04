@@ -1,9 +1,12 @@
 import styles from './SessionModal.module.css'
 import { motion } from 'framer-motion';
-import { useEffect } from 'react';
 
-function SessionModal({props, letsGoClick}) {
-    const { id, title, noOfRounds, level, sessionData } = props;
+function SessionModal({data, onChildClick}) {
+
+    const sessionData = Array.isArray(data) ? data : data.sessionData;
+    const title = !Array.isArray(data) ? data.title : "Custom Session";
+    
+    // const { id, title, noOfRounds, level, sessionData } = data;
     
     // Handles enter = go || CANT GET IT TO WORK
     // useEffect(() => {
@@ -70,7 +73,7 @@ function SessionModal({props, letsGoClick}) {
                     className={styles.btn} 
                     whileHover={{scale: 1.1, transition: { duration: 0.4 }}}
                     whileTap={{ scale: 0.95 }}
-                    onClick={letsGoClick}
+                    onClick={onChildClick}
                 >
                     LETS GO
                 </motion.button>                

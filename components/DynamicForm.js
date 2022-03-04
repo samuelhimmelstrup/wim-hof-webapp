@@ -1,11 +1,16 @@
 import styles from './DynamicForm.module.css'
 import { useState } from 'react';
+import Backdrop from '../layout/Backdrop'
+import SessionModal from './SessionModal';
 
-function DynamicForm() {
+function DynamicForm( { onSubmit } ) {
     
+    const maxNumberOfRounds = 5;
+    const [modalOpen, setModalOpen] = useState(false);
+
     const [inputFields, setInputFields] = useState([
         { 
-        round: 0,
+        round: 1,
         breaths: 30,
         breathPace: 'medium',
         hold: 90,
@@ -15,116 +20,170 @@ function DynamicForm() {
 
     const handleFormChange = (index, event) => {
         let data = [...inputFields];
-        data[index][event.target.name] = event.target.value;
+        data[index][event.target.id] = event.target.value;
         setInputFields(data);
     }
 
     const addInputField = () => {
-        if (inputFields.length < 5) {
+        if (inputFields.length < maxNumberOfRounds) {
             let newField = {
-                round: inputFields.length,
+                round: inputFields.length + 1,
                 breaths: 30,
                 breathPace: 'medium',
                 hold: 90,
                 silentHold: false
             };
-            setInputFields([...inputFields, newField]);
-            
+            setInputFields([...inputFields, newField]);          
         }
     }
 
-    // TODO: make this take index and remove specific field
-    // HOW TO PASS INDEX OF TARGET??
-    const removeInputField = () => {
-            let newInputFields = inputFields.slice(0, inputFields.length - 1);
-            setInputFields(newInputFields);
-            console.log(inputFields);
+    const removeInputField = (index) => {
+        let data = [...inputFields]
+        data.splice(index, 1)
+        setInputFields(data);
     }
 
     // TODO: implement
-    const copyInputField = () => {
-
+    const copyInputField = (index) => {
+        if (inputFields.length < maxNumberOfRounds) {
+            let data = [...inputFields]
+            let copy = data[index]
+            data.splice(index, 0, copy)    
+            setInputFields(data);
+        }
     }
 
     const submitHandler = (event) => {
         event.preventDefault();
-        console.log(inputFields)
+        setModalOpen(true);
+    }
+
+    const letsGoHandler = () => {
+        onSubmit(inputFields);
     }
 
     return ( 
         <div className={styles.container}>
+
             <form onSubmit={submitHandler}>
                 <div className={styles.allInputsDiv}>
+                    
                     {inputFields.map ((obj, index) => {
-                    return (
-                        <div key={index} className={styles.formElement}>
-                            <h2>Round: {index + 1}</h2>
-                            
-                            <div className={styles.singleInputDiv}>
-                                <label htmlFor="breaths">Breaths?</label>
-                                <input type="range" 
-                                id="breaths"
-                                defaultValue={obj.breaths}
-                                onChange={event => handleFormChange(index, event)}
-                                />
+                        return (
+                            <div key={index} className={styles.formElement}>
+                                <h2>Round: {index + 1}</h2>
+                                
+                                <div className={styles.singleInputDiv}>
+                                    <p className={styles.showValueField}>
+                                        Breaths: {inputFields[index].breaths}
+                                    </p>
+                                    <label htmlFor="breaths" />
+                                    <input className={styles.slider}
+                                        type="range" 
+                                        id="breaths"
+                                        min="10"
+                                        max="100"
+                                        step="5"
+                                        defaultValue={obj.breaths}
+                                        onChange={event => handleFormChange(index, event)}
+                                    />
+                                </div>
+                                    
+                                <div className={styles.singleInputDiv}>  
+                                    {/* FORMATTING MINUTES/SECONDS STRING ACCORDING TO LENGTH OF HOLD */}
+                                    <p className={styles.showValueField}>
+                                        {inputFields[index].hold <= 60 ? 
+                                            `Breathhold: ${inputFields[index].hold} sec`
+                                        : inputFields[index].hold % 60 == 0 ? 
+                                            `Breathhold: ${Math.floor(inputFields[index].hold / 60)} min`
+                                        : 
+                                            `Breathhold: ${Math.floor(inputFields[index].hold / 60)} : ${(inputFields[index].hold % 60)} min`
+                                        }
+                                    </p>
+                                    <label htmlFor="hold" />
+                                    <input className={styles.slider} 
+                                        type="range"
+                                        id="hold"
+                                        min="30"
+                                        max="180"
+                                        step="10"
+                                        defaultValue={obj.hold}
+                                        onChange={event => handleFormChange(index, event)}
+                                    />
+                                </div>
+                                
+                                
+                                <div id="breathPace" className={styles.singleInputDiv}>
+                                    <p>Breath Pace</p>
+                                    <label htmlFor="breathPace">
+                                        <input
+                                            name={"breathPaceSelector" + index}
+                                            id="breathPace"
+                                            type="radio"
+                                            value="slow"
+                                            onChange={(event) => handleFormChange(index, event)}
+                                        />
+                                        Slow (6 sec)
+                                    </label> 
+
+                                    <label htmlFor="breathPace">
+                                        <input
+                                            name={"breathPaceSelector" + index}
+                                            id="breathPace"
+                                            type="radio"
+                                            value="medium"
+                                            onChange={(event) => handleFormChange(index, event)}
+                                        />
+                                        Medium (4 sec)
+                                    </label> 
+
+                                    <label htmlFor="breathPace">
+                                        <input
+                                            name={"breathPaceSelector" + index}
+                                            id="breathPace"
+                                            type="radio"
+                                            value="quick"
+                                            onChange={(event) => handleFormChange(index, event)}
+                                        />
+                                        Quick (2 sec)
+                                    </label> 
+
+                                    <button 
+                                        type='button'
+                                        className={styles.smallBtn} 
+                                        onClick={() => removeInputField(index)}>
+                                        Remove
+                                    </button>
+
+                                    <button 
+                                        type='button'
+                                        className={styles.smallBtn} 
+                                        onClick={() => copyInputField(index)}>
+                                        Copy
+                                    </button>
+                                </div>  
                             </div>
-
-                            <div className={styles.singleInputDiv}>
-                                <label htmlFor="hold">Breathhold</label>
-                                <input type="range"
-                                id="hold"
-                                defaultValue={obj.hold}
-                                onChange={event => handleFormChange(index, event)}
-                                />
-                            </div>
-                            
-                            <label htmlFor="breathPace">Pace of breaths</label>
-                            <div id="breathPace" className={styles.singleInputDiv}>
-                            <label htmlFor="slow">
-                                <input
-                                type="radio"
-                                value="slow"
-                                // checked={state.selectedOption === "Male"}
-                                // onChange={onValueChange}
-                                />
-                                Slow (6 sec)
-                            </label> 
-
-                            <label htmlFor="medium">
-                                <input
-                                type="radio"
-                                value="medium"
-                                // checked={state.selectedOption === "Male"}
-                                // onChange={onValueChange}
-                                />
-                                Medium (4 sec)
-                            </label> 
-
-                            <label htmlFor="medium">
-                                <input
-                                type="radio"
-                                value="quick"
-                                // checked={state.selectedOption === "Male"}
-                                // onChange={onValueChange}
-                                />
-                                Quick (2 sec)
-                            </label> 
-                            </div> 
-
-                        <button className={styles.smallBtn} onClick={removeInputField}>X</button>
-                        <button className={styles.smallBtn} onClick={copyInputField}>C</button>
-                        </div>
+                            )}   
                         )
-                    })}
+                    }
                 </div>
-                <button className={styles.submitBtn}>Lets go (submit)</button>
+
+                <button className={styles.submitBtn}>LETS GO</button>
             </form>
 
             <button 
                 onClick={addInputField} 
                 className={inputFields.length >= 5 ? styles.redBtn : styles.addBtn}>
                 Add Round
-            </button>            
+            </button>  
+
+            {modalOpen && 
+            <Backdrop onClick={() => setModalOpen(!modalOpen)}>
+                <SessionModal 
+                    data={inputFields}
+                    onChildClick={letsGoHandler}
+                    />
+            </Backdrop>}          
         </div>
      );
 }

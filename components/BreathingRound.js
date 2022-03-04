@@ -93,10 +93,11 @@ function BreathingRound(props) {
     if (stage == 'intro') {
         return (
         <div className={styles.container}>
-                <h1 className={styles.title}>Ready in a sec</h1> 
-
+            <h1 className={styles.title}>{!duration ? "Hold on, one sec .." : "Ready Eddie!"}</h1> 
+            <p className={styles.lieDownText}>Lie down, sit down, whatever it takes - RELAX</p>
+        
         {duration ?         
-      
+        
         <motion.button
             onClick={startRound}
             >
