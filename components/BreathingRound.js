@@ -9,6 +9,7 @@ function BreathingRound(props) {
 
     // VARIABLES
     const { round, breaths, hold, breathPace, silentHold, musicUrl } = props.roundData;
+
     const breathLength = 
         breathPace == 'slow' ? 6 : 
         breathPace == 'medium' ? 4 : 
@@ -21,40 +22,69 @@ function BreathingRound(props) {
         breathPace == 'slow' ? '/sounds/exhaleSlow.mp3' : 
         breathPace == 'medium' ? '/sounds/exhaleMedium.mp3' : 
         '/sounds/exhaleQuick.mp3';
+    
+    // STATES
     const [stage, setStage] = round == 1 ? useState('intro') : useState('3count');
+    const [breathStage, setBreathStage] = useState('inhale');
     const [count, setCount] = useState(0);
     const [isPaused, setIsPaused] = useState(false); 
 
+    // SOUNDS
     const [playInhale] = useSound(inhaleUrl);
     const [playExhale] = useSound(exhaleUrl);
-    
     const [playBeat, {pause, stop, duration, sound}] = useSound(musicUrl,{ volume: 0.2 }, {interrupt:true});
 
-    const startRound = () => {
-        playBeat();
+    // HELPER FUNCTIONS
+    const endOfIntroHandler = () => {
+        playBeat(); 
         setStage('3count');
     }
 
+    const endOfThreeCountHandler = () => {
+        setStage('breathing');
+    }
+
     const inhaleHandler = () => { 
+        setBreathStage('inhale');
         playInhale();
     }
 
     const exhaleHandler = () => {
+        setBreathStage('exhale');
         playExhale();
         setCount(count + 1);
     }
 
     const lastInhaleHandler = () => {
         setStage('lastBreath');
-        if (silentHold) sound.fade(0.2, 0, breathLength * 1000)
+        if (silentHold) {
+            sound.fade(0.2, 0, breathLength * 1000)
+        }
     }
 
-    const pauseRound = () => {
+    const endOfBreathingHandler = () => {
+        stop();
+        playExhale();
+        setStage('breathhold');
+    }
+
+    const endOfHoldHandler = () => {
+        playInhale();  
+        setStage('15count')
+    }
+
+    const endOfRoundHandler = () => {
+        playExhale();
+        if (sound.playing()) {
+            sound.fade(0.2, 0, breathLength * 1000)
+        }
+        props.onEndOfRound()
+    }
+
+    const pauseRoundHandler = () => {
         if (!isPaused) {
             setIsPaused(true);
             pause();
-            // TODO: Find way to resume at current posish
-            // sound.seek(currentTime)
         } 
         if (isPaused) {
             setIsPaused(false);
@@ -62,29 +92,30 @@ function BreathingRound(props) {
         }
     }
 
-    const endOfRoundHandler = () => {
-        stop();
-        props.onEndOfRound()
-    }
-
-    // ANIMATION STUFF
+    // ANIMATION VARIABLES
     const scaleOfBubble = useMotionValue(1);
     const colorOfBubble = useMotionValue('#982132');
     const color1 = '#a8e2ca';
     const color2 = '#58a685';
     const bubbleVariants = {
-        animationOne: {
-            scale: [1, 3],
-            backgroundColor: [color1 , color2],
+        animationInhale: {
+            scale: [scaleOfBubble.get(), 3],
+            backgroundColor: [colorOfBubble.get(), color2],
             transition: {
                 duration: breathLength / 2,
                 easing: 'easeInOut',
-                repeat: breaths * 2,
-                repeatType: 'reverse'
+            }
+        }, 
+        animationExhale: {
+            scale: [scaleOfBubble.get(), 1],
+            backgroundColor: [colorOfBubble.get(), color1],
+            transition: {
+                duration: breathLength / 2,
+                easing: 'easeInOut',
             }
         }, 
         animationLastInhale: {
-            scale: [1, 5],
+            scale: [scaleOfBubble.get(), 5],
             backgroundColor: [color1 , color2],
             transition: {
                 duration: breathLength,
@@ -92,7 +123,7 @@ function BreathingRound(props) {
             }
         },
         animationHold: {
-            scale: [5, 1],
+            scale: [scaleOfBubble.get(), 1],
             backgroundColor: [color2 , color1],
             transition: {
                 duration: hold, 
@@ -100,7 +131,7 @@ function BreathingRound(props) {
             }
         },
         animation15Count: {
-            scale: [1, 5, 1],
+            scale: [scaleOfBubble.get(), 5, 1],
             backgroundColor: [color1 , color2],
             transition: { 
                 duration: 15,
@@ -109,56 +140,54 @@ function BreathingRound(props) {
             }
         },
         animationPaused: {
-            scale: [scaleOfBubble.get(), 1],
-            backgroundColor: colorOfBubble.get(),
-            transition: {
-                duration: 0.8,
-                easing: 'easeOut',
-            }
+            scale: scaleOfBubble.get(),
+            backgroundColor: colorOfBubble.get()
         },
     }
 
     // RETURNS 
     if (stage == 'intro') {
         return (
-        <div className={styles.container}>
-            <h1 className={styles.title}>{!duration ? "Hold on, one sec .." : "Ready Eddie!"}</h1> 
-            <p className={styles.lieDownText}>Lie down, sit down, whatever it takes - RELAX</p>
-        
-        {duration ?         
-        
-        <motion.button
-            onClick={startRound}
-            >
-            I am ready to breathe
-        </motion.button> 
-        : 
-        <motion.div className={styles.spinningLoader}>SPINNING LOADER</motion.div>
-        } 
-        
 
-        </div>
+                <div className={styles.container}>
+                    <h1 className={styles.title}>{!duration ? "Hold on, one sec .." : "Ready Eddie!"}</h1> 
+                    <p className={styles.introInfo}>Lie down, sit down, whatever it takes - RELAX</p>
+                    <p className={styles.introInfo}>Press spacebar to pause / resume at anytime</p>
+
+                    {duration ?         
+                        <motion.button onClick={endOfIntroHandler}>I am ready to breathe</motion.button> 
+                        : 
+                        <motion.div className={styles.spinningLoader}>SPINNING LOADER</motion.div>
+                    } 
+
+                </div> 
         )
     }
 
     if (stage == '3count') {
         return (
-            <div className={styles.container}>
-                <h1 className={styles.title}>Prepare for round {round}</h1> 
-                <CountDown 
-                    time={3} 
-                    onPaused={pauseRound} 
-                    onComplete={() => setStage('breathing')} 
-                />
-                
-                {isPaused && <div className={styles.pause}>PAUSED</div>}
-            </div>
+            <div>
+            {duration ?         
+                <div className={styles.container}>
+                    <h1 className={styles.title}>Prepare for round {round}</h1> 
+                    <CountDown 
+                        time={3} 
+                        onPaused={pauseRoundHandler} 
+                        onComplete={endOfThreeCountHandler} 
+                    />
+                    
+                    {isPaused && <div className={styles.pause}>PAUSED</div>}
+                </div> 
+                : 
+                <motion.div className={styles.spinningLoader}>SPINNING LOADER</motion.div>
+            } 
+            </div>    
         )
     }
 
     if (stage !== '3count') {
         return (        
-
+        
         <div className={styles.container}>
             <h1 className={styles.title}>Round: {round}</h1> 
 
@@ -167,9 +196,11 @@ function BreathingRound(props) {
                 <motion.div className={styles.breathBubble}
                 variants={bubbleVariants}
                 style={{scale:scaleOfBubble, backgroundColor:colorOfBubble}}
+                initial={{ backgroundColor: color1 }}
                 animate={
                     isPaused ? 'animationPaused' 
-                    : stage == 'breathing' ? 'animationOne'  
+                    : stage == 'breathing' && breathStage == 'inhale' ? 'animationInhale'  
+                    : stage == 'breathing' && breathStage == 'exhale' ? 'animationExhale'  
                     : stage == 'lastBreath' ? 'animationLastInhale' 
                     : stage == 'breathhold' ? 'animationHold'
                     : stage == '15count' ? 'animation15Count' 
@@ -194,8 +225,8 @@ function BreathingRound(props) {
                             onInhale={inhaleHandler}
                             onLastInhale={lastInhaleHandler}
                             breathLength={breathLength} 
-                            onComplete={() => setStage('breathhold')} 
-                            onPaused={pauseRound} 
+                            onComplete={endOfBreathingHandler} 
+                            onPaused={pauseRoundHandler} 
                         />
                     </div>
                 }   
@@ -205,8 +236,8 @@ function BreathingRound(props) {
                     <div className={styles.breathHoldContainer}>
                         <CountDown 
                             time={hold} 
-                            onComplete={() => setStage('15count')} 
-                            onPaused={pauseRound} 
+                            onComplete={endOfHoldHandler} 
+                            onPaused={pauseRoundHandler} 
                         />
                     </div>
                 }
@@ -214,9 +245,9 @@ function BreathingRound(props) {
                 {/* 15 COUNT TIMER */}
                 {stage == '15count' &&
                     <CountDown 
-                        time={15}
+                        time={2}
                         onComplete={endOfRoundHandler}
-                        onPaused={pauseRound}
+                        onPaused={pauseRoundHandler}
                     />
                 }
             </div>
