@@ -1,13 +1,12 @@
 import styles from './BreathingSession.module.css'
 import { useState } from 'react'
 import BreathingRound from './BreathingRound'
-import Link from 'next/link'
 
 function BreathingSession({props}) {
 
   // Checks if props is 'array from DynamicForm' or 'object from Sessions'
   const sessionData = Array.isArray(props) ? props : props.sessionData;
-  
+
   const [roundNumber, setRoundNumber] = useState(1);
 
   const nextRoundHandler = () => {
