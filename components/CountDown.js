@@ -23,14 +23,13 @@ function CountDown(props) {
 
     // Informs parent that a breath has been taken (to increment counter)
     useEffect(() => {
-        if (seconds % breathLength == breathLength / 2) props.onEachBreath();
-        if (seconds % breathLength == 0) props.onStartBreath();
-        if (seconds == breathLength) props.onLastBreath();
+        if (seconds % breathLength == breathLength / 2 && seconds > breathLength ) props.onExhale();
+        if (seconds % breathLength == 0) props.onInhale();
+        if (seconds == breathLength) props.onLastInhale();
     }, [seconds])
 
     // Handles space = pause
     useEffect(() => {
-
         function handleKeyPress(e) {
           if (e.key === " ") {
             pauseHandler();

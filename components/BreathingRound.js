@@ -8,34 +8,63 @@ import useSound from 'use-sound'
 function BreathingRound(props) {
 
     // VARIABLES
-    const { round, breaths, hold, breathPace, silentHold} = props.roundData;
+    const { round, breaths, hold, breathPace, silentHold, musicUrl } = props.roundData;
     const breathLength = 
-    breathPace == 'slow' ? 6 
-    : breathPace == 'quick' ? 2 
-    : 4;                       
-    const [stage, setStage] = useState('intro');
+        breathPace == 'slow' ? 6 : 
+        breathPace == 'medium' ? 4 : 
+        2;
+    const inhaleUrl = 
+        breathPace == 'slow' ? '/sounds/inhaleSlow.mp3' : 
+        breathPace == 'medium' ? '/sounds/inhaleMedium.mp3' : 
+        '/sounds/inhaleQuick.mp3';
+    const exhaleUrl = 
+        breathPace == 'slow' ? '/sounds/exhaleSlow.mp3' : 
+        breathPace == 'medium' ? '/sounds/exhaleMedium.mp3' : 
+        '/sounds/exhaleQuick.mp3';
+    const [stage, setStage] = round == 1 ? useState('intro') : useState('3count');
     const [count, setCount] = useState(0);
     const [isPaused, setIsPaused] = useState(false); 
-    const [playSamples] = useSound('/sounds/sighBreath.mp3');
-    const [playBeat, {pause, stop, duration}] = useSound('/sounds/beat.mp3', {interrupt:true});
 
-    const startOfBreathHandler = () => {
-        playSamples();
-    }
+    const [playInhale] = useSound(inhaleUrl);
+    const [playExhale] = useSound(exhaleUrl);
+    
+    const [playBeat, {pause, stop, duration, sound}] = useSound(musicUrl,{ volume: 0.2 }, {interrupt:true});
 
     const startRound = () => {
-        playBeat()
-        setStage('3count')
+        playBeat();
+        setStage('3count');
     }
-    
+
+    const inhaleHandler = () => { 
+        playInhale();
+    }
+
+    const exhaleHandler = () => {
+        playExhale();
+        setCount(count + 1);
+    }
+
+    const lastInhaleHandler = () => {
+        setStage('lastBreath');
+        if (silentHold) sound.fade(0.2, 0, breathLength * 1000)
+    }
+
     const pauseRound = () => {
         if (!isPaused) {
             setIsPaused(true);
             pause();
+            // TODO: Find way to resume at current posish
+            // sound.seek(currentTime)
         } 
         if (isPaused) {
             setIsPaused(false);
+            playBeat();
         }
+    }
+
+    const endOfRoundHandler = () => {
+        stop();
+        props.onEndOfRound()
     }
 
     // ANIMATION STUFF
@@ -54,7 +83,7 @@ function BreathingRound(props) {
                 repeatType: 'reverse'
             }
         }, 
-        animationLastBreath: {
+        animationLastInhale: {
             scale: [1, 5],
             backgroundColor: [color1 , color2],
             transition: {
@@ -141,7 +170,7 @@ function BreathingRound(props) {
                 animate={
                     isPaused ? 'animationPaused' 
                     : stage == 'breathing' ? 'animationOne'  
-                    : stage == 'lastBreath' ? 'animationLastBreath' 
+                    : stage == 'lastBreath' ? 'animationLastInhale' 
                     : stage == 'breathhold' ? 'animationHold'
                     : stage == '15count' ? 'animation15Count' 
                     : 'animationPaused'}
@@ -161,9 +190,9 @@ function BreathingRound(props) {
                     <div className={styles.hidden}>
                         <CountDown 
                             time={breaths*breathLength}
-                            onEachBreath={() => setCount(count + 1)}
-                            onStartBreath={startOfBreathHandler}
-                            onLastBreath={() => setStage('lastBreath')}
+                            onExhale={exhaleHandler}
+                            onInhale={inhaleHandler}
+                            onLastInhale={lastInhaleHandler}
                             breathLength={breathLength} 
                             onComplete={() => setStage('breathhold')} 
                             onPaused={pauseRound} 
@@ -186,7 +215,7 @@ function BreathingRound(props) {
                 {stage == '15count' &&
                     <CountDown 
                         time={15}
-                        onComplete={() => props.onEndOfRound()}
+                        onComplete={endOfRoundHandler}
                         onPaused={pauseRound}
                     />
                 }
