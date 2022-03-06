@@ -17,14 +17,13 @@ function CountDown(props) {
     const pauseHandler = useCallback(() => {
         if (isRunning) pause(); 
         if (!isRunning) resume();
-
         props.onPaused(); 
     })
 
     // Informs parent that a breath has been taken (to increment counter)
     useEffect(() => {
         if (seconds % breathLength == breathLength / 2 && seconds > breathLength ) props.onExhale();
-        if (seconds % breathLength == 0) props.onInhale();
+        if (seconds % breathLength == 0 && seconds !== 0) props.onInhale();
         if (seconds == breathLength) props.onLastInhale();
     }, [seconds])
 

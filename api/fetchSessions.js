@@ -60,8 +60,8 @@ export const DUMMY_SESSIONS = [
         sessionData:[
             { 
                 round: 1,
-                breaths: 2,
-                breathPace: 'slow',
+                breaths: 4,
+                breathPace: 'quick',
                 hold: 4,
                 silentHold: true,
                 musicUrl: '/sounds/beat.mp3'
@@ -69,7 +69,7 @@ export const DUMMY_SESSIONS = [
             { 
                 round: 2,
                 breaths: 3,
-                breathPace: 'slow', 
+                breathPace: 'medium', 
                 hold: 4,
                 silentHold: false,
                 musicUrl: '/sounds/beat.mp3' 
@@ -77,7 +77,7 @@ export const DUMMY_SESSIONS = [
             { 
                 round: 3,
                 breaths: 4,
-                breathPace: 'slow', // ('slow', 'medium') 
+                breathPace: 'slow',
                 hold: 6,
                 silentHold: false,
                 musicUrl: '/sounds/beat.mp3' 
@@ -85,7 +85,7 @@ export const DUMMY_SESSIONS = [
             { 
                 round: 4,
                 breaths: 4,
-                breathPace: 'quick', // ('slow', 'medium') 
+                breathPace: 'quick',
                 hold: 6,
                 silentHold: false,
                 musicUrl: '/sounds/beat.mp3' 
