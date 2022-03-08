@@ -46,13 +46,9 @@
     background-color: var(--color2)
 }
 
-/* .addBtn {
-    position: absolute;
-    left: 50%;
-} */
-
-.redBtn {
-    background-color: red;
+.disabledBtn {
+    background-color: grey;
+    opacity: 60%;
 }
 
 .submitBtn {
@@ -60,3 +56,7 @@
     bottom: 1rem;
     right: 1rem;
 }
+
+/* .hidden {
+    display: none;
+} */

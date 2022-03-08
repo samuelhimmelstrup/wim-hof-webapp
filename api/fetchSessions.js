@@ -25,6 +25,7 @@ export const DUMMY_SESSIONS = [
         title: 'Quick Test',
         level: 'beginner',
         noOfRounds: 3,
+        musicUrl: '/sounds/beat.mp3',
         sessionData:[
         { 
             round: 1,
@@ -32,7 +33,6 @@ export const DUMMY_SESSIONS = [
             breathPace: 'quick',
             hold: 4,
             silentHold: false,
-            musicUrl: '/sounds/beat.mp3'
         },
         { 
             round: 2,
@@ -40,15 +40,13 @@ export const DUMMY_SESSIONS = [
             breathPace: 'quick', 
             hold: 8,
             silentHold: false,
-            musicUrl: '/sounds/beat.mp3' 
         },
         { 
             round: 3,
             breaths: 4,
-            breathPace: 'slow', // ('slow', 'medium') 
+            breathPace: 'slow', 
             hold: 10,
             silentHold: false,
-            musicUrl: '/sounds/beat.mp3' 
         }
         ]
     },
@@ -57,14 +55,14 @@ export const DUMMY_SESSIONS = [
         title: 'Walla Billa',
         level: 'intermediate',
         noOfRounds: 4,
+        musicUrl: '/sounds/beat.mp3',
         sessionData:[
             { 
                 round: 1,
-                breaths: 4,
+                breaths: 2,
                 breathPace: 'quick',
-                hold: 4,
+                hold: 3,
                 silentHold: true,
-                musicUrl: '/sounds/beat.mp3'
             },
             { 
                 round: 2,
@@ -72,7 +70,6 @@ export const DUMMY_SESSIONS = [
                 breathPace: 'medium', 
                 hold: 4,
                 silentHold: true,
-                musicUrl: '/sounds/beat.mp3' 
             },
             { 
                 round: 3,
@@ -80,7 +77,6 @@ export const DUMMY_SESSIONS = [
                 breathPace: 'slow',
                 hold: 6,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             { 
                 round: 4,
@@ -88,7 +84,6 @@ export const DUMMY_SESSIONS = [
                 breathPace: 'quick',
                 hold: 6,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             }
             ]
     },
@@ -97,6 +92,7 @@ export const DUMMY_SESSIONS = [
         title: 'Real type',
         level: 'advanced',
         noOfRounds: 5,
+        musicUrl: '/sounds/beat.mp3',
         sessionData:[
             { 
                 round: 1,
@@ -104,7 +100,6 @@ export const DUMMY_SESSIONS = [
                 breathPace: 'quick',
                 hold: 90,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3'
             },
             { 
                 round: 2,
@@ -112,7 +107,6 @@ export const DUMMY_SESSIONS = [
                 breathPace: 'medium', 
                 hold: 90,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             { 
                 round: 3,
@@ -120,7 +114,6 @@ export const DUMMY_SESSIONS = [
                 breathPace: 'quick', 
                 hold: 120,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             { 
                 round: 4,
@@ -128,7 +121,6 @@ export const DUMMY_SESSIONS = [
                 breathPace: 'quick', 
                 hold: 120,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             { 
                 round: 5,
@@ -136,7 +128,6 @@ export const DUMMY_SESSIONS = [
                 breathPace: 'quick',
                 hold: 150,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             ]
     },  
@@ -145,6 +136,7 @@ export const DUMMY_SESSIONS = [
         title: 'Hala Hala',
         level: 'beginner',
         noOfRounds: 3,
+        musicUrl: '/sounds/beat.mp3',
         sessionData:[
         { 
             round: 1,
@@ -152,7 +144,6 @@ export const DUMMY_SESSIONS = [
             breathPace: 'quick',
             hold: 8,
             silentHold: false,
-            musicUrl: '/sounds/beat.mp3'
         },
         { 
             round: 2,
@@ -160,15 +151,13 @@ export const DUMMY_SESSIONS = [
             breathPace: 'medium', 
             hold: 8,
             silentHold: false,
-            musicUrl: '/sounds/beat.mp3' 
         },
         { 
             round: 3,
             breaths: 4,
-            breathPace: 'slow', // ('slow', 'medium') 
+            breathPace: 'slow', 
             hold: 10,
             silentHold: false,
-            musicUrl: '/sounds/beat.mp3' 
         }
         ]
     },
@@ -177,6 +166,7 @@ export const DUMMY_SESSIONS = [
         title: 'Dont Give Up',
         level: 'intermediate',
         noOfRounds: 4,
+        musicUrl: '/sounds/beat.mp3',
         sessionData:[
             { 
                 round: 1,
@@ -184,7 +174,6 @@ export const DUMMY_SESSIONS = [
                 breathPace: 'quick',
                 hold: 8,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3'
             },
             { 
                 round: 2,
@@ -192,23 +181,20 @@ export const DUMMY_SESSIONS = [
                 breathPace: 'medium', 
                 hold: 8,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             { 
                 round: 3,
                 breaths: 4,
-                breathPace: 'slow', // ('slow', 'medium') 
+                breathPace: 'slow', 
                 hold: 6,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             { 
                 round: 4,
                 breaths: 4,
-                breathPace: 'quick', // ('slow', 'medium') 
+                breathPace: 'quick', 
                 hold: 6,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             }
             ]
     },
@@ -217,6 +203,7 @@ export const DUMMY_SESSIONS = [
         title: 'Yes Boss',
         level: 'advanced',
         noOfRounds: 5,
+        musicUrl: '/sounds/beat.mp3',
         sessionData:[
             { 
                 round: 1,
@@ -224,7 +211,6 @@ export const DUMMY_SESSIONS = [
                 breathPace: 'quick',
                 hold: 8,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3'
             },
             { 
                 round: 2,
@@ -232,31 +218,27 @@ export const DUMMY_SESSIONS = [
                 breathPace: 'medium', 
                 hold: 8,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             { 
                 round: 3,
                 breaths: 4,
-                breathPace: 'slow', // ('slow', 'medium') 
+                breathPace: 'slow', 
                 hold: 6,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             { 
                 round: 4,
                 breaths: 4,
-                breathPace: 'quick', // ('slow', 'medium') 
+                breathPace: 'quick', 
                 hold: 6,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             { 
                 round: 5,
                 breaths: 4,
-                breathPace: 'quick', // ('slow', 'medium') 
+                breathPace: 'quick', 
                 hold: 6,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             ]
     }, 
@@ -265,6 +247,7 @@ export const DUMMY_SESSIONS = [
         title: 'Shawarma Session',
         level: 'beginner',
         noOfRounds: 3,
+        musicUrl: '/sounds/beat.mp3',
         sessionData:[
         { 
             round: 1,
@@ -272,7 +255,6 @@ export const DUMMY_SESSIONS = [
             breathPace: 'quick',
             hold: 8,
             silentHold: false,
-            musicUrl: '/sounds/beat.mp3'
         },
         { 
             round: 2,
@@ -280,15 +262,13 @@ export const DUMMY_SESSIONS = [
             breathPace: 'medium', 
             hold: 8,
             silentHold: false,
-            musicUrl: '/sounds/beat.mp3' 
         },
         { 
             round: 3,
             breaths: 4,
-            breathPace: 'slow', // ('slow', 'medium') 
+            breathPace: 'slow', 
             hold: 10,
             silentHold: false,
-            musicUrl: '/sounds/beat.mp3' 
         }
         ]
     },
@@ -297,6 +277,7 @@ export const DUMMY_SESSIONS = [
         title: 'Dont Give Up',
         level: 'intermediate',
         noOfRounds: 4,
+        musicUrl: '/sounds/beat.mp3',
         sessionData:[
             { 
                 round: 1,
@@ -304,7 +285,6 @@ export const DUMMY_SESSIONS = [
                 breathPace: 'quick',
                 hold: 8,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3'
             },
             { 
                 round: 2,
@@ -312,23 +292,20 @@ export const DUMMY_SESSIONS = [
                 breathPace: 'medium', 
                 hold: 8,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             { 
                 round: 3,
                 breaths: 4,
-                breathPace: 'slow', // ('slow', 'medium') 
+                breathPace: 'slow', 
                 hold: 6,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             { 
                 round: 4,
                 breaths: 4,
-                breathPace: 'quick', // ('slow', 'medium') 
+                breathPace: 'quick', 
                 hold: 6,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             }
             ]
     },
@@ -337,6 +314,7 @@ export const DUMMY_SESSIONS = [
         title: 'Yes Boss',
         level: 'advanced',
         noOfRounds: 5,
+        musicUrl: '/sounds/beat.mp3',
         sessionData:[
             { 
                 round: 1,
@@ -344,7 +322,6 @@ export const DUMMY_SESSIONS = [
                 breathPace: 'quick',
                 hold: 8,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3'
             },
             { 
                 round: 2,
@@ -352,31 +329,27 @@ export const DUMMY_SESSIONS = [
                 breathPace: 'medium', 
                 hold: 8,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             { 
                 round: 3,
                 breaths: 4,
-                breathPace: 'slow', // ('slow', 'medium') 
+                breathPace: 'slow', 
                 hold: 6,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             { 
                 round: 4,
                 breaths: 4,
-                breathPace: 'quick', // ('slow', 'medium') 
+                breathPace: 'quick', 
                 hold: 6,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             { 
                 round: 5,
                 breaths: 4,
-                breathPace: 'quick', // ('slow', 'medium') 
+                breathPace: 'quick', 
                 hold: 6,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             ]
     },  
@@ -385,6 +358,7 @@ export const DUMMY_SESSIONS = [
         title: 'Better You Now',
         level: 'beginner',
         noOfRounds: 3,
+        musicUrl: '/sounds/beat.mp3',
         sessionData:[
         { 
             round: 1,
@@ -392,7 +366,6 @@ export const DUMMY_SESSIONS = [
             breathPace: 'quick',
             hold: 8,
             silentHold: false,
-            musicUrl: '/sounds/beat.mp3'
         },
         { 
             round: 2,
@@ -400,15 +373,13 @@ export const DUMMY_SESSIONS = [
             breathPace: 'medium', 
             hold: 8,
             silentHold: false,
-            musicUrl: '/sounds/beat.mp3' 
         },
         { 
             round: 3,
             breaths: 4,
-            breathPace: 'slow', // ('slow', 'medium') 
+            breathPace: 'slow', 
             hold: 10,
             silentHold: false,
-            musicUrl: '/sounds/beat.mp3' 
         }
         ]
     },
@@ -417,6 +388,7 @@ export const DUMMY_SESSIONS = [
         title: 'Dont Give Up',
         level: 'intermediate',
         noOfRounds: 4,
+        musicUrl: '/sounds/beat.mp3',
         sessionData:[
             { 
                 round: 1,
@@ -424,7 +396,6 @@ export const DUMMY_SESSIONS = [
                 breathPace: 'quick',
                 hold: 8,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3'
             },
             { 
                 round: 2,
@@ -432,23 +403,20 @@ export const DUMMY_SESSIONS = [
                 breathPace: 'medium', 
                 hold: 8,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             { 
                 round: 3,
                 breaths: 4,
-                breathPace: 'slow', // ('slow', 'medium') 
+                breathPace: 'slow', 
                 hold: 6,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             { 
                 round: 4,
                 breaths: 4,
-                breathPace: 'quick', // ('slow', 'medium') 
+                breathPace: 'quick', 
                 hold: 6,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             }
             ]
     },
@@ -457,6 +425,7 @@ export const DUMMY_SESSIONS = [
         title: 'Yes Boss',
         level: 'advanced',
         noOfRounds: 5,
+        musicUrl: '/sounds/beat.mp3',
         sessionData:[
             { 
                 round: 1,
@@ -464,7 +433,6 @@ export const DUMMY_SESSIONS = [
                 breathPace: 'quick',
                 hold: 8,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3'
             },
             { 
                 round: 2,
@@ -472,31 +440,27 @@ export const DUMMY_SESSIONS = [
                 breathPace: 'medium', 
                 hold: 8,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             { 
                 round: 3,
                 breaths: 4,
-                breathPace: 'slow', // ('slow', 'medium') 
+                breathPace: 'slow', 
                 hold: 6,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             { 
                 round: 4,
                 breaths: 4,
-                breathPace: 'quick', // ('slow', 'medium') 
+                breathPace: 'quick', 
                 hold: 6,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             { 
                 round: 5,
                 breaths: 4,
-                breathPace: 'quick', // ('slow', 'medium') 
+                breathPace: 'quick', 
                 hold: 6,
                 silentHold: false,
-                musicUrl: '/sounds/beat.mp3' 
             },
             ]
     }, 

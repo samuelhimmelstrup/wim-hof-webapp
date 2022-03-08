@@ -4,11 +4,12 @@ import { motion, useMotionValue } from 'framer-motion'
 import CountDown from './CountDown'
 import useSound from 'use-sound'
 
+// THIS COMP HANDLES BREATHING SOUNDS, BUT NOT MUSIC (HANDLED BY BreathingSession)
 
 function BreathingRound(props) {
 
     // VARIABLES
-    const { round, breaths, hold, breathPace, silentHold, musicUrl } = props.roundData;
+    const { round, breaths, hold, breathPace, silentHold } = props.roundData;
 
     const breathLength = 
         breathPace == 'slow' ? 6 : 
@@ -24,9 +25,7 @@ function BreathingRound(props) {
         '/sounds/exhaleQuick.mp3';
     
     // STATES
-    // TODO: Try setting to intro in all rounds, see if it affects sound
-    const [stage, setStage] = 
-        round == 1 ? useState('intro') : useState('3count');
+    const [stage, setStage] = useState('3count')
     const [breathStage, setBreathStage] = useState('inhale');
     const [count, setCount] = useState(0);
     const [isPaused, setIsPaused] = useState(false); 
@@ -34,32 +33,10 @@ function BreathingRound(props) {
     // SOUNDS
     const [playInhale] = useSound(inhaleUrl);
     const [playExhale] = useSound(exhaleUrl);
-    const [playBeat, { pause, stop, duration, sound }] = useSound(
-        musicUrl,
-        { volume: 0.2 }, 
-        { interrupt:true },
-        { html5: true }
-        );
 
     // HELPER FUNCTIONS 
 
-    useEffect(() => {
-        if (round !== 1) playBeat();
-    },[])
-
-    const fadeSoundHandler = () => {
-        sound.fade(0.2, 0, breathLength * 1000)
-        sound.on('fade', () => stop())
-    }
-
-    const endOfIntroHandler = () => {
-        playBeat();         
-        setStage('3count');
-    }
-
-    // TODO: Remove console.log (after fixing sound)
     const endOfThreeCountHandler = () => {
-        console.log(sound);
         setStage('breathing');
     }
 
@@ -74,9 +51,10 @@ function BreathingRound(props) {
         setCount(count + 1);
     }
 
+    // lets BreathingSession know whether or not to fade music out with duration: breathLength:
     const lastInhaleHandler = () => {
         setStage('lastBreath');
-        if (silentHold) fadeSoundHandler();
+        if (silentHold) props.onFadeMusic(breathLength);
     }
 
     const endOfBreathingHandler = () => {
@@ -89,20 +67,20 @@ function BreathingRound(props) {
         setStage('15count')
     }
 
+    // lets BreathingSession know whether or not to restart music (after silentHold) 
     const endOfRoundHandler = () => {
         playExhale();
-        if (sound.playing()) fadeSoundHandler();
-        props.onEndOfRound()
+        props.onEndOfRound(silentHold, breathLength)
     }
 
     const pauseRoundHandler = () => {
         if (!isPaused) {
             setIsPaused(true);
-            pause();
+            props.onPauseMusic();
         } 
         if (isPaused) {
             setIsPaused(false);
-            playBeat();
+            props.onPlayMusic();
         }
     }
 
@@ -160,22 +138,6 @@ function BreathingRound(props) {
     }
 
     // RETURNS 
-    if (stage == 'intro') {
-        return (
-            <div className={styles.container}>
-                <h1 className={styles.title}>{!duration ? "Hold on, one sec .." : "Ready Eddie!"}</h1> 
-                <p className={styles.introInfo}>Lie down, sit down, whatever it takes - RELAX</p>
-                <p className={styles.introInfo}>Press spacebar to pause / resume at anytime</p>
-
-                {duration ?         
-                    <motion.button onClick={endOfIntroHandler}>I am ready to breathe</motion.button> 
-                    : 
-                    <motion.div className={styles.spinningLoader}>SPINNING LOADER</motion.div>
-                } 
-
-            </div> 
-        )
-    }
 
     if (stage == '3count') {
         return (        

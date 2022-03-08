@@ -59,7 +59,16 @@ function DynamicForm( { onSubmit } ) {
     }
 
     const letsGoHandler = () => {
-        onSubmit(inputFields);
+        let formData = {
+            id: 100,
+            title: 'Custom Session',
+            level: 'beginner',
+            noOfRounds: inputFields.length - 1,
+            musicUrl: '/sounds/beat.mp3',
+            sessionData:            
+            [...inputFields]
+        }
+        onSubmit(formData);
     }
 
     return ( 
@@ -173,7 +182,7 @@ function DynamicForm( { onSubmit } ) {
 
             <button 
                 onClick={addInputField} 
-                className={inputFields.length >= 5 ? styles.redBtn : styles.addBtn}>
+                className={inputFields.length >= 5 ? styles.disabledBtn : styles.addBtn}>
                 Add Round
             </button>  
 
