@@ -8,8 +8,8 @@ function SessionItem({props, onChildClick}) {
     return (
         <motion.div 
             className={
-                level == 'Beginner' ? styles.itemWrapper1 : 
-                level == 'Intermediate' ? styles.itemWrapper2 : styles.itemWrapper3}
+                level == 'beginner' ? styles.itemWrapper1 : 
+                level == 'intermediate' ? styles.itemWrapper2 : styles.itemWrapper3}
             whileHover={{scale: 1.1, transition: { duration: 0.4 }}}
             whileTap={{ scale: 0.95 }}
             onClick={onChildClick}

@@ -20,9 +20,9 @@ function CountDown(props) {
         props.onPaused(); 
     })
 
-    // Informs parent that a breath has been taken (to increment counter)
+    // inhale, exhale, last inhale
     useEffect(() => {
-        if (seconds % breathLength == breathLength / 2 && seconds > breathLength ) props.onExhale();
+        if (seconds % breathLength == breathLength / 2 && seconds > breathLength) props.onExhale();
         if (seconds % breathLength == 0 && seconds !== 0) props.onInhale();
         if (seconds == breathLength) props.onLastInhale();
     }, [seconds])

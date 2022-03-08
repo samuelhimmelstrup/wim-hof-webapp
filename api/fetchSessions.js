@@ -23,7 +23,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 10,
         title: 'Quick Test',
-        level: 'Beginner',
+        level: 'beginner',
         noOfRounds: 3,
         sessionData:[
         { 
@@ -55,7 +55,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 11,
         title: 'Walla Billa',
-        level: 'Intermediate',
+        level: 'intermediate',
         noOfRounds: 4,
         sessionData:[
             { 
@@ -71,7 +71,7 @@ export const DUMMY_SESSIONS = [
                 breaths: 3,
                 breathPace: 'medium', 
                 hold: 4,
-                silentHold: false,
+                silentHold: true,
                 musicUrl: '/sounds/beat.mp3' 
             },
             { 
@@ -95,7 +95,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 12,
         title: 'Real type',
-        level: 'Advanced',
+        level: 'advanced',
         noOfRounds: 5,
         sessionData:[
             { 
@@ -143,7 +143,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 14,
         title: 'Hala Hala',
-        level: 'Beginner',
+        level: 'beginner',
         noOfRounds: 3,
         sessionData:[
         { 
@@ -175,7 +175,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 15,
         title: 'Dont Give Up',
-        level: 'Intermediate',
+        level: 'intermediate',
         noOfRounds: 4,
         sessionData:[
             { 
@@ -215,7 +215,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 16,
         title: 'Yes Boss',
-        level: 'Advanced',
+        level: 'advanced',
         noOfRounds: 5,
         sessionData:[
             { 
@@ -263,7 +263,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 17,
         title: 'Shawarma Session',
-        level: 'Beginner',
+        level: 'beginner',
         noOfRounds: 3,
         sessionData:[
         { 
@@ -295,7 +295,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 18,
         title: 'Dont Give Up',
-        level: 'Intermediate',
+        level: 'intermediate',
         noOfRounds: 4,
         sessionData:[
             { 
@@ -335,7 +335,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 19,
         title: 'Yes Boss',
-        level: 'Advanced',
+        level: 'advanced',
         noOfRounds: 5,
         sessionData:[
             { 
@@ -383,7 +383,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 20,
         title: 'Better You Now',
-        level: 'Beginner',
+        level: 'beginner',
         noOfRounds: 3,
         sessionData:[
         { 
@@ -415,7 +415,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 21,
         title: 'Dont Give Up',
-        level: 'Intermediate',
+        level: 'intermediate',
         noOfRounds: 4,
         sessionData:[
             { 
@@ -455,7 +455,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 22,
         title: 'Yes Boss',
-        level: 'Advanced',
+        level: 'advanced',
         noOfRounds: 5,
         sessionData:[
             { 
