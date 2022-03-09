@@ -1,8 +1,9 @@
 import styles from './BreathingSession.module.css'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import BreathingRound from './BreathingRound'
 import useSound from 'use-sound'
 import { motion } from 'framer-motion'
+import Backdrop from '../layout/Backdrop'
 
 // THIS COMP HANDLES RENDERING OF ROUNDS & PLAYING MUSIC
 
@@ -11,11 +12,11 @@ function BreathingSession({props}) {
   const sessionData = props.sessionData;
   const musicUrl = props.musicUrl;
   const [roundNumber, setRoundNumber] = useState(0);
-  const [musicVolume, setMusicVolume] = useState(0.2);
+  const [musicVolume, setMusicVolume] = useState(0.7);
   
   const [playMusic, { pause, stop, duration, sound }] = useSound(
     musicUrl,
-    { volume: musicVolume }, 
+    { volume: musicVolume, loop: true },
     { interrupt: true }
     );
 
@@ -82,6 +83,15 @@ function BreathingSession({props}) {
             </div>
             )
           })
+        }
+
+        {roundNumber == (sessionData.length + 1) && 
+          <Backdrop>
+            <div>
+              <h1>Well Done Champ Champesen</h1>
+              <p></p>
+            </div>
+          </Backdrop>
         }
       </div>
     )

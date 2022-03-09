@@ -24,28 +24,13 @@ export const DUMMY_SESSIONS = [
         id: 10,
         title: 'Quick Test',
         level: 'beginner',
-        noOfRounds: 3,
-        musicUrl: '/sounds/beat.mp3',
+        musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
         { 
             round: 1,
-            breaths: 4,
+            breaths: 2,
             breathPace: 'quick',
-            hold: 4,
-            silentHold: false,
-        },
-        { 
-            round: 2,
-            breaths: 6,
-            breathPace: 'quick', 
-            hold: 8,
-            silentHold: false,
-        },
-        { 
-            round: 3,
-            breaths: 4,
-            breathPace: 'slow', 
-            hold: 10,
+            hold: 2,
             silentHold: false,
         }
         ]
@@ -54,8 +39,7 @@ export const DUMMY_SESSIONS = [
         id: 11,
         title: 'Walla Billa',
         level: 'intermediate',
-        noOfRounds: 4,
-        musicUrl: '/sounds/beat.mp3',
+        musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
                 round: 1,
@@ -91,8 +75,7 @@ export const DUMMY_SESSIONS = [
         id: 12,
         title: 'Real type',
         level: 'advanced',
-        noOfRounds: 5,
-        musicUrl: '/sounds/beat.mp3',
+        musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
                 round: 1,
@@ -135,8 +118,7 @@ export const DUMMY_SESSIONS = [
         id: 14,
         title: 'Hala Hala',
         level: 'beginner',
-        noOfRounds: 3,
-        musicUrl: '/sounds/beat.mp3',
+        musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
         { 
             round: 1,
@@ -165,8 +147,7 @@ export const DUMMY_SESSIONS = [
         id: 15,
         title: 'Dont Give Up',
         level: 'intermediate',
-        noOfRounds: 4,
-        musicUrl: '/sounds/beat.mp3',
+        musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
                 round: 1,
@@ -202,8 +183,7 @@ export const DUMMY_SESSIONS = [
         id: 16,
         title: 'Yes Boss',
         level: 'advanced',
-        noOfRounds: 5,
-        musicUrl: '/sounds/beat.mp3',
+        musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
                 round: 1,
@@ -246,8 +226,7 @@ export const DUMMY_SESSIONS = [
         id: 17,
         title: 'Shawarma Session',
         level: 'beginner',
-        noOfRounds: 3,
-        musicUrl: '/sounds/beat.mp3',
+        musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
         { 
             round: 1,
@@ -276,8 +255,7 @@ export const DUMMY_SESSIONS = [
         id: 18,
         title: 'Dont Give Up',
         level: 'intermediate',
-        noOfRounds: 4,
-        musicUrl: '/sounds/beat.mp3',
+        musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
                 round: 1,
@@ -313,8 +291,7 @@ export const DUMMY_SESSIONS = [
         id: 19,
         title: 'Yes Boss',
         level: 'advanced',
-        noOfRounds: 5,
-        musicUrl: '/sounds/beat.mp3',
+        musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
                 round: 1,
@@ -357,8 +334,7 @@ export const DUMMY_SESSIONS = [
         id: 20,
         title: 'Better You Now',
         level: 'beginner',
-        noOfRounds: 3,
-        musicUrl: '/sounds/beat.mp3',
+        musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
         { 
             round: 1,
@@ -387,8 +363,7 @@ export const DUMMY_SESSIONS = [
         id: 21,
         title: 'Dont Give Up',
         level: 'intermediate',
-        noOfRounds: 4,
-        musicUrl: '/sounds/beat.mp3',
+        musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
                 round: 1,
@@ -424,8 +399,7 @@ export const DUMMY_SESSIONS = [
         id: 22,
         title: 'Yes Boss',
         level: 'advanced',
-        noOfRounds: 5,
-        musicUrl: '/sounds/beat.mp3',
+        musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
                 round: 1,

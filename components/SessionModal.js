@@ -5,9 +5,7 @@ function SessionModal({data, onChildClick}) {
 
     const sessionData = Array.isArray(data) ? data : data.sessionData;
     const title = !Array.isArray(data) ? data.title : "Custom Session";
-    
-    // const { id, title, noOfRounds, level, sessionData } = data;
-    
+        
     // Handles enter = go || CANT GET IT TO WORK
     // useEffect(() => {
 

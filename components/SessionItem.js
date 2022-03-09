@@ -2,8 +2,8 @@ import styles from './SessionItem.module.css'
 import { motion } from 'framer-motion';
 
 function SessionItem({props, onChildClick}) {
-    const { id, title, noOfRounds, level, sessionData } = props;
-    
+    const { id, title, level, sessionData } = props;
+    const numberOfRounds = sessionData.length;
 
     return (
         <motion.div 
@@ -16,7 +16,7 @@ function SessionItem({props, onChildClick}) {
             >
             
             <h1 className={styles.title}>{title}</h1>
-            <p className={styles.roundsInfo}>{noOfRounds} rounds</p>
+            <p className={styles.roundsInfo}>{numberOfRounds} rounds</p>
             <div className={styles.holdsInfo}>
 
                 {sessionData.map(roundObj => {

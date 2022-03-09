@@ -1,5 +1,5 @@
 import styles from './BreathingRound.module.css'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { motion, useMotionValue } from 'framer-motion'
 import CountDown from './CountDown'
 import useSound from 'use-sound'

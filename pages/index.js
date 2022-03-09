@@ -4,7 +4,6 @@ import Wrapper from '../layout/Wrapper'
 import Sessions from '../components/Sessions';
 import BreathingSession from '../components/BreathingSession';
 import DynamicForm from '../components/DynamicForm';
-import Header from '../components/Header';
 
 export default function Home() {
   const [whatToShow, setWhatToShow] = useState('sessions');
@@ -28,7 +27,6 @@ export default function Home() {
   return (  
     <>
     
-    <Header />
 
     <div className={styles.centerDiv}>
       <Wrapper>

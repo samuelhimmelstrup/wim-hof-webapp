@@ -38,9 +38,11 @@ function DynamicForm( { onSubmit } ) {
     }
 
     const removeInputField = (index) => {
-        let data = [...inputFields]
-        data.splice(index, 1)
-        setInputFields(data);
+        if (inputFields.length !== 1) {
+            let data = [...inputFields]
+            data.splice(index, 1)
+            setInputFields(data);
+        }
     }
 
     // TODO: implement
@@ -59,12 +61,12 @@ function DynamicForm( { onSubmit } ) {
     }
 
     const letsGoHandler = () => {
+        
         let formData = {
             id: 100,
             title: 'Custom Session',
-            level: 'beginner',
-            noOfRounds: inputFields.length - 1,
-            musicUrl: '/sounds/beat.mp3',
+            level: 'custom',
+            musicUrl: '/sounds/ambient1.mp3',
             sessionData:            
             [...inputFields]
         }
