@@ -1,14 +1,14 @@
 import styles from './Header.module.css';
 import Link from 'next/link'
-import { motion } from 'framer-motion';
 import { auth } from '../firebase/clientApp';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import SignInButton from './SignInButton';
+import { Context } from '../firebase/FavoritesContext'
+import { useContext } from 'react'
 
 function Header() {
 
-    
-    const [user] = useAuthState(auth);
+    const context = useContext(Context);
+    const { user, favArray } = context;
 
     return ( 
         <div className={styles.header}>
@@ -22,22 +22,24 @@ function Header() {
                 If you press this then this will happen. Do it.</p>  
             </div>
 
-            {!user && <SignInButton />}
-            {user &&
-                <div className={styles.signedInDiv}>
-                    <Link href='/MyPage'>
-                        <h1 className={styles.myPage}>
-                            My Page
-                        </h1>
-                    </Link>
-                    <button 
-                        onClick={() => auth.signOut()}>
-                        Sign Out
-                    </button>
-                </div>
-            }
+            <div className={styles.buttonsDiv}>
+                {!user && <SignInButton />}
 
-            
+                {user &&
+                    <>
+                        <p>Favs: {favArray.length}</p>
+                        <Link href='/MyPage'>
+                            <h1 className={styles.myPage}>
+                                My Page
+                            </h1>
+                        </Link>
+                        <button 
+                            onClick={() => auth.signOut()}>
+                            Sign Out
+                        </button>
+                    </>
+                }
+            </div>
         </div>
      );
 }

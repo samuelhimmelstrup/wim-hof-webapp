@@ -1,12 +1,11 @@
 import styles from './FavoriteButton.module.css'
-import { auth } from '../firebase/clientApp';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { SaveFavorite } from '../firebase/SaveFavorite';
-
+import { Context } from '../firebase/FavoritesContext'
+import { useContext } from 'react'
 
 function FavoriteButton({id, onPromptLogin}) {
-    
-    const [user] = useAuthState(auth);
+    const context = useContext(Context);
+    const { user, favArray } = context;
     
     const addToFavoritesHandler = (event) => {
         event.stopPropagation();
@@ -18,12 +17,12 @@ function FavoriteButton({id, onPromptLogin}) {
         }
     }
 
-    // CHECK IF ID IS IN USERS FAVORITE LIST. IF SO GIVE IT A CLASS WHERE THE SVG IS FILLED
+    const favOrNot = favArray.includes(id);
     
     return ( 
         <button 
             type='button' 
-            className={styles.favBtn}
+            className={favOrNot ? styles.favBtn : styles.notFavBtn}
             onClick={event => addToFavoritesHandler(event)}
         />
      );

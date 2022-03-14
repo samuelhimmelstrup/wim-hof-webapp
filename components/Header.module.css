@@ -22,19 +22,27 @@
   color: var(--color1);
 }
 
-.signedInDiv {
+.buttonsDiv {
   display: flex;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+  justify-content: flex-end;
+  align-items: center;
+  width: 40%;
+  padding-right: 1.5rem;
+  color: var(--color1);
+  text-shadow: var(--textShadow);
+  border-bottom: var(--borderStyle);
 }
 
 .myPage {
   margin-right: 1rem;
-  border-bottom: var(--borderStyle);
   cursor: pointer;
-  color: var(--color1);
-  text-shadow: var(--textShadow)
+}
+
+
+@media screen and (max-width: 720px) {
+  .info {
+    display: none;
+  }  
 }
 
 @media screen and (max-width: 450px) {
@@ -43,9 +51,6 @@
     font-size: 1rem;
     margin-right: 0;
   }  
-  .info {
-    display: none;
-  }
   .title {
     font-size: 2rem;
   }

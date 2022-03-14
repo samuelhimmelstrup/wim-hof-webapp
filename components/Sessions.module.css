@@ -17,39 +17,18 @@
     width: clamp(500px, 650px, 1000px);
 }
 
-.itemWrapper {
-    background-image: url('../public/images/wavesDark.svg');
-    border-radius: 20px; 
-    padding: 10px;
-    margin: 5%; 
-    width: 200px;
-    height: 200px;
+.btnDiv {
+    width: 50px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    transition: height 1s ease-in-out;
-    overflow: hidden;
 }
 
-.itemWrapper:hover {
-    cursor: pointer;
-}
-
-.btn,
-.btnBack {
+.btnForward,
+.btnBack {  
     background: none;
     background-image: url('../public/images/arrows.svg');
     background-repeat: no-repeat;
 }
 
-.btnBack {
-    transform: rotate(0.5turn);
-}
-
-.btnDiv {
-    width: 100px;
-}
 
 .signInPromptDiv {
     background-image: url('../public/images/wavesDark.svg');
