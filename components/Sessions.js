@@ -7,7 +7,9 @@ import SessionItem from './SessionItem';
 import { SignInWithGoogle } from '../firebase/SignInWithGoogle';
 import { DUMMY_SESSIONS } from '../api/fetchSessions';
 
+
 function Sessions( { onletsGoClick } ) {
+
 
     const [modalOpen, setModalOpen] = useState(false);
     const [showIndex, setShowIndex] = useState(0);
@@ -36,7 +38,7 @@ function Sessions( { onletsGoClick } ) {
         <div className={styles.wideDiv}>
 
             {/* Back Button */}
-            <div className={styles.btnDiv}>
+            <div className={styles.btnDiv}> 
                 <motion.button
                     className={showIndex < 3 ? styles.hidden : styles.btnBack}
                     animate={{rotate:'0.5turn'}}
@@ -52,6 +54,7 @@ function Sessions( { onletsGoClick } ) {
                 {DUMMY_SESSIONS
                 .slice(showIndex, showIndex+4)
                 .map((session, index) => { 
+
                     return (
                         <SessionItem 
                             key={session.id} 
@@ -84,14 +87,15 @@ function Sessions( { onletsGoClick } ) {
             </div>
             
             {/* Forward Button */}
-            <div className={showIndex > DUMMY_SESSIONS.length - 5 ? styles.hidden : styles.btnDiv}>            
-            <motion.button
-                    className={showIndex > DUMMY_SESSIONS.length - 5 ? styles.hidden : styles.btn} 
+            <div className={styles.btnDiv}>            
+                <motion.button
+                    className={showIndex > DUMMY_SESSIONS.length - 5 ? styles.hidden : styles.btnForward} 
                     whileHover={{ scale: 1.1, transition: { duration: 0.4 } }}
                     whileTap={{ scale: 0.95 }}
                     onClick={nextSessions}
                 />                
             </div>
+
         </div>
     )
 }

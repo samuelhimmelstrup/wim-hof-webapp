@@ -2,9 +2,11 @@ import styles from './SessionItem.module.css'
 import { motion } from 'framer-motion';
 import FavoriteButton from './FavoriteButton';
 
+
 function SessionItem({props, onChildClick, onPromptLogin}) {
     const { id, title, level, sessionData } = props;
     const numberOfRounds = sessionData.length;
+
 
     return (
         <motion.div 

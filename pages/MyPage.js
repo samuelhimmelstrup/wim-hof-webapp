@@ -5,18 +5,22 @@ import { db } from '../firebase/clientApp'
 import { auth } from '../firebase/clientApp';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { DUMMY_SESSIONS } from '../api/fetchSessions'
+import { Context } from '../firebase/FavoritesContext'
+import { useContext } from 'react'
 
 function MyPage() {
 
-    const [user] = useAuthState(auth);
-    
-    const getFav = async() => {
-        const userDocRef = doc(db, 'users', user.email);
-        const docSnap = await getDoc(userDocRef);
-        return docSnap.data().favorites;
-    }
+    const context = useContext(Context);
+    const { user, favArray } = context;
 
-    console.log(getFav());
+    // const [user] = useAuthState(auth);
+    
+    // const getFav = async() => {
+    //     const userDocRef = doc(db, 'users', user.email);
+    //     const docSnap = await getDoc(userDocRef);
+    //     return docSnap.data().favorites;
+    // }
+
     // const favArray = getFav(user);
 
 
