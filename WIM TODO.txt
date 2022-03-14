@@ -4,6 +4,9 @@
 - Move all sound to BreathingSession
 - Field for silentHold
 
+- Remove Round field from sessionData objects (infer from index)?
+    - BreathingSession uses round, change that
+
 - Make it possible to go back to frontpage while in session
 
 - More laidback breathing sounds

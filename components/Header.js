@@ -9,14 +9,13 @@ function Header() {
 
     
     const [user] = useAuthState(auth);
-    // console.log(user)
 
     return ( 
         <div className={styles.header}>
             <div className={styles.infoDiv}>
                 <Link href='/'>
                     <h1 className={styles.title}>
-                        Wim Hof Breathing app
+                        Wim Hof Breathing
                     </h1>     
                 </Link>
                 <p className={styles.info}>Do this and then that and then this again. <br/>

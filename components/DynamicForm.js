@@ -28,17 +28,17 @@ function DynamicForm( { onSubmit } ) {
         console.log(data[index]);
     }
 
-    const silentHoldChangeHandler = (index, event) => {
-        let data = [...inputFields];
+    // const silentHoldChangeHandler = (index, event) => {
+    //     let data = [...inputFields];
 
-        if (event.target.checked) {
-            data[index][event.target.id] = true;
-        }
-        if (!event.target.checked) {
-            data[index][event.target.id] = false;
-        }
-        setInputFields(data);
-    }
+    //     if (event.target.checked) {
+    //         data[index][event.target.id] = true;
+    //     }
+    //     if (!event.target.checked) {
+    //         data[index][event.target.id] = false;
+    //     }
+    //     setInputFields(data);
+    // }
 
     const addInputField = () => {
         if (inputFields.length < maxNumberOfRounds) {
@@ -118,7 +118,7 @@ function DynamicForm( { onSubmit } ) {
                                 </div>  
                                 
                                 {/* BREATHS */}
-                                <div className={styles.singleInputDiv}>
+                                <div className={styles.breathsInputDiv}>
                                     <p className={styles.showValueField}>
                                         Breaths: {inputFields[index].breaths}
                                     </p>
@@ -135,7 +135,7 @@ function DynamicForm( { onSubmit } ) {
                                 </div>
                                 
                                 {/* BREATHHOLD */}
-                                <div className={styles.singleInputDiv}>  
+                                <div className={styles.holdInputDiv}>  
                                     {/* FORMATTING MINUTES/SECONDS STRING ACCORDING TO LENGTH OF HOLD */}
                                     <p className={styles.showValueField}>
                                         {inputFields[index].hold <= 60 ? 

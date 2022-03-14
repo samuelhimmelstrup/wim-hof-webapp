@@ -17,14 +17,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-right: 1px solid grey;
+    border-right: var(--borderStyle)
 }
 
-.singleInputDiv {
+.breathsInputDiv,
+.holdInputDiv {
     width: 180px;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 0.5rem;
     justify-content: center;
 }
 
@@ -45,10 +46,12 @@
 
 .removeBtn {
     background-image: url(../public//images/remove.svg);
+    margin-right: rem;
 }
 
 .copyBtn {
     background-image: url(../public//images/copy.svg);
+    margin-left: 1rem;
 }
 
 .removeAndCopyDiv {
@@ -91,8 +94,11 @@
         flex-direction: column;
         align-items: center;
     }  
-    .formElement {
+    .formElement { 
         border-right: 0;
-        border-bottom: 1px solid grey;
+        border-bottom: var(--borderStyle)
     }  
+    .container {
+        align-items: center;
+    }
 }

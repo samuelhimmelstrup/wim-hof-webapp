@@ -1,15 +1,10 @@
 import styles from './SessionItem.module.css'
 import { motion } from 'framer-motion';
 import FavoriteButton from './FavoriteButton';
-import { useContext } from 'react'
-import { Context } from '../firebase/FavoritesContext'
 
 function SessionItem({props, onChildClick, onPromptLogin}) {
     const { id, title, level, sessionData } = props;
     const numberOfRounds = sessionData.length;
-
-    const favoritesArray = useContext(Context);
-    console.log(favoritesArray);
 
     return (
         <motion.div 

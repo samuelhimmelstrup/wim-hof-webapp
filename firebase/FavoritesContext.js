@@ -9,22 +9,22 @@ export const FavContextProvider = ({ children }) => {
     const [user] = useAuthState(auth);
     const [favArray, setFavArray] = useState([]);
 
-    const getFavArrayIfLoggedIn = () => {
-        setTimeout(async() => {
-            if (user == !null) {
-                const userDocRef = doc(db, 'users', user.email);
-                const docSnap = await getDoc(userDocRef);
-                setFavArray(docSnap.data().favorites);
-                console.log("hey det virker")
-            }
-            else {
-                console.log("fuck")
-                console.log(user)
-            }       
-        }, 3000);
-    }
+    // const getFavArrayIfLoggedIn = async(user) => {
+    //         if (user == !null) {
+    //             const userDocRef = doc(db, 'users', user.email);
+    //             const docSnap = await getDoc(userDocRef);
+    //             console.log("hey det virker")
 
-    getFavArrayIfLoggedIn();
+    //             setFavArray(docSnap.data().favorites);
+    //         }
+    //         else {
+    //             console.log("fuck")
+    //         };
+    // }
+
+    // getFavArrayIfLoggedIn(user);
+    // console.log("favARr: " + favArray);
+    // console.log(user);
 
     return (
         <Context.Provider
