@@ -6,17 +6,15 @@
 
 .formBtn {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 1rem;
+  right: 1rem;
 }
 
 .backBtn {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 1rem;
+  left: 1rem;
 }
-
-
 
 .hidden {
   display: none;

@@ -224,7 +224,7 @@ export const DUMMY_SESSIONS = [
     }, 
     { 
         id: 17,
-        title: 'Shawarma Session',
+        title: 'Shawarma',
         level: 'beginner',
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
@@ -332,7 +332,7 @@ export const DUMMY_SESSIONS = [
     },  
     { 
         id: 20,
-        title: 'Better You Now',
+        title: 'Better You',
         level: 'beginner',
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
@@ -398,6 +398,49 @@ export const DUMMY_SESSIONS = [
     { 
         id: 22,
         title: 'Yes Boss',
+        level: 'advanced',
+        musicUrl: '/sounds/ambient1.mp3',
+        sessionData:[
+            { 
+                round: 1,
+                breaths: 8,
+                breathPace: 'quick',
+                hold: 8,
+                silentHold: false,
+            },
+            { 
+                round: 2,
+                breaths: 6,
+                breathPace: 'medium', 
+                hold: 8,
+                silentHold: false,
+            },
+            { 
+                round: 3,
+                breaths: 4,
+                breathPace: 'slow', 
+                hold: 6,
+                silentHold: false,
+            },
+            { 
+                round: 4,
+                breaths: 4,
+                breathPace: 'quick', 
+                hold: 6,
+                silentHold: false,
+            },
+            { 
+                round: 5,
+                breaths: 4,
+                breathPace: 'quick', 
+                hold: 6,
+                silentHold: false,
+            },
+            ]
+    }, 
+    { 
+        id: 22,
+        title: 'Yes Boss 2',
         level: 'advanced',
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[

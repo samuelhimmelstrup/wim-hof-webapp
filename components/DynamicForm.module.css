@@ -17,7 +17,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    border-right: 1px solid grey;
 }
 
 .singleInputDiv {
@@ -28,6 +28,35 @@
     justify-content: center;
 }
 
+.openUpSelectorsBtn,
+.copyBtn,
+.removeBtn {
+    background: none;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    border-radius: 0;
+}
+.openUpSelectorsBtn {
+    background-image: url(../public/images/arrows.svg);
+}
+
+.removeBtn {
+    background-image: url(../public//images/remove.svg);
+}
+
+.copyBtn {
+    background-image: url(../public//images/copy.svg);
+}
+
+.removeAndCopyDiv {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}
+
 /* .slider {
 
 }
@@ -35,15 +64,11 @@
 .showValueField {
 } */
 
-.smallBtn {
-    width: 80px;
-    height: 20px;
-    border-radius: 20px;
-    margin: 0.5rem;
-}
-
-.smallBtn:hover {
-    background-color: var(--color2)
+.addBtn,
+.disabledBtn {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
 }
 
 .disabledBtn {
@@ -60,3 +85,14 @@
 /* .hidden {
     display: none;
 } */
+
+@media screen and (max-width: 600px) {
+    .allInputsDiv {
+        flex-direction: column;
+        align-items: center;
+    }  
+    .formElement {
+        border-right: 0;
+        border-bottom: 1px solid grey;
+    }  
+}

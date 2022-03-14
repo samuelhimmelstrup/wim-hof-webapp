@@ -31,8 +31,8 @@ function BreathingRound(props) {
     const [isPaused, setIsPaused] = useState(false); 
 
     // SOUNDS
-    const [playInhale] = useSound(inhaleUrl);
-    const [playExhale] = useSound(exhaleUrl);
+    const [playInhale] = useSound(inhaleUrl, { volume: 0.5 });
+    const [playExhale] = useSound(exhaleUrl, { volume: 0.5 });
 
     // HELPER FUNCTIONS 
 

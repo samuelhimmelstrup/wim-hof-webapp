@@ -1,6 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Kotta+One&display=swap');
 
+
 :root {
   padding: 0;
   margin: 0;
@@ -9,15 +10,23 @@
   --font: 'Kotta One', serif;
   --color1: #88deed;
   --color2: #58a685;
-  --gradient1: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgb(59, 7, 164) 100%);
-  --gradient2: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(113,7,7,1) 23%, rgba(155,159,27,1) 49%, rgba(0,27,126,1) 100%);
+  --borderStyle: 1px solid grey;
+  --textShadow: 3px 4px 7px rgba(81,67,21,0.8);
   --fadeIn: fadeIn 1s linear 1;
   /* animation: var(--fadeIn); */
 }
 
+h1 {
+  margin: 0;
+}
+
+p {
+  margin: 0.5rem;
+}
+
 button {
   width: clamp(80px, 30%, 200px);
-  background: var(--color1);
+  background: var(--color2);
   font-family: inherit;
   border: none;
   border-radius: 45px;

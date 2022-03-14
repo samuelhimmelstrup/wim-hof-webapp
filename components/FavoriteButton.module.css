@@ -1,0 +1,20 @@
+.favBtn {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background: none;
+    background-image: url(../public/images/favorite1.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    border-radius: 0;
+    /* background-color: white; */
+}
+
+.favBtn:hover {
+    cursor: 
+        url(../public/images/favorite1.svg), 
+        url(../public/images/favorite1.png), cell;	
+}

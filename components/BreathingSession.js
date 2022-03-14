@@ -3,7 +3,6 @@ import { useState } from 'react'
 import BreathingRound from './BreathingRound'
 import useSound from 'use-sound'
 import { motion } from 'framer-motion'
-import Backdrop from '../layout/Backdrop'
 
 // THIS COMP HANDLES RENDERING OF ROUNDS & PLAYING MUSIC
 
@@ -86,12 +85,10 @@ function BreathingSession({props}) {
         }
 
         {roundNumber == (sessionData.length + 1) && 
-          <Backdrop>
             <div>
               <h1>Well Done Champ Champesen</h1>
               <p></p>
             </div>
-          </Backdrop>
         }
       </div>
     )

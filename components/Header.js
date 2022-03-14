@@ -2,41 +2,42 @@ import styles from './Header.module.css';
 import Link from 'next/link'
 import { motion } from 'framer-motion';
 import { auth } from '../firebase/clientApp';
-import { GoogleAuthProvider, signOut } from "firebase/auth";
-import { signInWithPopup } from "firebase/auth";
 import { useAuthState } from 'react-firebase-hooks/auth';
-
-
-
-// brug den der firebase hook der returnerer "user"
-// {user ? <button onClick={() => auth.signOut()}>Sign Out</button> : <button onClick={signInWithGoogle}>Sign In With Google</button>}
-
-// LAV ET LOGO der kan klikke tilbage
-// LAV LOGIN
+import SignInButton from './SignInButton';
 
 function Header() {
 
+    
     const [user] = useAuthState(auth);
-
-    const signInWithGoogle = async () => {
-        const provider = new GoogleAuthProvider();
-        provider.addScope('profile');
-        provider.addScope('email');
-        const result = await signInWithPopup(auth, provider);
-      }
+    // console.log(user)
 
     return ( 
         <div className={styles.header}>
             <div className={styles.infoDiv}>
-                <h1 className={styles.title}><Link href='/'>Wim Hof Breathing App</Link></h1>     
+                <Link href='/'>
+                    <h1 className={styles.title}>
+                        Wim Hof Breathing app
+                    </h1>     
+                </Link>
                 <p className={styles.info}>Do this and then that and then this again. <br/>
                 If you press this then this will happen. Do it.</p>  
             </div>
 
-            {!user && <button onClick={signInWithGoogle}>Sign In</button>}
+            {!user && <SignInButton />}
+            {user &&
+                <div className={styles.signedInDiv}>
+                    <Link href='/MyPage'>
+                        <h1 className={styles.myPage}>
+                            My Page
+                        </h1>
+                    </Link>
+                    <button 
+                        onClick={() => auth.signOut()}>
+                        Sign Out
+                    </button>
+                </div>
+            }
 
-            {user && <Link href='/MyPage'>MY PERSONAL PAGE</Link>}
-            {user && <button onClick={() => auth.signOut()}>Sign Out</button>}
             
         </div>
      );

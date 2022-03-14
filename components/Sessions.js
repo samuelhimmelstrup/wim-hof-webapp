@@ -1,9 +1,10 @@
 import styles from './Sessions.module.css';
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { motion } from 'framer-motion';
 import Backdrop from '../layout/Backdrop'
 import SessionModal from './SessionModal';
 import SessionItem from './SessionItem';
+import { SignInWithGoogle } from '../firebase/SignInWithGoogle';
 import { DUMMY_SESSIONS } from '../api/fetchSessions';
 
 function Sessions( { onletsGoClick } ) {
@@ -11,6 +12,7 @@ function Sessions( { onletsGoClick } ) {
     const [modalOpen, setModalOpen] = useState(false);
     const [showIndex, setShowIndex] = useState(0);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [promptLogin, setPromptLogin] = useState(false);
     
     const nextSessions = () => {
         setShowIndex(showIndex + 4);
@@ -20,11 +22,9 @@ function Sessions( { onletsGoClick } ) {
         setShowIndex(showIndex - 4);
     }
 
-    // TODO: Make render 2 not 4 when screen is small
-    // const noOfSessions = (window.innerWidth > 600) ? 4 : 2
-
-    const hoverHandler = () => {
-        setModalOpen(!modalOpen);
+    const clickSessionHandler = (index) => {
+        setCurrentIndex(index + showIndex);
+        setModalOpen(true);
     }
 
     const letsGoHandler = () => {
@@ -56,10 +56,8 @@ function Sessions( { onletsGoClick } ) {
                         <SessionItem 
                             key={session.id} 
                             props={session} 
-                            onChildClick={() => {
-                                setCurrentIndex(index);
-                                hoverHandler();
-                            }}
+                            onChildClick={() => clickSessionHandler(index)}
+                            onPromptLogin={() => setPromptLogin(!promptLogin)}
                         />
                         )
                     })
@@ -67,16 +65,26 @@ function Sessions( { onletsGoClick } ) {
                 
                 {/* Show details of a session on click (like Netflix) */}
                 {modalOpen && 
-                <Backdrop onClick={hoverHandler}>
-                    <SessionModal 
-                        data={DUMMY_SESSIONS[currentIndex]}
-                        onChildClick={letsGoHandler}
-                        />
-                </Backdrop>}
+                    <Backdrop onClick={() => setModalOpen(!modalOpen)}>
+                        <SessionModal 
+                            data={DUMMY_SESSIONS[currentIndex]}
+                            onChildClick={letsGoHandler}
+                            />
+                    </Backdrop>
+                }
+
+                {promptLogin && 
+                    <Backdrop onClick={() => setPromptLogin(!promptLogin)}>
+                        <div className={styles.signInPromptDiv}>
+                            <p>Sign in to save as favorite</p>
+                            <button onClick={SignInWithGoogle}>Sign In</button>
+                        </div>
+                    </Backdrop>
+                }
             </div>
             
             {/* Forward Button */}
-            <div className={styles.btnDiv}>            
+            <div className={showIndex > DUMMY_SESSIONS.length - 5 ? styles.hidden : styles.btnDiv}>            
             <motion.button
                     className={showIndex > DUMMY_SESSIONS.length - 5 ? styles.hidden : styles.btn} 
                     whileHover={{ scale: 1.1, transition: { duration: 0.4 } }}

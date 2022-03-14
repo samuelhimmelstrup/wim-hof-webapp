@@ -6,6 +6,7 @@ import BreathingSession from '../components/BreathingSession';
 import DynamicForm from '../components/DynamicForm';
 
 export default function Home() {
+
   const [whatToShow, setWhatToShow] = useState('sessions');
   const [currentSession, setCurrentSession] = useState({});
 
@@ -35,15 +36,15 @@ export default function Home() {
         {whatToShow == 'breathing' && <BreathingSession props={currentSession} />}
 
         <button 
-        className={whatToShow == 'sessions' ? styles.formBtn : styles.hidden} 
-        onClick={showForm}>
-        Build your own
+          className={whatToShow == 'sessions' ? styles.formBtn : styles.hidden} 
+          onClick={showForm}>
+          Build your own
         </button>
 
         <button 
-        className={whatToShow == 'form' ? styles.backBtn : styles.hidden} 
-        onClick={showSessions}>
-        Back
+          className={whatToShow == 'form' ? styles.backBtn : styles.hidden} 
+          onClick={showSessions}>
+          Back
         </button>
       </Wrapper>
     </div>  

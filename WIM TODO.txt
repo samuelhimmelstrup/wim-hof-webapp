@@ -1,18 +1,25 @@
-- FIX ERROR "CANNOT UPDATE COMPONENT WHILE RENDERING ANOTHER"
+- NEED TO
 
-- STOP BREATHING EFTER NOGET TID (OG LAV NOGLE MERE BEHAGELIGE LYDE)
+- Make a Context with users favorite save array from favorites (what if it gets updated while logged in?)
+- Move all sound to BreathingSession
+- Field for silentHold
 
-- FORM NEEDS FIELDS FOR SILENTHOLD & TITLE
-- AND WHAT ABOUT THAT ID?
+- Make it possible to go back to frontpage while in session
 
-- SKIFT TIL AT BRUGE HOWLER.js i stedet for den der hook!! Why the fuck not??
-
-- MAKE VOLUME BUTTON 
-- MAKE SILENT HOLD SIGN / SVG / SOMETHING
+- More laidback breathing sounds
+- Make it possible to save session as favorite 
+- Fix error "cannot update comp while rendering another"
 
 
-- INDSPIL MUSIK
-- LOOP 4 BARS UENDELIGT
+- NICE TO
 
-- DB 
-- AUTH og personal page
+- Make it possible to move rounds in dynamic form (how do I change round?)
+- Back button som komponent over det hele
+- Field for title in form if user chooses to save
+
+- SVG for silentHold
+- A volume button for controlling music and breaths
+- Accessbility, especially in form
+- Host mp3s on firebase and fetch them 
+
+
