@@ -64,14 +64,13 @@ function BreathingSession({props}) {
     return (
       <div className={styles.sessionContainer}>
       
-        {sessionData.map(roundObj => {
-          
-          const { round } = roundObj;
+        {sessionData.map((roundObj, index) => {
 
           return (
-            <div key={round} className={styles.roundContainer}>
-                {roundNumber == round && 
+            <div key={index} className={styles.roundContainer}>
+                {roundNumber == index + 1 && 
                 <BreathingRound 
+                  roundNumber={roundNumber}
                   roundData={roundObj} 
                   onFadeMusic={fadeMusicHandler}
                   onPauseMusic={pauseMusicHandler}

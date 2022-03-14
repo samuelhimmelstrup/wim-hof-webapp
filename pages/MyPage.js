@@ -1,9 +1,5 @@
 import styles from '../styles/MyPage.module.css'
 import Wrapper from '../layout/Wrapper'
-import { doc, getDoc } from 'firebase/firestore'
-import { db } from '../firebase/clientApp'
-import { auth } from '../firebase/clientApp';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { DUMMY_SESSIONS } from '../api/fetchSessions'
 import { Context } from '../firebase/FavoritesContext'
 import { useContext } from 'react'
@@ -13,33 +9,28 @@ function MyPage() {
     const context = useContext(Context);
     const { user, favArray } = context;
 
-    // const [user] = useAuthState(auth);
-    
-    // const getFav = async() => {
-    //     const userDocRef = doc(db, 'users', user.email);
-    //     const docSnap = await getDoc(userDocRef);
-    //     return docSnap.data().favorites;
-    // }
-
-    // const favArray = getFav(user);
-
-
     return ( 
         <Wrapper>
+        <div className={styles.container}>
             <h1>My Personal Page</h1>
+
+            <h3>BreathDiary (Breathary?) Entries</h3>
+
+            {/* Fetch from collection under user with entries made after sessions */}
+
             <p>Favorites</p>
 
-
-            {/* {DUMMY_SESSIONS.map(session => {
+            {DUMMY_SESSIONS.map(session => {
                 if (favArray.includes(session.id)) {
                     return (
-                        <div>{session.title}</div>
+                        <div>{session.title} + {session.id}</div>
+                        
                     )
                 }
             })
 
-            } */}
-
+            }
+        </div>
         </Wrapper>
     
     );

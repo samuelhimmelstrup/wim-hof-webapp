@@ -23,6 +23,7 @@
 .roundInfo {
     display: flex;
     margin-bottom: 5%;
+    padding-bottom: 0.5rem;
     border-bottom: var(--borderStyle)
 }
 

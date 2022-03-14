@@ -1,16 +1,21 @@
 - NEED TO
 
-- Make a Context with users favorite save array from favorites (what if it gets updated while logged in?)
 - Move all sound to BreathingSession
+    - maybe not necessary
 - Field for silentHold
+
+- DELETE MY USER AND REMAKE IT (favArray off)
+    - maybe just delete array items (ArrayRemove)
 
 - Remove Round field from sessionData objects (infer from index)?
     - BreathingSession uses round, change that
 
+- Go back to homepage on SignOut (do it in SignOut button function)
+
 - Make it possible to go back to frontpage while in session
 
 - More laidback breathing sounds
-- Make it possible to save session as favorite 
+
 - Fix error "cannot update comp while rendering another"
 
 

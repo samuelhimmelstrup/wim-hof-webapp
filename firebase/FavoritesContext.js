@@ -9,21 +9,20 @@ export const FavContextProvider = ({ children }) => {
 
     const [user] = useAuthState(auth);
     const [favArray, setFavArray] = useState([]);
-    console.log(user);
 
     const getFavArrayIfLoggedIn = async() => {
         if (user !== null) {
             const userDocRef = doc(db, 'users', user.email);
             const docSnap = await getDoc(userDocRef);
 
-            console.log("hey det virker")
-
             setFavArray(docSnap.data().favorites);
         }
         else {
-            console.log("fuck")
-        };
+            setFavArray([]);
+        }
     }
+
+    // Run single time to get favorites, if already logged in.
     useEffect(() => {
         getFavArrayIfLoggedIn();
     }, [user])

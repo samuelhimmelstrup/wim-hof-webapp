@@ -26,15 +26,15 @@ function SessionItem({props, onChildClick, onPromptLogin}) {
             <p className={styles.roundsInfo}>{numberOfRounds} {numberOfRounds == 1 ? 'round' : 'rounds'}</p>
             <div className={styles.holdsInfo}>
 
-                {sessionData.map(roundObj => {
-                    const { hold, round } = roundObj
+                {sessionData.map((roundObj, index) => {
+                    const { hold } = roundObj
                     const min = Math.floor(hold / 60)
                     const sec = hold % 60
 
                     return (
                         <p 
                             className={styles.singleHoldInfo} 
-                            key={round}
+                            key={index}
                         >
                             {min}:{sec < 10 ? `0${sec}` : sec}
                         </p>

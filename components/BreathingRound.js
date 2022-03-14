@@ -6,10 +6,17 @@ import useSound from 'use-sound'
 
 // THIS COMP HANDLES BREATHING SOUNDS, BUT NOT MUSIC (HANDLED BY BreathingSession)
 
-function BreathingRound(props) {
+function BreathingRound({
+    roundData, 
+    roundNumber, 
+    onFadeMusic, 
+    onPauseMusic, 
+    onPlayMusic, 
+    onEndOfRound}) {
 
     // VARIABLES
-    const { round, breaths, hold, breathPace, silentHold } = props.roundData;
+    const round = roundNumber;
+    const { breaths, hold, breathPace, silentHold } = roundData;
 
     const breathLength = 
         breathPace == 'slow' ? 6 : 
@@ -54,7 +61,7 @@ function BreathingRound(props) {
     // lets BreathingSession know whether or not to fade music out with duration: breathLength:
     const lastInhaleHandler = () => {
         setStage('lastBreath');
-        if (silentHold) props.onFadeMusic(breathLength);
+        if (silentHold) onFadeMusic(breathLength);
     }
 
     const endOfBreathingHandler = () => {
@@ -70,17 +77,17 @@ function BreathingRound(props) {
     // lets BreathingSession know whether or not to restart music (after silentHold) 
     const endOfRoundHandler = () => {
         playExhale();
-        props.onEndOfRound(silentHold, breathLength)
+        onEndOfRound(silentHold, breathLength)
     }
 
     const pauseRoundHandler = () => {
         if (!isPaused) {
             setIsPaused(true);
-            props.onPauseMusic();
+            onPauseMusic();
         } 
         if (isPaused) {
             setIsPaused(false);
-            props.onPlayMusic();
+            onPlayMusic();
         }
     }
 

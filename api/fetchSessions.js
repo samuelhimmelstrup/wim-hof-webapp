@@ -27,7 +27,6 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
         { 
-            round: 1,
             breaths: 2,
             breathPace: 'quick',
             hold: 2,
@@ -42,21 +41,18 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
         { 
-            round: 1,
             breaths: 2,
             breathPace: 'quick',
             hold: 2,
             silentHold: true,
         },
         { 
-            round: 2,
             breaths: 2,
             breathPace: 'quick',
             hold: 2,
             silentHold: false,
         },
         { 
-            round: 3,
             breaths: 2,
             breathPace: 'slow',
             hold: 2,
@@ -71,28 +67,24 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
-                round: 1,
                 breaths: 20,
                 breathPace: 'medium',
                 hold: 90,
                 silentHold: false,
             },
             { 
-                round: 2,
                 breaths: 25,
                 breathPace: 'medium', 
                 hold: 100,
                 silentHold: false,
             },
             { 
-                round: 3,
                 breaths: 25,
                 breathPace: 'quick',
                 hold: 120,
                 silentHold: false,
             },
             { 
-                round: 4,
                 breaths: 30,
                 breathPace: 'quick',
                 hold: 120,
@@ -107,35 +99,30 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
-                round: 1,
                 breaths: 30,
                 breathPace: 'slow',
                 hold: 90,
                 silentHold: false,
             },
             { 
-                round: 2,
                 breaths: 30,
                 breathPace: 'medium', 
                 hold: 90,
                 silentHold: false,
             },
             { 
-                round: 3,
                 breaths: 30,
                 breathPace: 'medium', 
                 hold: 120,
                 silentHold: false,
             },
             { 
-                round: 4,
                 breaths: 40,
                 breathPace: 'quick', 
                 hold: 120,
                 silentHold: false,
             },
             { 
-                round: 5,
                 breaths: 40,
                 breathPace: 'quick',
                 hold: 150,
@@ -150,21 +137,18 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
         { 
-            round: 1,
             breaths: 20,
             breathPace: 'medium',
             hold: 60,
             silentHold: false,
         },
         { 
-            round: 2,
             breaths: 30,
             breathPace: 'medium', 
             hold: 90,
             silentHold: false,
         },
         { 
-            round: 3,
             breaths: 30,
             breathPace: 'medium', 
             hold: 90,
@@ -179,28 +163,24 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
-                round: 1,
                 breaths: 25,
                 breathPace: 'medium',
                 hold: 90,
                 silentHold: false,
             },
             { 
-                round: 2,
                 breaths: 25,
                 breathPace: 'medium', 
                 hold: 90,
                 silentHold: false,
             },
             { 
-                round: 3,
                 breaths: 30,
                 breathPace: 'medium', 
                 hold: 120,
                 silentHold: false,
             },
             { 
-                round: 4,
                 breaths: 30,
                 breathPace: 'quick', 
                 hold: 120,
@@ -215,35 +195,30 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
-                round: 1,
                 breaths: 25,
                 breathPace: 'quick',
                 hold: 90,
                 silentHold: false,
             },
             { 
-                round: 2,
                 breaths: 25,
                 breathPace: 'quick', 
                 hold: 120,
                 silentHold: false,
             },
             { 
-                round: 3,
                 breaths: 30,
                 breathPace: 'quick', 
                 hold: 120,
                 silentHold: false,
             },
             { 
-                round: 4,
                 breaths: 30,
                 breathPace: 'quick', 
                 hold: 120,
                 silentHold: false,
             },
             { 
-                round: 5,
                 breaths: 35,
                 breathPace: 'quick', 
                 hold: 150,
@@ -258,21 +233,18 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
         { 
-            round: 1,
             breaths: 15,
             breathPace: 'slow',
             hold: 60,
             silentHold: false,
         },
         { 
-            round: 2,
             breaths: 15,
             breathPace: 'slow', 
             hold: 60,
             silentHold: false,
         },
         { 
-            round: 3,
             breaths: 15,
             breathPace: 'slow', 
             hold: 90,
@@ -287,28 +259,24 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
-                round: 1,
                 breaths: 20,
                 breathPace: 'medium',
                 hold: 60,
                 silentHold: false,
             },
             { 
-                round: 2,
                 breaths: 25,
                 breathPace: 'medium', 
                 hold: 80,
                 silentHold: false,
             },
             { 
-                round: 3,
                 breaths: 30,
                 breathPace: 'slow', 
                 hold: 100,
                 silentHold: false,
             },
             { 
-                round: 4,
                 breaths: 35,
                 breathPace: 'quick', 
                 hold: 120,
@@ -323,35 +291,30 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
-                round: 1,
                 breaths: 40,
                 breathPace: 'medium',
                 hold: 120,
                 silentHold: false,
             },
             { 
-                round: 2,
                 breaths: 40,
                 breathPace: 'medium', 
                 hold: 120,
                 silentHold: false,
             },
             { 
-                round: 3,
                 breaths: 40,
                 breathPace: 'medium', 
                 hold: 150,
                 silentHold: false,
             },
             { 
-                round: 4,
                 breaths: 40,
                 breathPace: 'quick', 
                 hold: 150,
                 silentHold: false,
             },
             { 
-                round: 5,
                 breaths: 40,
                 breathPace: 'slow', 
                 hold: 180,
@@ -366,21 +329,18 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
         { 
-            round: 1,
             breaths: 8,
             breathPace: 'quick',
             hold: 8,
             silentHold: false,
         },
         { 
-            round: 2,
             breaths: 6,
             breathPace: 'medium', 
             hold: 8,
             silentHold: false,
         },
         { 
-            round: 3,
             breaths: 4,
             breathPace: 'slow', 
             hold: 10,
@@ -395,28 +355,24 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
-                round: 1,
                 breaths: 8,
                 breathPace: 'quick',
                 hold: 8,
                 silentHold: false,
             },
             { 
-                round: 2,
                 breaths: 6,
                 breathPace: 'medium', 
                 hold: 8,
                 silentHold: false,
             },
             { 
-                round: 3,
                 breaths: 4,
                 breathPace: 'slow', 
                 hold: 6,
                 silentHold: false,
             },
             { 
-                round: 4,
                 breaths: 4,
                 breathPace: 'quick', 
                 hold: 6,

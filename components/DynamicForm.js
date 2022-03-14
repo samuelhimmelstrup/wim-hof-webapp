@@ -233,7 +233,7 @@ function DynamicForm( { onSubmit } ) {
                     }
                 </div>
 
-                <button className={styles.submitBtn}>LETS GO</button>
+                <button className={styles.submitBtn}>Lets Go</button>
             </form>
 
             <button 

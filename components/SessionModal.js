@@ -28,7 +28,7 @@ function SessionModal({data, onChildClick}) {
             >
             
             <h1 className={styles.title}>{title}</h1>            
-                {sessionData.map((roundData) => {
+                {sessionData.map((roundData, index) => {
                     
                     const { round, breaths, breathPace, hold } = roundData;
                     const pace = 
@@ -40,7 +40,7 @@ function SessionModal({data, onChildClick}) {
                     return (
                         <div key={round} className={styles.roundInfo}>
                             <div className={styles.singleInfoBox}>
-                                <p># {round}</p>
+                                <p>Round {index + 1}</p>
                             </div>     
 
                             <div className={styles.breathAndPaceInfo}>
