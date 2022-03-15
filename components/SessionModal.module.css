@@ -1,5 +1,7 @@
 .modalWrapper {
-    background-image: url('../public/images/wavesDark.svg');
+    /* background-image: url('../public/images/wavesDark.svg'); */
+    background-size: cover;
+    background-color: var(--color2);
     border-radius: 20px; 
     padding: 5px;
     margin: 5%; 
@@ -40,5 +42,9 @@
     background-image: url('../public/images/lungs.svg');
     background-repeat: no-repeat; 
     margin-left: 0.5rem;
+}
+
+.btn {
+    border: 2px solid black;
 }
 

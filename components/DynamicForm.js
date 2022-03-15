@@ -12,7 +12,6 @@ function DynamicForm( { onSubmit } ) {
 
     const [inputFields, setInputFields] = useState([
         { 
-        round: 1,
         breaths: 30,
         breathPace: 'medium',
         hold: 90,
@@ -43,7 +42,6 @@ function DynamicForm( { onSubmit } ) {
     const addInputField = () => {
         if (inputFields.length < maxNumberOfRounds) {
             let newField = {
-                round: inputFields.length + 1,
                 breaths: 30,
                 breathPace: 'medium',
                 hold: 90,
@@ -57,7 +55,6 @@ function DynamicForm( { onSubmit } ) {
         if (inputFields.length < maxNumberOfRounds) {
             
             let copiedField = {
-                round: inputFields.length + 1,
                 breaths: inputFields[index].breaths,
                 breathPace: inputFields[index].breathPace,
                 hold: inputFields[index].hold,

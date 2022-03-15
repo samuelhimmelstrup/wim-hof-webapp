@@ -1,9 +1,11 @@
 .wrapper {
     position: relative;
-    background-image:  url("../public/images/wavesLight.svg");
-    background-size: cover;
+    /* background-image:  url("../public/images/wavesLight.svg");
+    background-size: cover; */
+    /* background: var(--color1); */
+    background: beige;
     border-radius: 45px;
-    border: 2px solid var(--color1);
+    border: 5px solid var(--color1);
     width: 95%;
     height: 80vh;
     overflow: hidden;

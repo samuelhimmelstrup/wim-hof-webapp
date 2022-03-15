@@ -8,12 +8,14 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
+  box-shadow: var(--boxShadow);
 }
 
 .backBtn {
   position: absolute;
   top: 1rem;
   left: 1rem;
+  box-shadow: var(--boxShadow);
 }
 
 .hidden {

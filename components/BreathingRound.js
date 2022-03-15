@@ -19,8 +19,8 @@ function BreathingRound({
     const { breaths, hold, breathPace, silentHold } = roundData;
 
     const breathLength = 
-        breathPace == 'slow' ? 6 : 
-        breathPace == 'medium' ? 4 : 
+        breathPace == 'slow' ? 5 : 
+        breathPace == 'medium' ? 3.5 : 
         2;
     const inhaleUrl = 
         breathPace == 'slow' ? '/sounds/inhaleSlow.mp3' : 

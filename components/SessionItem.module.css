@@ -6,6 +6,7 @@
     /* background-image: url('../public/images/itemBg2.svg'); */
     background-size: cover;
     border-radius: 20px; 
+    box-shadow: var(--boxShadow);
     padding: 5px;
     margin: 5%; 
     width: 200px;
@@ -16,7 +17,7 @@
     overflow: scroll;
 }
 
-.itemWrapper1 {
+/* .itemWrapper1 {
     border: 5px solid green;
 }
 
@@ -26,7 +27,7 @@
 
 .itemWrapper3 {
     border: 5px solid black;
-}
+} */
 
 .itemWrapper1:hover,
 .itemWrapper2:hover,

@@ -5,6 +5,7 @@ import Sessions from '../components/Sessions';
 import BreathingSession from '../components/BreathingSession';
 import DynamicForm from '../components/DynamicForm';
 
+
 export default function Home() {
 
   const [whatToShow, setWhatToShow] = useState('sessions');
@@ -42,7 +43,7 @@ export default function Home() {
         </button>
 
         <button 
-          className={whatToShow == 'form' ? styles.backBtn : styles.hidden} 
+          className={whatToShow !== 'sessions' ? styles.backBtn : styles.hidden} 
           onClick={showSessions}>
           Back
         </button>

@@ -4,6 +4,13 @@
     - maybe not necessary
 - Field for silentHold
 
+- Stop music when session ends
+
+- Make pause button (with pause/play SVG) in rounds for phones
+
+- Add to favorite doesnt fucking work
+    - doesnt fucking update
+
 - DELETE MY USER AND REMAKE IT (favArray off)
     - maybe just delete array items (ArrayRemove)
 

@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     overflow: scroll;
 }
 
@@ -13,12 +13,16 @@
 }
 
 .formElement {
+    margin: 0.5rem;
+    background-color: var(--color2);
+    border-radius: 45px;
+    height: 350px;
     padding: 0.2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-right: var(--borderStyle)
+    box-shadow: var(--boxShadow);
 }
 
 .breathsInputDiv,
@@ -73,6 +77,8 @@
     position: absolute;
     bottom: 1rem;
     left: 1rem;
+    box-shadow: var(--boxShadow);
+
 }
 
 .disabledBtn {
@@ -84,6 +90,8 @@
     position: absolute;
     bottom: 1rem;
     right: 1rem;
+    box-shadow: var(--boxShadow);
+
 }
 
 /* .hidden {

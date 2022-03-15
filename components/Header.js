@@ -10,6 +10,11 @@ function Header() {
     const context = useContext(Context);
     const { user, favArray } = context;
 
+    const signOutHandler = () => {
+        auth.signOut();
+        // TODO: Go back to homepage
+    }
+
     return ( 
         <div className={styles.header}>
             <div className={styles.infoDiv}>
@@ -34,7 +39,7 @@ function Header() {
                             </h1>
                         </Link>
                         <button 
-                            onClick={() => auth.signOut()}>
+                            onClick={signOutHandler}>
                             Sign Out
                         </button>
                     </>

@@ -6,7 +6,7 @@ import { useContext } from 'react'
 function FavoriteButton({id, onPromptLogin}) {
     const context = useContext(Context);
     const { user, favArray } = context;
-    
+ 
     const addToFavoritesHandler = (event) => {
         event.stopPropagation();
         if (user == null) {
@@ -20,7 +20,7 @@ function FavoriteButton({id, onPromptLogin}) {
     const favOrNot = favArray.includes(id);
     
     return ( 
-        <button 
+        <div
             type='button' 
             className={favOrNot ? styles.favBtn : styles.notFavBtn}
             onClick={event => addToFavoritesHandler(event)}

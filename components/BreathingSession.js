@@ -51,7 +51,12 @@ function BreathingSession({props}) {
             <p className={styles.introInfo}>Press spacebar to pause / resume at anytime</p>
 
             {duration ?         
-                <motion.button onClick={startSessionHandler}>I am ready to breathe</motion.button> 
+                <motion.button 
+                  className={styles.readyBtn}
+                  onClick={startSessionHandler}
+                >
+                  I am ready to breathe
+                </motion.button> 
                 : 
                 <motion.div className={styles.spinningLoader}>SPINNING LOADER</motion.div>
             } 

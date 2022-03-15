@@ -41,16 +41,16 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
         { 
-            breaths: 2,
+            breaths: 4,
             breathPace: 'quick',
-            hold: 2,
-            silentHold: true,
+            hold: 4,
+            silentHold: false,
         },
         { 
-            breaths: 2,
+            breaths: 4,
             breathPace: 'quick',
-            hold: 2,
-            silentHold: false,
+            hold: 4,
+            silentHold: true,
         },
         { 
             breaths: 2,
