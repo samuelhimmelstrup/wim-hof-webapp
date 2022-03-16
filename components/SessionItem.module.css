@@ -2,8 +2,7 @@
 .itemWrapper2,
 .itemWrapper3 {
     position: relative;
-    background-color: var(--color2);
-    /* background-image: url('../public/images/itemBg2.svg'); */
+    background-color: var(--color1);
     background-size: cover;
     border-radius: 20px; 
     box-shadow: var(--boxShadow);

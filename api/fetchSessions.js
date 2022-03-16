@@ -228,7 +228,7 @@ export const DUMMY_SESSIONS = [
     }, 
     { 
         id: 17,
-        title: 'Take it slow',
+        title: 'Take It Slow',
         level: 'beginner',
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[

@@ -1,7 +1,6 @@
 .modalWrapper {
-    /* background-image: url('../public/images/wavesDark.svg'); */
     background-size: cover;
-    background-color: var(--color2);
+    background-color: var(--color1);
     border-radius: 20px; 
     padding: 5px;
     margin: 5%; 
@@ -20,6 +19,7 @@
 
 .title {
     text-align: center;
+    margin-bottom: 1rem;
 }   
 
 .roundInfo {
@@ -45,6 +45,6 @@
 }
 
 .btn {
-    border: 2px solid black;
+    border: var(--borderStyle);
 }
 

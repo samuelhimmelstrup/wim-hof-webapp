@@ -12,14 +12,12 @@ export default function Home() {
   const [currentSession, setCurrentSession] = useState({});
 
   const showSessions = () => {
-    if (whatToShow !== 'sessions') {
-      setWhatToShow('sessions')
-    }};
+    setWhatToShow('sessions')
+  }
 
   const showForm = () => {
-    if (whatToShow !== 'form') {
       setWhatToShow('form')
-    }};
+  }
 
   const startSessionHandler = data => {
     setCurrentSession(data);
@@ -28,13 +26,11 @@ export default function Home() {
 
   return (  
     <>
-    
-
     <div className={styles.centerDiv}>
       <Wrapper>
         {whatToShow == 'sessions' && <Sessions onletsGoClick={data => startSessionHandler(data)}/>}
         {whatToShow == 'form' && <DynamicForm onSubmit={formData => startSessionHandler(formData)}/>} 
-        {whatToShow == 'breathing' && <BreathingSession props={currentSession} />}
+        {whatToShow == 'breathing' && <BreathingSession data={currentSession} />}
 
         <button 
           className={whatToShow == 'sessions' ? styles.formBtn : styles.hidden} 

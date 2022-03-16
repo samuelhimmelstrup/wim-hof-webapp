@@ -6,6 +6,7 @@ import SessionModal from './SessionModal';
 import SessionItem from './SessionItem';
 import { SignInWithGoogle } from '../firebase/SignInWithGoogle';
 import { DUMMY_SESSIONS } from '../api/fetchSessions';
+import Layout from '../layout/Layout';
 
 
 function Sessions( { onletsGoClick } ) {
@@ -78,10 +79,14 @@ function Sessions( { onletsGoClick } ) {
 
                 {promptLogin && 
                     <Backdrop onClick={() => setPromptLogin(!promptLogin)}>
-                        <div className={styles.signInPromptDiv}>
+                        <Layout>
                             <p>Sign in to save as favorite</p>
-                            <button onClick={SignInWithGoogle}>Sign In</button>
-                        </div>
+                            <button
+                                className={styles.signInBtn} 
+                                onClick={SignInWithGoogle}>
+                                Sign In
+                            </button>
+                        </Layout>
                     </Backdrop>
                 }
             </div>

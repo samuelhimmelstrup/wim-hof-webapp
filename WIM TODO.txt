@@ -4,7 +4,9 @@
     - maybe not necessary
 - Field for silentHold
 
+IMPORTANT
 - Stop music when session ends
+- And stop music when you go back from session
 
 - Make pause button (with pause/play SVG) in rounds for phones
 
@@ -28,6 +30,7 @@
 
 - NICE TO
 
+- Remove outermost border on SessionItem (where it shows holds)
 - Make it possible to move rounds in dynamic form (how do I change round?)
 - Back button som komponent over det hele
 - Field for title in form if user chooses to save

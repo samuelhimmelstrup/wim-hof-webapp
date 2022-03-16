@@ -156,7 +156,7 @@ function DynamicForm( { onSubmit } ) {
                                 </div>
                                 
                                 {/* BREATH PACE */}
-                                <p>
+                                <p className={styles.paceText}>
                                     Breath Pace: {inputFields[index].breathPace}
                                     <motion.button 
                                         animate={openPaceSelectors ? 
@@ -171,11 +171,10 @@ function DynamicForm( { onSubmit } ) {
 
                                 <motion.div 
                                     animate={openPaceSelectors ? 
-                                            {height: 40, display: 'flex', alignItems: 'center'} : 
+                                            {height: 40, display: 'flex', alignItems: 'center' } : 
                                             {height: 0, display: 'none'}}
                                     transition={{ duration: 0.5 }}
                                     id='breathPace' 
-                                    className=''
                                 >
                                     <label htmlFor='breathPace'>
                                         <input

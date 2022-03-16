@@ -23,7 +23,9 @@ function SessionItem({props, onChildClick, onPromptLogin}) {
                 id={id} 
                 onPromptLogin={onPromptLogin}
             />
-            <p className={styles.roundsInfo}>{numberOfRounds} {numberOfRounds == 1 ? 'round' : 'rounds'}</p>
+            <p className={styles.roundsInfo}>
+                {numberOfRounds} {numberOfRounds == 1 ? 'round' : 'rounds'}
+            </p>
             <div className={styles.holdsInfo}>
 
                 {sessionData.map((roundObj, index) => {

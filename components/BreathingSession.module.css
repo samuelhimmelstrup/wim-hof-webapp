@@ -11,7 +11,7 @@
 
 .readyBtn {
   margin-top: 1rem;
-  box-shadow: var(--boxShadow);
+  border: var(--borderStyle);
 }
 
 .roundContainer {

@@ -32,7 +32,8 @@ export const FavContextProvider = ({ children }) => {
         <Context.Provider
             value={{
             user,
-            favArray,          
+            favArray,  
+            setFavArray        
             }}    
         >
             {children}

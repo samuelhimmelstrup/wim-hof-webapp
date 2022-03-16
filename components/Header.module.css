@@ -6,7 +6,7 @@
 }
 
 .infoDiv {
-  margin-left: 1rem;
+  margin-left: 2rem;
   display: flex;
   flex-direction: column;
   width: 60%;
@@ -31,28 +31,39 @@
   padding-right: 1.5rem;
   color: var(--color1);
   text-shadow: var(--textShadow);
-  border-bottom: var(--borderStyle);
 }
 
 .myPage {
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   cursor: pointer;
-}
+} 
 
+.favoritesCount {
+  margin-right: 1rem;
+}
 
 @media screen and (max-width: 720px) {
   .info {
     display: none;
   }  
+  .myPage {
+    font-size: 1.2rem;
+  }  
 }
 
 @media screen and (max-width: 450px) {
   .myPage {
-    width: 50px;
     font-size: 1rem;
     margin-right: 0;
   }  
   .title {
     font-size: 2rem;
+  }
+  .favoritesCount {
+    display: none;
+  }
+  .signOutBtn {
+    width: 75px;
+    height: 60px;
   }
 }

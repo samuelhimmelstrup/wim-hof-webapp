@@ -32,13 +32,17 @@ function Header() {
 
                 {user &&
                     <>
-                        <p>Favs: {favArray.length}</p>
                         <Link href='/MyPage'>
                             <h1 className={styles.myPage}>
                                 My Page
                             </h1>
                         </Link>
+                        <p className={styles.favoritesCount}>    
+                            Favs: {favArray.length}
+                        </p>
+
                         <button 
+                            className={styles.signOutBtn}
                             onClick={signOutHandler}>
                             Sign Out
                         </button>

@@ -14,9 +14,10 @@
 
 .formElement {
     margin: 0.5rem;
-    background-color: var(--color2);
+    background-color: var(--color1);
     border-radius: 45px;
     height: 350px;
+    /* width: 250px;    */
     padding: 0.2rem;
     display: flex;
     flex-direction: column;
@@ -32,6 +33,11 @@
     flex-direction: column;
     padding: 0.5rem;
     justify-content: center;
+    font-size: 1.1rem;
+}
+
+.paceText {
+    font-size: 1.1rem;
 }
 
 .openUpSelectorsBtn,
@@ -46,16 +52,16 @@
     border-radius: 0;
 }
 .openUpSelectorsBtn {
-    background-image: url(../public/images/arrows.svg);
+    background-image: url(../public/images/arrowsBlack.svg);
 }
 
 .removeBtn {
-    background-image: url(../public//images/remove.svg);
+    background-image: url(../public/images/remove.svg);
     margin-right: rem;
 }
 
 .copyBtn {
-    background-image: url(../public//images/copy.svg);
+    background-image: url(../public/images/copy.svg);
     margin-left: 1rem;
 }
 
@@ -66,11 +72,12 @@
 }
 
 /* .slider {
-
-}
+    
+} */
 
 .showValueField {
-} */
+    width: 100%
+} 
 
 .addBtn,
 .disabledBtn {
@@ -102,10 +109,6 @@
     .allInputsDiv {
         flex-direction: column;
         align-items: center;
-    }  
-    .formElement { 
-        border-right: 0;
-        border-bottom: var(--borderStyle)
     }  
     .container {
         align-items: center;

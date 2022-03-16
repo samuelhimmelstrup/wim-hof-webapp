@@ -24,7 +24,7 @@ function SessionModal({data, onChildClick}) {
     return (
         <motion.div 
             className={styles.modalWrapper}
-            whileHover={{scale: 1.1, transition: { duration: 0.4 }}}
+            whileHover={{scale: 1.02, transition: { duration: 0.4 }}}
             >
             
             <h1 className={styles.title}>{title}</h1>            
@@ -69,11 +69,11 @@ function SessionModal({data, onChildClick}) {
             <div className={styles.btnDiv}>            
                 <motion.button
                     className={styles.btn} 
-                    whileHover={{scale: 1.1, transition: { duration: 0.4 }}}
+                    whileHover={{scale: 1.05, transition: { duration: 0.4 }}}
                     whileTap={{ scale: 0.95 }}
                     onClick={onChildClick}
                 >
-                    LETS GO
+                    Lets Go
                 </motion.button>                
             </div>
     </motion.div> 

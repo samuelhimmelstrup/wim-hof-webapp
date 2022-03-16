@@ -5,7 +5,7 @@ import { useContext } from 'react'
 
 function FavoriteButton({id, onPromptLogin}) {
     const context = useContext(Context);
-    const { user, favArray } = context;
+    const { user, favArray, setFavArray } = context;
  
     const addToFavoritesHandler = (event) => {
         event.stopPropagation();
@@ -14,17 +14,25 @@ function FavoriteButton({id, onPromptLogin}) {
         }
         else if (user !== null) {
             SaveFavorite(user, id)
+            if (favArray.includes(id)) {
+                setFavArray(favArray.filter(item => item !== id))
+            }
+            else {
+                setFavArray([...favArray, id]);
+            }
+            
         }
     }
 
     const favOrNot = favArray.includes(id);
     
     return ( 
-        <div
-            type='button' 
-            className={favOrNot ? styles.favBtn : styles.notFavBtn}
+        <div 
+            className={styles.favContainer}
             onClick={event => addToFavoritesHandler(event)}
-        />
+        >
+            <div className={favOrNot ? styles.favBtn : styles.notFavBtn}/>
+        </div>
      );
 }
 

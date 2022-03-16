@@ -1,17 +1,25 @@
 import styles from './BreathingSession.module.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import BreathingRound from './BreathingRound'
 import useSound from 'use-sound'
 import { motion } from 'framer-motion'
+import Layout from '../layout/Layout'
 
 // THIS COMP HANDLES RENDERING OF ROUNDS & PLAYING MUSIC
 
-function BreathingSession({props}) {
+function BreathingSession({ data }) {
 
-  const sessionData = props.sessionData;
-  const musicUrl = props.musicUrl;
+  const sessionData = data.sessionData;
+  const musicUrl = data.musicUrl;
   const [roundNumber, setRoundNumber] = useState(0);
   const [musicVolume, setMusicVolume] = useState(0.7);
+
+  // stop music on unMount
+  useEffect(() => {
+    return () => {
+        stop();
+    }
+  }, [])
   
   const [playMusic, { pause, stop, duration, sound }] = useSound(
     musicUrl,
@@ -45,23 +53,22 @@ function BreathingSession({props}) {
 
   if (roundNumber == 0) {
     return (
-        <div className={styles.container}>
-            <h1 className={styles.title}>{!duration ? "Hold on, one sec .." : "Ready Eddie!"}</h1> 
-            <p className={styles.introInfo}>Lie down, sit down, whatever it takes - RELAX</p>
-            <p className={styles.introInfo}>Press spacebar to pause / resume at anytime</p>
+      <Layout>
+        <h1 className={styles.title}>{!duration ? "Hold on, one sec .." : "Ready Eddie!"}</h1> 
+        <p className={styles.introInfo}>Lie down, sit down, whatever it takes - RELAX</p>
+        <p className={styles.introInfo}>Press spacebar to pause / resume at anytime</p>
 
-            {duration ?         
-                <motion.button 
-                  className={styles.readyBtn}
-                  onClick={startSessionHandler}
-                >
-                  I am ready to breathe
-                </motion.button> 
-                : 
-                <motion.div className={styles.spinningLoader}>SPINNING LOADER</motion.div>
-            } 
-
-        </div> 
+        {duration ?         
+            <motion.button 
+              className={styles.readyBtn}
+              onClick={startSessionHandler}
+            >
+              I am ready to breathe
+            </motion.button> 
+            : 
+            <motion.div className={styles.spinningLoader}>SPINNING LOADER</motion.div>
+        } 
+      </Layout>
     )
   }
 
