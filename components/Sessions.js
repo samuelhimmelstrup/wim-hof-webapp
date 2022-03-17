@@ -39,7 +39,7 @@ function Sessions( { onletsGoClick } ) {
         <div className={styles.wideDiv}>
 
             {/* Back Button */}
-            <div className={styles.btnDiv}> 
+            <div className={styles.backBtnDiv}> 
                 <motion.button
                     className={showIndex < 3 ? styles.hidden : styles.btnBack}
                     animate={{rotate:'0.5turn'}}
@@ -92,7 +92,7 @@ function Sessions( { onletsGoClick } ) {
             </div>
             
             {/* Forward Button */}
-            <div className={styles.btnDiv}>            
+            <div className={styles.forwardBtnDiv}>            
                 <motion.button
                     className={showIndex > DUMMY_SESSIONS.length - 5 ? styles.hidden : styles.btnForward} 
                     whileHover={{ scale: 1.1, transition: { duration: 0.4 } }}

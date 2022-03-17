@@ -61,3 +61,23 @@
     margin: 0.3rem 0;
     border-right: 1px solid grey;
 }
+
+@media screen and (max-width: 675px) {
+    .itemWrapper1,
+    .itemWrapper2,
+    .itemWrapper3 {
+        height: 100px;
+    }
+
+    .title {
+        font-size: 1.2rem;
+    }
+
+    .roundsInfo {
+        display: none;
+    }
+
+    .holdsInfo {
+        margin-top: 0.5rem;
+    }
+}

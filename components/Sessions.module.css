@@ -17,7 +17,8 @@
     width: clamp(500px, 550px, 1000px);
 }
 
-.btnDiv {
+.backBtnDiv,
+.forwardBtnDiv {
     width: 50px;
     display: flex;
 }
@@ -28,7 +29,6 @@
     background-image: url('../public/images/arrows.svg');
     background-repeat: no-repeat;
 }
-
 
 .signInPromptDiv {
     background-color: var(--color1);
@@ -49,4 +49,20 @@
 
 .hidden {
     display: none;
+}
+
+
+@media screen and (max-width: 675px) {
+    .centerDiv {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .backBtnDiv {
+        margin-left: 1rem;
+    }
+
+    .forwardBtnDiv {
+        margin-right: 1rem;
+    }
 }
