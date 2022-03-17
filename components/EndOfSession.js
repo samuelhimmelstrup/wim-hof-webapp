@@ -7,10 +7,19 @@ import SignInButton from './SignInButton'
 
 function EndOfSession() {
     
+    // USE QUILL https://quilljs.com/playground/
+
     const { user } = useContext(Context);
 
     const submitHandler = (e) => {
         e.preventDefault();
+
+        let diaryEntry = {
+            // Timestamp (from firebase??)
+            // 
+            // actual value
+        }
+
         const diaryRef = (db, user.email, 'diaryEntries');
         console.log('yaaay yaaay')
     }
@@ -32,14 +41,17 @@ function EndOfSession() {
             }
 
             {user &&
-            <form onSubmit={submitHandler}>
-                <input 
-                    type='textarea' 
-                    placeholder="Write your thoughts here"
-                >
+                <form 
+                    className={styles.form}
+                    onSubmit={submitHandler}>
+                    <input 
+                        type='textarea' 
+                        placeholder="Write your thoughts here"
+                    >
 
-                </input>
-            </form>
+                    </input>
+                    <button>Save to MyPage</button>
+                </form>
             }
         </div>
 

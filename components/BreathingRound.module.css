@@ -46,6 +46,28 @@
     bottom: -3rem;  
 }
 
+.pauseBtn,
+.playBtn {
+    position: absolute;
+    bottom: -1rem;
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+}
+
+.pauseBtn {
+    background-image: url(../public/images/pause.svg);
+}
+
+.playBtn {
+    background-image: url(../public/images/play.svg);   
+}
+
+.pauseBtn:hover,
+.playBtn:hover {
+    cursor: pointer;
+}
+
 .pause {
     font-size: 3rem;
     opacity: 50%;

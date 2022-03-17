@@ -232,7 +232,13 @@ function BreathingRound({
                 }
             </div>
 
+
             {isPaused && <div className={styles.pause}>PAUSED</div>}
+
+            <div 
+                className={isPaused ? styles.playBtn : styles.pauseBtn}
+                onClick={pauseRoundHandler}
+            />
 
         </div>
         );
