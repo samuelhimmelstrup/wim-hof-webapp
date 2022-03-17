@@ -1,5 +1,6 @@
 import styles from './Header.module.css';
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { auth } from '../firebase/clientApp';
 import SignInButton from './SignInButton';
 import { Context } from '../firebase/FavoritesContext'
@@ -9,10 +10,12 @@ function Header() {
 
     const context = useContext(Context);
     const { user, favArray } = context;
+    const router = useRouter()
+
 
     const signOutHandler = () => {
         auth.signOut();
-        // TODO: Go back to homepage
+        router.push('/');
     }
 
     return ( 

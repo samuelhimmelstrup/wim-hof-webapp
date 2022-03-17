@@ -1,19 +1,9 @@
-// import { db } from '../../firebase/clientApp';
-// import { collection, doc, setDoc, getDoc, addDoc } from 'firebase/firestore';
 
-
-// const handler = (req, res) => {
-//     fetch sessions fra databasen
-// }
-
-//     const docRef = doc(db, 'predefinedSessions', 'Session1');
-//     const docSnap = await getDoc(docRef);
-//     if (docSnap) {
-//       console.log('Document data:', docSnap);
-//     } else {
-//       console.log('No such document!');
-//     }
-
+export const BreathPaceValues = {
+    slow: 6,
+    medium: 4,
+    quick: 2
+}
 
 // DATA FORMAT OVERVIEW:
 // metadata (title, number of rounds, level)

@@ -16,23 +16,17 @@ IMPORTANT
 - DELETE MY USER AND REMAKE IT (favArray off)
     - maybe just delete array items (ArrayRemove)
 
-- Remove Round field from sessionData objects (infer from index)?
-    - BreathingSession uses round, change that
-
-- Go back to homepage on SignOut (do it in SignOut button function)
-
-- Make it possible to go back to frontpage while in session
-
 - More laidback breathing sounds
 
-- Fix error "cannot update comp while rendering another"
+
 
 
 - NICE TO
 
+- combine stage '3count' with rest (have still BreathBubble when 3 count shows)
 - Remove outermost border on SessionItem (where it shows holds)
 - Make it possible to move rounds in dynamic form (how do I change round?)
-- Back button som komponent over det hele
+- Fix error "cannot update comp while rendering another"
 - Field for title in form if user chooses to save
 
 - SVG for silentHold

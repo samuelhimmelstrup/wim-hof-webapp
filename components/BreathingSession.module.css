@@ -1,8 +1,9 @@
-.container {
+.sessionContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: var(--color1);
 }
 
 .title {
@@ -15,14 +16,13 @@
 }
 
 .roundContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
   
-  .hidden {
-    display: none;
-  }
-  
+.hidden {
+  display: none;
+}

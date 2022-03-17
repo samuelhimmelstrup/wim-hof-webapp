@@ -7,7 +7,7 @@
   font-family: 'Lato', sans-serif;
   background-color: black;
   --color1: rgb(230, 226, 198);
-  --color2: rgb(230, 226, 198);
+  --color2: #422ec1;
   --borderStyle: 2px solid rgb(0, 0, 0);
   /* --boxShadow: 2px 2px 2px 2px rgba(96, 89, 133, 0.543); */
 }

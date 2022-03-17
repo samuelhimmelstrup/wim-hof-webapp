@@ -6,7 +6,7 @@ import SessionModal from './SessionModal';
 import SessionItem from './SessionItem';
 import { SignInWithGoogle } from '../firebase/SignInWithGoogle';
 import { DUMMY_SESSIONS } from '../api/fetchSessions';
-import Layout from '../layout/Layout';
+import ModalWrapper from '../layout/ModalWrapper';
 
 
 function Sessions( { onletsGoClick } ) {
@@ -79,14 +79,14 @@ function Sessions( { onletsGoClick } ) {
 
                 {promptLogin && 
                     <Backdrop onClick={() => setPromptLogin(!promptLogin)}>
-                        <Layout>
+                        <ModalWrapper>
                             <p>Sign in to save as favorite</p>
                             <button
                                 className={styles.signInBtn} 
                                 onClick={SignInWithGoogle}>
                                 Sign In
                             </button>
-                        </Layout>
+                        </ModalWrapper>
                     </Backdrop>
                 }
             </div>

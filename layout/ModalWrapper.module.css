@@ -1,0 +1,13 @@
+.modalWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color1);
+    border-radius: 20px; 
+    padding: 5px;
+    width: 400px;
+    height: 400px;
+}
+
+

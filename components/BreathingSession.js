@@ -4,6 +4,7 @@ import BreathingRound from './BreathingRound'
 import useSound from 'use-sound'
 import { motion } from 'framer-motion'
 import Layout from '../layout/Layout'
+import EndOfSession from './EndOfSession'
 
 // THIS COMP HANDLES RENDERING OF ROUNDS & PLAYING MUSIC
 
@@ -13,19 +14,21 @@ function BreathingSession({ data }) {
   const musicUrl = data.musicUrl;
   const [roundNumber, setRoundNumber] = useState(0);
   const [musicVolume, setMusicVolume] = useState(0.7);
-
-  // stop music on unMount
-  useEffect(() => {
-    return () => {
-        stop();
-    }
-  }, [])
   
   const [playMusic, { pause, stop, duration, sound }] = useSound(
     musicUrl,
     { volume: musicVolume, loop: true },
     { interrupt: true }
     );
+
+  // stop music on unMount
+  useEffect(() => {
+    console.log("mounted")
+    return () => {
+      console.log(pauseMusicHandler())
+      console.log("unmounted")
+    }
+  }, [])
 
   const fadeMusicHandler = (breathLength) => {
     sound.fade(musicVolume, 0, breathLength * 1000)
@@ -51,6 +54,7 @@ function BreathingSession({ data }) {
     setRoundNumber(roundNumber + 1);
   }
 
+
   if (roundNumber == 0) {
     return (
       <Layout>
@@ -74,8 +78,7 @@ function BreathingSession({ data }) {
 
   if (roundNumber != 0) {
     return (
-      <div className={styles.sessionContainer}>
-      
+      <Layout>      
         {sessionData.map((roundObj, index) => {
 
           return (
@@ -95,13 +98,10 @@ function BreathingSession({ data }) {
           })
         }
 
-        {roundNumber == (sessionData.length + 1) && 
-            <div>
-              <h1>Well Done Champ Champesen</h1>
-              <p></p>
-            </div>
+        {roundNumber == (sessionData.length + 1) &&             
+          <EndOfSession />    
         }
-      </div>
+        </Layout>
     )
   }
 }

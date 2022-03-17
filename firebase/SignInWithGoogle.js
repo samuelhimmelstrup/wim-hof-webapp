@@ -13,7 +13,7 @@ export const SignInWithGoogle = async () => {
   
     // check if promise resolves + check if user exists. If yes and no --> saveUserToDb
     // maybe remove the 'uid' part??
-    if (result.user.uid) {
+    if (result.user) {
       
       // This might be better, as it doesn't require db reads
       // if (result.user.metadata.lastSignInTime != null) {

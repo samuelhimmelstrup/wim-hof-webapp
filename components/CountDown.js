@@ -1,6 +1,6 @@
 import styles from "./CountDown.module.css"
 import useCountdown from "@bradgarropy/use-countdown"
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 
 
 function CountDown(props) {
@@ -12,13 +12,13 @@ function CountDown(props) {
         onCompleted: props.onComplete,
     })
 
-    const { minutes, seconds, isRunning, pause, resume } = countdown
+    const { minutes, seconds, isRunning, pause, resume } = countdown;
     
-    const pauseHandler = useCallback(() => {
+    const pauseHandler = () => {
         if (isRunning) pause(); 
         if (!isRunning) resume();
         props.onPaused(); 
-    })
+    }
 
     // inhale, exhale, last inhale
     useEffect(() => {
@@ -44,7 +44,8 @@ function CountDown(props) {
     return (
         <div className={styles.countDownContainer}>
             <p className={styles.time}>
-                {minutes !== 0 ? `${minutes}:${seconds}` 
+                {minutes !== 0 ? `${minutes}:${seconds}`
+                : minutes !== 0 && seconds < 10 ? `${minutes}:0${seconds}`
                 : minutes == 1 && seconds == 0 ? seconds
                 : seconds}
             </p>

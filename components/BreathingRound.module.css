@@ -1,7 +1,7 @@
 .container {
     position: relative;
-    height: 90%;
-    width: 80%;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,6 +13,8 @@
 }
 
 .title {
+    position: absolute;
+    top: -2rem;
     text-align: center;
 }
 
@@ -21,6 +23,7 @@
 }
 
 .breathBubbleContainer {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,6 +41,11 @@
     z-index: 1;
 }
 
+.timerContainer {
+    position: absolute;
+    bottom: -3rem;  
+}
+
 .pause {
     font-size: 3rem;
     opacity: 50%;
@@ -45,6 +53,6 @@
     position: absolute;
 }
 
-.hidden {
+/* .hidden {
     opacity: 0;
-}
+} */

@@ -1,5 +1,6 @@
 import styles from './SessionModal.module.css'
 import { motion } from 'framer-motion';
+import { BreathPaceValues } from '../api/fetchSessions'
 
 function SessionModal({data, onChildClick}) {
 
@@ -21,6 +22,8 @@ function SessionModal({data, onChildClick}) {
     //     };
     //     }, [])
 
+    const { slow, medium, quick } = BreathPaceValues;
+
     return (
         <motion.div 
             className={styles.modalWrapper}
@@ -32,13 +35,13 @@ function SessionModal({data, onChildClick}) {
                     
                     const { round, breaths, breathPace, hold } = roundData;
                     const pace = 
-                        breathPace == 'slow' ? 6 : 
-                        breathPace == 'medium' ? 4 : 2
+                        breathPace == 'slow' ? slow : 
+                        breathPace == 'medium' ? medium : quick
                     const minutes = Math.floor(hold / 60)
                     const seconds = hold % 60
                      
                     return (
-                        <div key={round} className={styles.roundInfo}>
+                        <div key={index} className={styles.roundInfo}>
                             <div className={styles.singleInfoBox}>
                                 <p>Round {index + 1}</p>
                             </div>     
