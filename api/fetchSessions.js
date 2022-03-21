@@ -11,12 +11,47 @@ export const BreathPaceValues = {
 
 export const DUMMY_SESSIONS = [
     { 
+        id: 7,
+        title: 'Mix Breath Test',
+        level: 'beginner',
+        musicUrl: '/sounds/ambient1.mp3',
+        sessionData:[
+        { 
+            type: 'Box',
+            cycles: 10,
+            breathPace: 4,
+        },
+        {
+            type: 'Wim Hof', 
+            type: 'Wim Hof', 
+            breaths: 2,
+            breathPace: 'quick',
+            hold: 2,
+            silentHold: false,
+        }
+        ]
+    },
+    { 
+        id: 8,
+        title: 'Box Breath Test',
+        level: 'beginner',
+        musicUrl: '/sounds/ambient1.mp3',
+        sessionData:[
+        { 
+            type: 'Box',
+            cycles: 10,
+            breathPace: 4,
+        }
+        ]
+    },
+    { 
         id: 9,
         title: 'Quick Test',
         level: 'beginner',
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
-        { 
+        {    
+            type: 'Wim Hof', 
             breaths: 2,
             breathPace: 'quick',
             hold: 2,
@@ -31,18 +66,21 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
         { 
+            type: 'Wim Hof', 
             breaths: 4,
             breathPace: 'quick',
             hold: 4,
             silentHold: false,
         },
         { 
+            type: 'Wim Hof', 
             breaths: 4,
             breathPace: 'quick',
             hold: 4,
             silentHold: true,
         },
         { 
+            type: 'Wim Hof', 
             breaths: 2,
             breathPace: 'slow',
             hold: 2,
@@ -57,24 +95,28 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
+                type: 'Wim Hof', 
                 breaths: 20,
                 breathPace: 'medium',
                 hold: 90,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 25,
                 breathPace: 'medium', 
                 hold: 100,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 25,
                 breathPace: 'quick',
                 hold: 120,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 30,
                 breathPace: 'quick',
                 hold: 120,
@@ -89,30 +131,35 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
+                type: 'Wim Hof', 
                 breaths: 30,
                 breathPace: 'slow',
                 hold: 90,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 30,
                 breathPace: 'medium', 
                 hold: 90,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 30,
                 breathPace: 'medium', 
                 hold: 120,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 40,
                 breathPace: 'quick', 
                 hold: 120,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 40,
                 breathPace: 'quick',
                 hold: 150,
@@ -127,18 +174,21 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
         { 
+            type: 'Wim Hof', 
             breaths: 20,
             breathPace: 'medium',
             hold: 60,
             silentHold: false,
         },
         { 
+            type: 'Wim Hof', 
             breaths: 30,
             breathPace: 'medium', 
             hold: 90,
             silentHold: false,
         },
         { 
+            type: 'Wim Hof', 
             breaths: 30,
             breathPace: 'medium', 
             hold: 90,
@@ -153,24 +203,28 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
+                type: 'Wim Hof', 
                 breaths: 25,
                 breathPace: 'medium',
                 hold: 90,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 25,
                 breathPace: 'medium', 
                 hold: 90,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 30,
                 breathPace: 'medium', 
                 hold: 120,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 30,
                 breathPace: 'quick', 
                 hold: 120,
@@ -185,30 +239,35 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
+                type: 'Wim Hof', 
                 breaths: 25,
                 breathPace: 'quick',
                 hold: 90,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 25,
                 breathPace: 'quick', 
                 hold: 120,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 30,
                 breathPace: 'quick', 
                 hold: 120,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 30,
                 breathPace: 'quick', 
                 hold: 120,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 35,
                 breathPace: 'quick', 
                 hold: 150,
@@ -223,18 +282,21 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
         { 
+            type: 'Wim Hof', 
             breaths: 15,
             breathPace: 'slow',
             hold: 60,
             silentHold: false,
         },
         { 
+            type: 'Wim Hof', 
             breaths: 15,
             breathPace: 'slow', 
             hold: 60,
             silentHold: false,
         },
         { 
+            type: 'Wim Hof', 
             breaths: 15,
             breathPace: 'slow', 
             hold: 90,
@@ -249,24 +311,28 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
+                type: 'Wim Hof', 
                 breaths: 20,
                 breathPace: 'medium',
                 hold: 60,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 25,
                 breathPace: 'medium', 
                 hold: 80,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 30,
                 breathPace: 'slow', 
                 hold: 100,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 35,
                 breathPace: 'quick', 
                 hold: 120,
@@ -281,30 +347,35 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
+                type: 'Wim Hof', 
                 breaths: 40,
                 breathPace: 'medium',
                 hold: 120,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 40,
                 breathPace: 'medium', 
                 hold: 120,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 40,
                 breathPace: 'medium', 
                 hold: 150,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 40,
                 breathPace: 'quick', 
                 hold: 150,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 40,
                 breathPace: 'slow', 
                 hold: 180,
@@ -319,18 +390,21 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
         { 
+            type: 'Wim Hof', 
             breaths: 8,
             breathPace: 'quick',
             hold: 8,
             silentHold: false,
         },
         { 
+            type: 'Wim Hof', 
             breaths: 6,
             breathPace: 'medium', 
             hold: 8,
             silentHold: false,
         },
         { 
+            type: 'Wim Hof', 
             breaths: 4,
             breathPace: 'slow', 
             hold: 10,
@@ -345,24 +419,28 @@ export const DUMMY_SESSIONS = [
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
             { 
+                type: 'Wim Hof', 
                 breaths: 8,
                 breathPace: 'quick',
                 hold: 8,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 6,
                 breathPace: 'medium', 
                 hold: 8,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 4,
                 breathPace: 'slow', 
                 hold: 6,
                 silentHold: false,
             },
             { 
+                type: 'Wim Hof', 
                 breaths: 4,
                 breathPace: 'quick', 
                 hold: 6,

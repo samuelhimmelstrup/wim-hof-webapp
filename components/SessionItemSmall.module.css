@@ -1,0 +1,66 @@
+.itemWrapper1,
+.itemWrapper2,
+.itemWrapper3 {
+    position: relative;
+    background-color: var(--color1);
+    background-size: cover;
+    border-radius: 20px; 
+    box-shadow: var(--boxShadow);
+    padding: 5px;
+    margin: 5%; 
+    width: 300px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    overflow: scroll;
+}
+
+/* .itemWrapper1 {
+    border: 5px solid green;
+}
+
+.itemWrapper2 {
+    border: 5px solid blue;
+}
+
+.itemWrapper3 {
+    border: 5px solid black;
+} */
+
+.itemWrapper1:hover,
+.itemWrapper2:hover,
+.itemWrapper3:hover {
+    cursor: pointer;
+}
+
+.title {
+    width: 100%;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 0.5;
+    height: 35%;
+    /* border-bottom: var(--borderStyle); */
+}
+
+.roundsInfo {
+    margin-top: 1rem;
+    display: none;
+}
+
+.holdsInfo {
+    margin-top: 0.5rem;
+    width: 70%;
+    font-size: 0.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.singleHoldInfo {
+    padding: 0 0.4rem;
+    margin: 0.3rem 0;
+    border-right: 1px solid grey;
+}

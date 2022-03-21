@@ -3,7 +3,7 @@ import Wrapper from '../layout/Wrapper'
 import { DUMMY_SESSIONS } from '../api/fetchSessions'
 import { Context } from '../firebase/FavoritesContext'
 import { useContext, useEffect } from 'react'
-import SessionItem from '../components/SessionItem'
+import SessionItemSmall from '../components/SessionItemSmall'
 
 function MyPage() {
 
@@ -21,7 +21,7 @@ function MyPage() {
     return ( 
         <Wrapper>
         <div className={styles.container}>
-            <h1>My Personal Page</h1>
+            <h1 className={styles.title}>My Personal Page</h1>
 
             <div className={styles.contentContainer}>
                 <div className={styles.diaryContainer}>
@@ -36,7 +36,7 @@ function MyPage() {
                 {DUMMY_SESSIONS.map(session => {
                     if (favArray.includes(session.id)) {
                         return (
-                            <SessionItem 
+                            <SessionItemSmall 
                                 key={session.id} 
                                 props={session} 
                                 onChildClick={() => clickSessionHandler(id)}

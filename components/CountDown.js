@@ -3,28 +3,27 @@ import useCountdown from "@bradgarropy/use-countdown"
 import { useEffect } from "react";
 
 
-function CountDown(props) {
-
-    const { time, breathLength } = props; 
+function CountDown({ time, breathLength, onPaused, onInhale, onExhale, onLastInhale, onComplete }) {
 
     const countdown = useCountdown({
         seconds: time,
-        onCompleted: props.onComplete,
+        onCompleted: onComplete,
     })
+
 
     const { minutes, seconds, isRunning, pause, resume } = countdown;
     
     const pauseHandler = () => {
         if (isRunning) pause(); 
         if (!isRunning) resume();
-        props.onPaused(); 
-    }
+        onPaused(); 
+    } 
 
     // inhale, exhale, last inhale
     useEffect(() => {
-        if (seconds % breathLength == breathLength / 2 && seconds > breathLength) props.onExhale();
-        if (seconds % breathLength == 0 && seconds !== 0) props.onInhale();
-        if (seconds == breathLength) props.onLastInhale();
+        if (seconds % breathLength == breathLength / 2 && seconds > breathLength) onExhale();
+        if (seconds % breathLength == 0 && seconds !== 0) onInhale();
+        if (seconds == breathLength) onLastInhale();
     }, [seconds])
 
     // Handles space = pause

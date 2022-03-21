@@ -4,10 +4,12 @@ import { doc, setDoc } from 'firebase/firestore'
 import { Context } from '../firebase/FavoritesContext'
 import { useContext } from 'react'
 import SignInButton from './SignInButton'
+// import ReactQuill from 'react-quill';
+// import 'react-quill/dist/quill.snow.css';
+
+{/* <ReactQuill theme="snow" value={value} onChange={setValue}/> */}
 
 function EndOfSession() {
-    
-    // USE QUILL https://quilljs.com/playground/
 
     const { user } = useContext(Context);
 
@@ -44,6 +46,7 @@ function EndOfSession() {
                 <form 
                     className={styles.form}
                     onSubmit={submitHandler}>
+                    
                     <input 
                         type='textarea' 
                         placeholder="Write your thoughts here"

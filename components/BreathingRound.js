@@ -56,7 +56,6 @@ function BreathingRound({
 
     const exhaleHandler = () => {
         setBreathStage('exhale');
-        console.log("exhale")  // TODO
         playExhale();
         setCount(count + 1);
     }
@@ -96,9 +95,9 @@ function BreathingRound({
 
     // ANIMATION VARIABLES
     const scaleOfBubble = useMotionValue(1);
-    const colorOfBubble = useMotionValue('#FFF385');
-    const color1 = '#FFF385';
-    const color2 = '#E0D35E';
+    const colorOfBubble = useMotionValue('#2BB1F5');
+    const color1 = '#2BB1F5';
+    const color2 = '#0025C7';
     const bubbleVariants = {
         animationInhale: {
             scale: [scaleOfBubble.get(), 3],
@@ -149,100 +148,101 @@ function BreathingRound({
 
     // RETURNS 
 
-    if (stage == '3count') {
-        return (        
-            <div className={styles.container}>
-                <h1 className={styles.title}>Prepare for round {round}</h1> 
-                <CountDown 
-                    time={3} 
-                    onPaused={pauseRoundHandler} 
-                    onComplete={endOfThreeCountHandler} 
-                />
-                
-                {isPaused && <div className={styles.pause}>PAUSED</div>}
-            </div>    
-        )
-    }
+    return (  
+        <div className={styles.container}>  
 
-    if (stage !== '3count') {
-        return (        
-        
-        <div className={styles.container}>
-            <h1 className={styles.title}>Round: {round}</h1> 
-
-            {/* THE ANIMATED BUBBLE */}
-            <div className={styles.breathBubbleContainer}>
-                <motion.div 
-                    className={styles.breathBubble}
-                    variants={bubbleVariants}
-                    style={{scale:scaleOfBubble, backgroundColor:colorOfBubble}}
-                    initial={{ backgroundColor: color1 }}
-                    animate={
-                        isPaused ? 'animationPaused' 
-                        : stage == 'breathing' && breathStage == 'inhale' ? 'animationInhale'  
-                        : stage == 'breathing' && breathStage == 'exhale' ? 'animationExhale'  
-                        : stage == 'lastBreath' ? 'animationLastInhale' 
-                        : stage == 'breathhold' ? 'animationHold'
-                        : stage == '15count' ? 'animation15Count' 
-                        : 'animationPaused'}
-                    >
-                    <p className={styles.counter}>
-                        {stage == 'breathing' ? `Breaths: ${count}` 
-                        : stage == 'breathhold' ? 'Hold that breath'
-                        : stage == 'lastBreath' ? 'Fully In!' 
-                        : stage == '15count' ? 'Hold for 15 sec' : ''}
-                    </p>
-                </motion.div>
-            </div>
-            
-            <div className={styles.timerContainer}>
-                {/* BREATH TIMER */}
-                {(stage == 'breathing' || stage == 'lastBreath' ) &&
-                    <div className={styles.hidden}>
-                        <CountDown 
-                            time={breaths*breathLength}
-                            onExhale={exhaleHandler}
-                            onInhale={inhaleHandler}
-                            onLastInhale={lastInhaleHandler}
-                            breathLength={breathLength} 
-                            onComplete={endOfBreathingHandler} 
-                            onPaused={pauseRoundHandler} 
-                        />
-                    </div>
-                }   
-
-                {/* BREATHHOLD TIMER */}
-                {stage == 'breathhold' && 
-                    <div className={styles.breathHoldContainer}>
-                        <CountDown 
-                            time={hold} 
-                            onComplete={endOfHoldHandler} 
-                            onPaused={pauseRoundHandler} 
-                        />
-                    </div>
-                }
-                
-                {/* 15 COUNT TIMER */}
-                {stage == '15count' &&
+            {stage == '3count' && 
+                <>
+                    <h1 className={styles.title}>Prepare for round {round}</h1> 
                     <CountDown 
-                        time={2}
-                        onComplete={endOfRoundHandler}
-                        onPaused={pauseRoundHandler}
+                        time={3} 
+                        onPaused={pauseRoundHandler} 
+                        onComplete={endOfThreeCountHandler} 
                     />
-                }
-            </div>
+                    
+                    {isPaused && <div className={styles.pause}>PAUSED</div>}
+                </>
+            }
 
+            {stage !== '3count' &&
+                <>
+                <h1 className={styles.title}>Round: {round}</h1> 
 
-            {isPaused && <div className={styles.pause}>PAUSED</div>}
+                {/* THE ANIMATED BUBBLE */}
+                <div className={styles.breathBubbleContainer}>
+                    <motion.div 
+                        className={styles.breathBubble}
+                        variants={bubbleVariants}
+                        style={{ scale:scaleOfBubble, backgroundColor:colorOfBubble }}
+                        initial={{ backgroundColor: color1 }}
+                        animate={
+                            isPaused ? 'animationPaused' 
+                            : stage == 'breathing' && breathStage == 'inhale' ? 'animationInhale'  
+                            : stage == 'breathing' && breathStage == 'exhale' ? 'animationExhale'  
+                            : stage == 'lastBreath' ? 'animationLastInhale' 
+                            : stage == 'breathhold' ? 'animationHold'
+                            : stage == '15count' ? 'animation15Count' 
+                            : 'animationPaused'}
+                        >
+                        <motion.p 
+                            className={styles.counter}
+                            initial={{ color: color1 }}                            
+                        >
+                            {stage == 'breathing' ? `Breaths: ${count}` 
+                            : stage == 'breathhold' ? 'Hold that breath'
+                            : stage == 'lastBreath' ? 'Fully In!' 
+                            : stage == '15count' ? 'Hold for 15 sec' : ''}
+                        </motion.p>
+                    </motion.div>
+                </div>
+                
+                <div className={styles.timerContainer}>
+                    {/* BREATH TIMER */}
+                    {(stage == 'breathing' || stage == 'lastBreath' ) &&
+                        <div className={styles.hidden}>
+                            <CountDown 
+                                time={breaths*breathLength}
+                                onExhale={exhaleHandler}
+                                onInhale={inhaleHandler}
+                                onLastInhale={lastInhaleHandler}
+                                breathLength={breathLength} 
+                                onComplete={endOfBreathingHandler} 
+                                onPaused={pauseRoundHandler} 
+                            />
+                        </div>
+                    }   
 
-            <div 
-                className={isPaused ? styles.playBtn : styles.pauseBtn}
-                onClick={pauseRoundHandler}
-            />
+                    {/* BREATHHOLD TIMER */}
+                    {stage == 'breathhold' && 
+                        <div className={styles.breathHoldContainer}>
+                            <CountDown 
+                                time={hold} 
+                                onComplete={endOfHoldHandler} 
+                                onPaused={pauseRoundHandler} 
+                            />
+                        </div>
+                    }
+                    
+                    {/* 15 COUNT TIMER */}
+                    {stage == '15count' &&
+                        <CountDown 
+                            time={2}
+                            onComplete={endOfRoundHandler}
+                            onPaused={pauseRoundHandler}
+                        />
+                    }
+                </div>
 
+                {isPaused && <div className={styles.pause}>PAUSED</div>}
+
+                <div 
+                    className={isPaused ? styles.playBtn : styles.pauseBtn}
+                    onClick={pauseRoundHandler}
+                />
+                </>         
+            }     
         </div>
-        );
-    }
+    );
 }
 
 export default BreathingRound;

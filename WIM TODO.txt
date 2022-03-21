@@ -1,5 +1,9 @@
 - NEED TO
 
+- QUILLUM for rich text editor
+
+- UUID for sessions
+
 - Move all sound to BreathingSession
     - maybe not necessary
 - Field for silentHold
@@ -7,8 +11,6 @@
 IMPORTANT
 - Stop music when session ends
 - And stop music when you go back from session
-
-- Make pause button (with pause/play SVG) in rounds for phones
 
 - Add to favorite doesnt fucking work
     - doesnt fucking update
@@ -18,7 +20,7 @@ IMPORTANT
 
 - More laidback breathing sounds
 
-
+- Make pause button as component
 
 
 - NICE TO

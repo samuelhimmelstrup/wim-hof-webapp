@@ -1,6 +1,6 @@
 import styles from './SessionModal.module.css'
 import { motion } from 'framer-motion';
-import { BreathPaceValues } from '../api/fetchSessions'
+import { BreathPaceValues } from '../api/fetchSessions'
 
 function SessionModal({data, onChildClick}) {
 
