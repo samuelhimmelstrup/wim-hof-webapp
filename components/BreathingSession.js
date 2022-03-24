@@ -77,7 +77,7 @@ function BreathingSession({ data }) {
               className={styles.spinningLoader}
               animate={{ rotate: '360deg' }}
               transition={{ duration: 0.1, repeat: Infinity }}
-            >SPINNING LOADER</motion.div>
+            />
         } 
       </>
     }

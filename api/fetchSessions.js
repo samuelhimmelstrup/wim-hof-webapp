@@ -5,14 +5,27 @@ export const BreathPaceValues = {
     quick: 2
 }
 
-// DATA FORMAT OVERVIEW:
-// metadata (title, number of rounds, level)
+export const defaultWimHofRound = {
+    type: 'Wim Hof',
+    breaths: 30,
+    breathPace: 'medium',
+    hold: 90,
+    silentHold: false
+}
+export const defaultBoxRound = {
+    type: 'Box',
+    cycles: 25,
+    breathPace: 4
+}
+
+// DATA FORMAT OVERVIEW: // metadata (title, number of rounds, level)
 // sessionData
 
 export const DUMMY_SESSIONS = [
     { 
         id: 7,
         title: 'Mix Breath Test',
+        sessionType: 'Mix',
         level: 'beginner',
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
@@ -22,7 +35,6 @@ export const DUMMY_SESSIONS = [
             breathPace: 4,
         },
         {
-            type: 'Wim Hof', 
             type: 'Wim Hof', 
             breaths: 2,
             breathPace: 'quick',
@@ -34,6 +46,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 8,
         title: 'Box Breath Test',
+        sessionType: 'Box',
         level: 'beginner',
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
@@ -47,6 +60,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 9,
         title: 'Quick Test',
+        sessionType: 'Wim Hof',
         level: 'beginner',
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
@@ -62,6 +76,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 10,
         title: 'Quick Test 2',
+        sessionType: 'Wim Hof',
         level: 'beginner',
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
@@ -91,6 +106,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 11,
         title: 'Glory',
+        sessionType: 'Wim Hof',
         level: 'intermediate',
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
@@ -127,6 +143,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 12,
         title: 'Deep',
+        sessionType: 'Wim Hof',
         level: 'advanced',
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
@@ -170,6 +187,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 14,
         title: 'Easy',
+        sessionType: 'Wim Hof',
         level: 'beginner',
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
@@ -199,6 +217,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 15,
         title: 'Dont Give Up',
+        sessionType: 'Wim Hof',
         level: 'intermediate',
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
@@ -235,6 +254,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 16,
         title: 'Rapido',
+        sessionType: 'Wim Hof',
         level: 'advanced',
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
@@ -278,6 +298,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 17,
         title: 'Take It Slow',
+        sessionType: 'Wim Hof',
         level: 'beginner',
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
@@ -307,6 +328,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 18,
         title: 'Always Loved',
+        sessionType: 'Wim Hof',
         level: 'intermediate',
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
@@ -343,6 +365,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 19,
         title: 'Hard Work',
+        sessionType: 'Wim Hof',
         level: 'advanced',
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
@@ -386,6 +409,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 20,
         title: 'Better You',
+        sessionType: 'Wim Hof',
         level: 'beginner',
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[
@@ -415,6 +439,7 @@ export const DUMMY_SESSIONS = [
     { 
         id: 21,
         title: 'Dont Give Up',
+        sessionType: 'Wim Hof',
         level: 'intermediate',
         musicUrl: '/sounds/ambient1.mp3',
         sessionData:[

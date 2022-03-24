@@ -4,7 +4,7 @@ import FavoriteButton from './FavoriteButton';
 
 
 function SessionItem({props, onChildClick, onPromptLogin}) {
-    const { id, title, level, sessionData } = props;
+    const { sessionType, id, title, level, sessionData } = props;
     const numberOfRounds = sessionData.length;
 
 
@@ -19,6 +19,7 @@ function SessionItem({props, onChildClick, onPromptLogin}) {
         >
             
             <h1 className={styles.title}>{title}</h1>
+            <div className={styles.line}/>
             <FavoriteButton 
                 id={id} 
                 onPromptLogin={onPromptLogin}
@@ -27,22 +28,44 @@ function SessionItem({props, onChildClick, onPromptLogin}) {
                 {numberOfRounds} {numberOfRounds == 1 ? 'round' : 'rounds'}
             </p>
             <div className={styles.holdsInfo}>
-
                 {sessionData.map((roundObj, index) => {
-                    const { hold } = roundObj
+                    const { hold, cycles, type } = roundObj
                     const min = Math.floor(hold / 60)
                     const sec = hold % 60
+                    if (type == 'Wim Hof') { 
+                        return (
+                            <>
+                            <p className={styles.singleHoldInfo} key={index}>
+                                {min}:{sec < 10 ? `0${sec}` : sec}
+                            </p>
+                            
+                            </>
+                        )
+                    }
+                    else if (type == 'Box') {
+                        return (
+                            <>
+                                <p className={styles.singleBoxInfo} key={index}>
+                                    {cycles}
+                                </p>
+                                
+                            </>
+                        )
+                    }
 
-                    return (
-                        <p 
-                            className={styles.singleHoldInfo} 
-                            key={index}
-                        >
-                            {min}:{sec < 10 ? `0${sec}` : sec}
-                        </p>
-                    )
                 })}
             </div>
+            
+            {sessionType == 'Wim Hof' &&
+                <div className={styles.lungs} />
+            }
+            {sessionType == 'Box' &&
+                <div className={styles.box} />
+            }
+            {sessionType == 'Mix' &&
+                <div className={styles.mix} />
+            }
+
         </motion.div>   
      );
 }

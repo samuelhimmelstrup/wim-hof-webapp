@@ -1,7 +1,7 @@
 .container {
     position: relative;
-    height: 100%;
-    width: 100%;
+    height: 400px;
+    width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,7 +49,7 @@
 .pauseBtn,
 .playBtn {
     position: absolute;
-    bottom: -1rem;
+    bottom: -2rem;
     right: 1rem;
     width: 50px;
     height: 50px;
@@ -69,12 +69,16 @@
 }
 
 .pause {
-    font-size: 3rem;
+    font-size: 20vw;
     opacity: 50%;
     z-index: 2;
     position: absolute;
 }
 
-/* .hidden {
+.hidden {
     opacity: 0;
-} */
+}
+
+    /* @media screen and (max-width: 600px) {
+
+    } */

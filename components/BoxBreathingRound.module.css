@@ -36,19 +36,7 @@
     width: 250px;
     height: 250px;
     border-radius: 5px;
-    background-image: linear-gradient(
-        30deg,
-        hsl(200deg 91% 56%) 0%,
-        hsl(202deg 87% 55%) 14%,
-        hsl(204deg 84% 54%) 31%,
-        hsl(206deg 80% 52%) 48%,
-        hsl(208deg 77% 51%) 64%,
-        hsl(211deg 77% 49%) 76%,
-        hsl(214deg 79% 47%) 86%,
-        hsl(218deg 82% 45%) 93%,
-        hsl(223deg 87% 43%) 98%,
-        hsl(229deg 100% 39%) 100%
-        );
+    background-image: var(--color2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,7 +61,7 @@
 .pauseBtn,
 .playBtn {
     position: absolute;
-    bottom: -1rem;
+    bottom: -2¨rem;
     right: 1rem;
     width: 50px;
     height: 50px;
@@ -93,12 +81,12 @@
 }
 
 .pause {
-    font-size: 3rem;
+    font-size: 20vw;
     opacity: 50%;
     z-index: 2;
     position: absolute;
 }
 
-/* .hidden {
+.hidden {
     opacity: 0;
-} */
+}

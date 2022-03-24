@@ -4,6 +4,7 @@ import { motion, useMotionValue } from 'framer-motion'
 import CountDown from './CountDown'
 import useSound from 'use-sound'
 import { BreathPaceValues } from '../api/fetchSessions'
+import Backdrop from '../layout/Backdrop'
 
 // THIS COMP HANDLES BREATHING SOUNDS, BUT NOT MUSIC (HANDLED BY BreathingSession)
 
@@ -101,7 +102,7 @@ function BreathingRound({
     const bubbleVariants = {
         animationInhale: {
             scale: [scaleOfBubble.get(), 3],
-            backgroundColor: [colorOfBubble.get(), color2],
+            // backgroundColor: [colorOfBubble.get(), color2],
             transition: {
                 duration: breathLength / 2,
                 easing: 'easeInOut',
@@ -109,7 +110,7 @@ function BreathingRound({
         }, 
         animationExhale: {
             scale: [scaleOfBubble.get(), 1],
-            backgroundColor: [colorOfBubble.get(), color1],
+            // backgroundColor: [colorOfBubble.get(), color1],
             transition: {
                 duration: breathLength / 2,
                 easing: 'easeInOut',
@@ -117,7 +118,7 @@ function BreathingRound({
         }, 
         animationLastInhale: {
             scale: [scaleOfBubble.get(), 3.5],
-            backgroundColor: [color1 , color2],
+            // backgroundColor: [color1 , color2],
             transition: {
                 duration: breathLength,
                 easing: 'easeInOut',
@@ -125,7 +126,7 @@ function BreathingRound({
         },
         animationHold: {
             scale: [scaleOfBubble.get(), 1],
-            backgroundColor: [color2 , color1],
+            // backgroundColor: [color2 , color1],
             transition: {
                 duration: hold, 
                 easing: 'easeInOut',
@@ -133,7 +134,7 @@ function BreathingRound({
         },
         animation15Count: {
             scale: [scaleOfBubble.get(), 3.5, 1],
-            backgroundColor: [color1 , color2],
+            // backgroundColor: [color1 , color2],
             transition: { 
                 duration: 15,
                 times: [0, 0.05, 1],
@@ -151,9 +152,21 @@ function BreathingRound({
     return (  
         <div className={styles.container}>  
 
+            <h1 className={styles.title}>Round: {round}</h1> 
+
             {stage == '3count' && 
                 <>
-                    <h1 className={styles.title}>Prepare for round {round}</h1> 
+                    {/* <div className={styles.breathBubbleContainer}>
+                        <motion.div 
+                            className={styles.breathBubble}
+                            initial={{ backgroundColor: color1, scale: 1 }}
+                            >
+                            <motion.p 
+                                className={styles.counter}
+                                initial={{ color: 'white', fontWeight: 'bold' }}                            
+                            >Prepare for next round</motion.p>
+                        </motion.div>
+                    </div> */}
                     <CountDown 
                         time={3} 
                         onPaused={pauseRoundHandler} 
@@ -161,12 +174,16 @@ function BreathingRound({
                     />
                     
                     {isPaused && <div className={styles.pause}>PAUSED</div>}
+                    
+                    <div 
+                        className={isPaused ? styles.playBtn : styles.pauseBtn}
+                        onClick={pauseRoundHandler}
+                    />
                 </>
             }
 
             {stage !== '3count' &&
                 <>
-                <h1 className={styles.title}>Round: {round}</h1> 
 
                 {/* THE ANIMATED BUBBLE */}
                 <div className={styles.breathBubbleContainer}>
@@ -186,7 +203,7 @@ function BreathingRound({
                         >
                         <motion.p 
                             className={styles.counter}
-                            initial={{ color: color1 }}                            
+                            initial={{ color: 'white', fontWeight: 'bold' }}                            
                         >
                             {stage == 'breathing' ? `Breaths: ${count}` 
                             : stage == 'breathhold' ? 'Hold that breath'
@@ -233,7 +250,9 @@ function BreathingRound({
                     }
                 </div>
 
-                {isPaused && <div className={styles.pause}>PAUSED</div>}
+                {isPaused && 
+                    <div className={styles.pause}>PAUSED</div>
+                }
 
                 <div 
                     className={isPaused ? styles.playBtn : styles.pauseBtn}

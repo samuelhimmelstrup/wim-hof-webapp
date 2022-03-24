@@ -23,11 +23,11 @@ function Header() {
             <div className={styles.infoDiv}>
                 <Link href='/'>
                     <h1 className={styles.title}>
-                        Wim Hof Breathing
+                        Time To Breathe
                     </h1>     
                 </Link>
-                <p className={styles.info}>Do this and then that and then this again. <br/>
-                If you press this then this will happen. Do it.</p>  
+                <p className={styles.info}>In, out, in, out, in, out. Clear your mind<br/>
+                Choose a session, or build your own</p>  
             </div>
 
             <div className={styles.buttonsDiv}>
@@ -40,9 +40,9 @@ function Header() {
                                 My Page
                             </h1>
                         </Link>
-                        <p className={styles.favoritesCount}>    
-                            Favs: {favArray.length}
-                        </p>
+                            <div className={styles.favoriteSVG}>
+                                <p className={styles.favoritesCount}>{favArray.length}</p>
+                            </div>  
 
                         <button 
                             className={styles.signOutBtn}

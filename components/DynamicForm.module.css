@@ -5,25 +5,56 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: scroll;
 }
 
 .allInputsDiv {
     display: flex;
 }
 
-.formElement {
-    margin: 0.5rem;
-    background-color: var(--color1);
-    border-radius: 45px;
-    height: 350px;
-    /* width: 250px;    */
-    padding: 0.2rem;
+.flexDiv {
+    position: absolute;
+    top: 1rem;
+    width: 70%;   
+    height: 25px; 
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.toggleRoundTypeIcon {
+    width: 22px;
+    height: 22px;
+    background-image: url(../public/images/next.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.typeOfRound {
+    font-style: italic;
+}
+
+.flexColumnDiv {
+    position: absolute;
+    top: 3.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: var(--boxShadow);
+}
+
+.roundNumber {
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+.roundSpecificDiv {
+    width: 90%;
+    position: absolute;
+    top: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .breathsInputDiv,
@@ -51,13 +82,13 @@
     margin-left: 10px;
     border-radius: 0;
 }
+
 .openUpSelectorsBtn {
     background-image: url(../public/images/arrowsBlack.svg);
 }
 
 .removeBtn {
     background-image: url(../public/images/remove.svg);
-    margin-right: rem;
 }
 
 .copyBtn {
@@ -69,14 +100,23 @@
     display: flex;
     justify-content: center;
     width: 80%;
+    margin-top: 0.5rem;
 }
 
 /* .slider {
     
 } */
 
+.box {
+    margin-top: 3rem;
+    height: 10px;
+    width: 10px;
+    background-image: url('../public/images/box.svg');
+    background-repeat: no-repeat;
+}
+
 .showValueField {
-    width: 100%
+    width: 100%;
 } 
 
 .addBtn,
@@ -101,9 +141,9 @@
 
 }
 
-/* .hidden {
+.hidden {
     display: none;
-} */
+}
 
 @media screen and (max-width: 600px) {
     .allInputsDiv {

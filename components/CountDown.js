@@ -3,7 +3,7 @@ import useCountdown from "@bradgarropy/use-countdown"
 import { useEffect } from "react";
 
 
-function CountDown({ time, breathLength, onPaused, onInhale, onExhale, onLastInhale, onComplete }) {
+function CountDown({ time, breathLength, onPaused, onInhale, onExhale, onLastInhale, onComplete, onTimeLeft }) {
 
     const countdown = useCountdown({
         seconds: time,

@@ -1,11 +1,10 @@
 .modalWrapper {
-    background-size: cover;
+    position: relative;
     background-color: var(--color1);
     border-radius: 20px; 
-    padding: 5px;
-    margin: 5%; 
+    padding: 5px; 
     width: 400px;
-    height: clamp(50vh, 450px, 80vh);
+    height: clamp(50vh, 500px, 80vh);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,32 +18,92 @@
 
 .title {
     text-align: center;
-    margin-bottom: 1rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
 }   
 
+.roundNumber {
+    white-space: nowrap;
+}
+
 .roundInfo {
+    width: 80%;
+    height: 40px;
     display: flex;
     margin-bottom: 5%;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.8rem;
     border-bottom: var(--borderStyle)
 }
 
 .breathAndPaceInfo,
 .holdInfo {
+    position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    align-items: center;
     margin-left: 1rem;
 }
 
+.boxInfo {
+    /* position: relative; */
+    width: 130px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 4.5rem;
+}
+
+.cycles {
+    position: absolute;
+    right: 14.2rem;
+    white-space: nowrap;
+}
+
+.cyclePace {
+    margin-left: 1.8rem;
+}
+
 .lungs {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     background-image: url('../public/images/lungs.svg');
     background-repeat: no-repeat; 
-    margin-left: 0.5rem;
+    margin-left: 0.4rem;
+}
+
+.box {
+    width: 35px;
+    height: 35px;
+    margin-left: 0.2rem;
+    background-image: url('../public/images/box.svg');
+    background-repeat: no-repeat;
 }
 
 .btn {
+    position: absolute;
+    bottom: 1rem;
     border: var(--borderStyle);
+}
+
+@media screen and (max-width: 500px) {
+    .modalWrapper {
+        width: 300px;
+        height: 450px;
+        font-size: 0.8rem;
+    } 
+    .roundInfo {
+        width: 90%;
+        height: 30px;
+    }
+    .breathAndPaceInfo {
+        white-space: nowrap;
+    }
+    .cycles {
+        right: 10.6rem;
+        white-space: nowrap;
+    }    
+    .box {
+        margin-left: -0.2rem;
+    }
 }
 

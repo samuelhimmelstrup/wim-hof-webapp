@@ -30,22 +30,26 @@ function SessionModal({data, onChildClick}) {
             whileHover={{scale: 1.02, transition: { duration: 0.4 }}}
             >
             
-            <h1 className={styles.title}>{title}</h1>            
-                {sessionData.map((roundData, index) => {
+            <h1 className={styles.title}>{title}</h1>  
+
+                {sessionData.map((roundObj, index) => {
                     
-                    const { round, breaths, breathPace, hold } = roundData;
+                    const { cycles, breaths, breathPace, hold } = roundObj;
                     const pace = 
                         breathPace == 'slow' ? slow : 
                         breathPace == 'medium' ? medium : quick
                     const minutes = Math.floor(hold / 60)
                     const seconds = hold % 60
-                     
+                    
                     return (
-                        <div key={index} className={styles.roundInfo}>
-                            <div className={styles.singleInfoBox}>
-                                <p>Round {index + 1}</p>
-                            </div>     
+                    <div key={index} className={styles.roundInfo}>
 
+                    <div className={styles.roundNumber}>
+                        <p>Round {index + 1}</p>
+                    </div>    
+
+                    {roundObj.type == 'Wim Hof' && 
+                        <>
                             <div className={styles.breathAndPaceInfo}>
                                 <p className={styles.breaths}>{breaths} x</p>
                                 <motion.div 
@@ -62,23 +66,39 @@ function SessionModal({data, onChildClick}) {
                             <div className={styles.holdInfo}>
                                 <p>Hold: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</p>
                             </div>
-                            
-                        </div>
-            
-                    )
-                })}
-            
-            
-            <div className={styles.btnDiv}>            
-                <motion.button
-                    className={styles.btn} 
-                    whileHover={{scale: 1.05, transition: { duration: 0.4 }}}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={onChildClick}
-                >
-                    Lets Go
-                </motion.button>                
-            </div>
+
+                        </>                   
+                    }
+
+                    {roundObj.type == 'Box' && 
+                        <>    
+                            <div className={styles.boxInfo}>
+                                    <p className={styles.cycles}>
+                                        {cycles} x 
+                                    </p>          
+
+                                    <div className={styles.box} />                      
+                                
+                                <p className={styles.cyclePace}>Pace: {breathPace}</p>
+
+                            </div>
+
+                        </>                      
+                    }    
+
+                </div> 
+                )               
+                     
+            })}
+                        
+            <motion.button
+                className={styles.btn} 
+                whileHover={{scale: 1.05, transition: { duration: 0.4 }}}
+                whileTap={{ scale: 0.95 }}
+                onClick={onChildClick}
+            >
+                Lets Go
+            </motion.button>                
     </motion.div> 
      );
 }

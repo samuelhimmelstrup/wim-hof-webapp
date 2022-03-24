@@ -16,9 +16,11 @@
 
 .title {
   cursor: pointer;
-  font-size: 3rem;
+  font-weight: bolder;
+  font-size: 4rem;
   text-shadow: var(--textShadow);
   color: var(--color1);
+  white-space: nowrap;
 }
 
 .info {
@@ -29,43 +31,86 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 40%;
+  width: 50%;
   padding-right: 1.5rem;
   color: var(--color1);
   text-shadow: var(--textShadow);
 }
 
 .myPage {
+  white-space: nowrap;
   margin-right: 0.5rem;
   cursor: pointer;
 } 
 
-.favoritesCount {
-  margin-right: 1rem;
+.favoriteSVG {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../public/images/favoriteColor1.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 60px;
+    height: 60px;
+    margin: 0 10px 0 10px;
 }
 
-@media screen and (max-width: 720px) {
+/* .favoritesCount {
+  font-weight: lighter;
+} */
+
+
+@media screen and (max-width: 900px) {
+  .myPage {
+    margin-left: 1rem;
+    white-space: normal;
+  }
   .info {
     display: none;
   }  
-  .myPage {
-    font-size: 1.2rem;
+  .title {
+    font-size: 3rem;
   }  
+  .favoritesCount {
+    font-size: 0.8rem;
+  } 
 }
 
-@media screen and (max-width: 450px) {
-  .myPage {
-    font-size: 1rem;
-    margin-right: 0;
-  }  
+@media screen and (max-width: 700px) {
+  .header {
+    height: 10vh;
+    width: 100vw;
+  }
+  .infoDiv {
+    margin-left: 1rem;
+  }
   .title {
     font-size: 2rem;
+  }  
+  .myPage {
+    font-size: 1.2rem;
+  } 
+
+}
+
+@media screen and (max-width: 500px) {
+  .myPage {
+    white-space: normal;
+    font-size: 0.8rem;
+    margin: 0 0.7rem 0 0.3rem;
+  }  
+  .title {
+    font-size: 1.5rem;
+  }
+  .favoriteSVG {
+    display: none;
   }
   .favoritesCount {
     display: none;
   }
   .signOutBtn {
-    width: 75px;
-    height: 60px;
+    width: 60px;
+    height: 40px;
+    margin-right: 0;
   }
 }

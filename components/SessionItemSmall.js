@@ -4,7 +4,7 @@ import FavoriteButton from './FavoriteButton';
 
 
 function SessionItemSmall({props, onChildClick, onPromptLogin}) {
-    const { id, title, level, sessionData } = props;
+    const { id, title, level, sessionData, type } = props;
     const numberOfRounds = sessionData.length;
 
     return (
@@ -18,10 +18,14 @@ function SessionItemSmall({props, onChildClick, onPromptLogin}) {
         >
             
             <h1 className={styles.title}>{title}</h1>
-            <FavoriteButton 
-                id={id} 
-                onPromptLogin={onPromptLogin}
-            />
+            
+            <div className={styles.favBtnDiv}>
+                <FavoriteButton 
+                    id={id} 
+                    onPromptLogin={onPromptLogin}
+                />
+            </div>
+
             <p className={styles.roundsInfo}>
                 {numberOfRounds} {numberOfRounds == 1 ? 'round' : 'rounds'}
             </p>

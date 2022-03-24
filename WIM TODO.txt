@@ -1,37 +1,40 @@
 - NEED TO
 
-- QUILLUM for rich text editor
-
-- UUID for sessions
-
-- Move all sound to BreathingSession
-    - maybe not necessary
-- Field for silentHold
+IMPORTANT
+- FIX COPY!!
+- Update the copied component so it doesnt think its the same
 
 IMPORTANT
 - Stop music when session ends
 - And stop music when you go back from session
 
-- Add to favorite doesnt fucking work
-    - doesnt fucking update
+IMPORTANT 
+- Fix the design
+- Field for silentHold (+ svg)
+- UUID for sessions
+
+- Implement Diary functionality
+
+- Try using Grid for Session Modal (Round Info)
+    - Not a need to per se, but would be nice to learn how to use grid
+
+- QUILL for rich text editor?
 
 - DELETE MY USER AND REMAKE IT (favArray off)
     - maybe just delete array items (ArrayRemove)
 
-- More laidback breathing sounds
-
-- Make pause button as component
+- Fix SessionModal on mobile
 
 
 - NICE TO
 
+- More laidback breathing sounds
 - combine stage '3count' with rest (have still BreathBubble when 3 count shows)
 - Remove outermost border on SessionItem (where it shows holds)
 - Make it possible to move rounds in dynamic form (how do I change round?)
 - Fix error "cannot update comp while rendering another"
 - Field for title in form if user chooses to save
 
-- SVG for silentHold
 - A volume button for controlling music and breaths
 - Accessbility, especially in form
 - Host mp3s on firebase and fetch them 

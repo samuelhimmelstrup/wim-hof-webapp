@@ -6,6 +6,14 @@
   background-color: var(--color1);
 }
 
+.spinningLoader {
+  width: 80px;
+  height: 80px;
+  background-image: url(../public/images/spinningLoader.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .title {
   margin-bottom: 1rem;
 }
