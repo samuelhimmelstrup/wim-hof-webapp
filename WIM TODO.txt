@@ -15,15 +15,12 @@ IMPORTANT
 
 - Implement Diary functionality
 
-- Try using Grid for Session Modal (Round Info)
-    - Not a need to per se, but would be nice to learn how to use grid
+- Several 4 Counters for Box (inhale, break, exhale, break2)
 
 - QUILL for rich text editor?
 
 - DELETE MY USER AND REMAKE IT (favArray off)
     - maybe just delete array items (ArrayRemove)
-
-- Fix SessionModal on mobile
 
 
 - NICE TO

@@ -27,44 +27,39 @@ function SessionItem({props, onChildClick, onPromptLogin}) {
             <p className={styles.roundsInfo}>
                 {numberOfRounds} {numberOfRounds == 1 ? 'round' : 'rounds'}
             </p>
-            <div className={styles.holdsInfo}>
+                <div className={styles.holdsInfo}>
                 {sessionData.map((roundObj, index) => {
                     const { hold, cycles, type } = roundObj
                     const min = Math.floor(hold / 60)
                     const sec = hold % 60
-                    if (type == 'Wim Hof') { 
-                        return (
-                            <>
-                            <p className={styles.singleHoldInfo} key={index}>
-                                {min}:{sec < 10 ? `0${sec}` : sec}
-                            </p>
-                            
-                            </>
-                        )
-                    }
-                    else if (type == 'Box') {
-                        return (
-                            <>
+                    
+                    return (
+                        <>
+                            {type == 'Wim Hof' &&
+                                <p className={styles.singleHoldInfo} key={index}>
+                                    {min}:{sec < 10 ? `0${sec}` : sec}
+                                </p>
+                            }
+                            {type == 'Box' &&
                                 <p className={styles.singleBoxInfo} key={index}>
                                     {cycles}
                                 </p>
-                                
-                            </>
-                        )
-                    }
-
+                            }
+                        </>
+                    )
                 })}
-            </div>
+                </div>
+
             
-            {sessionType == 'Wim Hof' &&
-                <div className={styles.lungs} />
-            }
-            {sessionType == 'Box' &&
-                <div className={styles.box} />
+                <div className={styles.sessionTypeDsc}>
+                    {sessionType}
+                </div>
+            {/* {sessionType == 'Box' &&
+                <div className={styles.box}>Box</div>
             }
             {sessionType == 'Mix' &&
-                <div className={styles.mix} />
-            }
+                <div className={styles.mix}>Mixed</div>
+            } */}
 
         </motion.div>   
      );

@@ -67,54 +67,46 @@
     border-right: 1px solid grey;
 }
 
-    .lungs {
-        width: 30px;
-        height: 30px;
-        background-image: url('../public/images/lungs.svg');
-        background-repeat: no-repeat; 
-        position: absolute;
-        bottom: 0.5rem;
-        right: 0.8rem;
-    }
-
-    .box {
-        width: 25px;
-        height: 25px;
-        margin-left: 0.2rem;
-        background-image: url('../public/images/box.svg');
-        background-repeat: no-repeat;
-        position: absolute;
-        bottom: 0.6rem;
-        right: 0.8rem;
-    }
-
-    .mix {
-        width: 25px;
-        height: 25px;
-        margin-left: 0.2rem;
-        background-image: url('../public/images/mix.svg');
-        background-repeat: no-repeat;
-        position: absolute;
-        bottom: 0.6rem;
-        right: 0.8rem;
-    }
+.sessionTypeDsc {
+    text-align: center;
+    border-radius: 10px;
+    font-weight: lighter;
+    font-size: 0.9rem;
+    font-style: italic;
+    position: absolute;
+    bottom: 1rem;
+    right: 1.2xrem;
+}
 
 @media screen and (max-width: 675px) {
     .itemWrapper1,
     .itemWrapper2,
     .itemWrapper3 {
         height: 100px;
+        align-items: flex-start;
+    }
+
+    .line {
+        margin-left: 1rem;
     }
 
     .title {
+        width: auto;
+        white-space: nowrap;
         font-size: 1.2rem;
+        margin: 0.5rem 0 0.5rem 0.5rem;
     }
 
     .roundsInfo {
-        display: none;
+        margin-left: 4.5rem;
     }
 
     .holdsInfo {
-        margin-top: 0.5rem;
+        display: none;
+    }
+
+    .sessionTypeDsc {
+        top: 1rem;
+        right: 1rem;
     }
 }

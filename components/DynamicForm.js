@@ -103,6 +103,8 @@ function DynamicForm( { onSubmit } ) {
         let sessionType = 
             WimCheck && BoxCheck ? 'Mixed' :
             WimCheck ? 'Wim Hof' : 'Box'
+
+        //
         
         let formData = {
             id: 100,
@@ -123,9 +125,8 @@ function DynamicForm( { onSubmit } ) {
                 <div className={styles.allInputsDiv}>     
 
                     {inputFields.map((obj, index) => {
-
+                        
                         return ( 
-                            <div key={index}>                   
                             <FormElement key={index}>
                                 
                                 <div className={styles.flexDiv}>
@@ -155,25 +156,23 @@ function DynamicForm( { onSubmit } ) {
                                     </div>
                                 </div>  
                             
-                                <div
-                                    className={styles.roundSpecificDiv}>
+                                <div className={styles.roundSpecificDiv}>
                                     {obj.type == 'Box' && 
-                                            <BoxFormElement 
-                                                obj={obj}
-                                                onChildChange={(boxData) => inputChangeHandler(boxData, index)} 
-                                            />
+                                        <BoxFormElement 
+                                            obj={obj}
+                                            onChildChange={(boxData) => inputChangeHandler(boxData, index)} 
+                                        />
                                     }
 
                                     {obj.type == 'Wim Hof' && 
-                                            <WimHofFormElement
-                                                obj={obj}
-                                                onChildChange={(wimHofData) => inputChangeHandler(wimHofData, index)} 
-                                            />
+                                        <WimHofFormElement
+                                            obj={obj}
+                                            onChildChange={(wimHofData) => inputChangeHandler(wimHofData, index)} 
+                                        />
                                     }
-                               </div>
+                                </div>
                                       
                             </FormElement>
-                            </div>
                             )}   
                         )
                         }

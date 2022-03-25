@@ -39,7 +39,7 @@
 
 .myPage {
   white-space: nowrap;
-  margin-right: 0.5rem;
+  margin-right: 1rem;
   cursor: pointer;
 } 
 
@@ -50,9 +50,10 @@
     background-image: url(../public/images/favoriteColor1.svg);
     background-repeat: no-repeat;
     background-size: contain;
+    background-position-y: -0.1rem;
     width: 60px;
     height: 60px;
-    margin: 0 10px 0 10px;
+    margin-right: 1rem;
 }
 
 /* .favoritesCount {
@@ -70,7 +71,10 @@
   }  
   .title {
     font-size: 3rem;
-  }  
+  } 
+  .favoriteSVG {
+    background-position-y: 0.1rem;
+  } 
   .favoritesCount {
     font-size: 0.8rem;
   } 
@@ -93,7 +97,7 @@
 
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
   .myPage {
     white-space: normal;
     font-size: 0.8rem;
