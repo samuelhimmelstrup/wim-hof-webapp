@@ -3,14 +3,13 @@ import { useState } from 'react';
 import Backdrop from '../layout/Backdrop'
 import SessionModal from './SessionModal';
 import { defaultBoxRound, defaultWimHofRound } from '../api/fetchSessions';
-import BoxFormElement from './BoxFormElement';
-import FormElement from '../layout/FormElement';
-import WimHofFormElement from './WimHofFormElement';
+import { motion } from 'framer-motion';
 
 function DynamicForm( { onSubmit } ) {
-    
+
     const maxNumberOfRounds = 5;
     const [modalOpen, setModalOpen] = useState(false);
+    const [openPaceSelectors, setOpenPaceSelectors] = useState(false);
 
     const [inputFields, setInputFields] = useState([
         {
@@ -22,10 +21,16 @@ function DynamicForm( { onSubmit } ) {
         }
     ])    
 
-    const inputChangeHandler = (childData, index) => {
+    // const inputChangeHandler = (childData, index) => {
+    //     let data = [...inputFields];
+    //     let clonedObject = Object.assign({}, childData)
+    //     data.splice(index, 1, clonedObject);
+    //     setInputFields(data);
+    // }
+
+    const inputChangeHandler = (index, event) => {
         let data = [...inputFields];
-        let clonedObject = Object.assign({}, childData)
-        data.splice(index, 1, clonedObject);
+        data[index][event.target.id] = event.target.value;
         setInputFields(data);
     }
 
@@ -66,7 +71,7 @@ function DynamicForm( { onSubmit } ) {
     const removeInputField = (index) => {
         if (inputFields.length > 1) {
             let data = [...inputFields];
-            data.splice(index - 1, 1);
+            data.splice(index, 1);
             setInputFields(data);
             console.log(inputFields)
         }
@@ -127,9 +132,8 @@ function DynamicForm( { onSubmit } ) {
                     {inputFields.map((obj, index) => {
                         
                         return ( 
-                            <FormElement key={index}>
-                                
-                                <div className={styles.flexDiv}>
+                            <div key={index} className={styles.formElement}>
+                                <div className={styles.typeOfRoundContainer}>
                                     <p className={styles.typeOfRound}>{obj.type}</p>
                                     <div  
                                         className={styles.toggleRoundTypeIcon}
@@ -137,8 +141,7 @@ function DynamicForm( { onSubmit } ) {
                                     />
                                 </div>
 
-                                <div className={styles.flexColumnDiv}>
-                                
+                                <div className={styles.roundNumberAndRemoveCopyContainer}>
                                     <h2 className={styles.roundNumber}>Round: {index + 1}</h2> 
 
                                     <div className={styles.removeAndCopyDiv}>
@@ -158,21 +161,159 @@ function DynamicForm( { onSubmit } ) {
                             
                                 <div className={styles.roundSpecificDiv}>
                                     {obj.type == 'Box' && 
-                                        <BoxFormElement 
-                                            obj={obj}
-                                            onChildChange={(boxData) => inputChangeHandler(boxData, index)} 
+                                    <>
+                                        <div className={styles.breathsInputDiv}>
+                                            <p className={styles.showValueField}>
+                                                cycles: {inputFields[index].cycles}
+                                            </p>
+                                            <label htmlFor='cycles' />
+                                            <input className={styles.slider}
+                                                type='range' 
+                                                id='cycles'
+                                                min='10'
+                                                max='100'
+                                                step='5'
+                                                value={inputFields[index].cycles}
+                                                onChange={event => inputChangeHandler(index, event)}
+                                            />
+                                        </div>  
+
+                                        <div className={styles.breathsInputDiv}>
+                                            <p className={styles.showValueField}>
+                                                Pace: {inputFields[index].breathPace} seconds
+                                            </p>
+                                            <label htmlFor='breathPace' />
+                                            <input className={styles.slider}
+                                                type='range' 
+                                                id='breathPace'
+                                                min='2'
+                                                max='8'
+                                                value={inputFields[index].breathPace}
+                                                onChange={event => inputChangeHandler(index, event)}
+                                            />
+                                        </div>  
+
+                                        <motion.div 
+                                            className={styles.box}
+                                            animate={{
+                                                scale: inputFields[index].breathPace
+                                            }}
                                         />
+                                    </>
                                     }
 
                                     {obj.type == 'Wim Hof' && 
-                                        <WimHofFormElement
-                                            obj={obj}
-                                            onChildChange={(wimHofData) => inputChangeHandler(wimHofData, index)} 
-                                        />
+                                    <>
+                                        {/* BREATHS */}
+                                        <div className={styles.breathsInputDiv}>
+                                            <p className={styles.showValueField}>
+                                                Breaths: {inputFields[index].breaths}
+                                            </p>
+                                            <label htmlFor='breaths' />
+                                            <input className={styles.slider}
+                                                type='range' 
+                                                id='breaths'
+                                                min='10'
+                                                max='100'
+                                                step='5'
+                                                value={inputFields[index].breaths}
+                                                onChange={event => inputChangeHandler(index, event)}
+                                            />
+                                        </div>
+                                        
+                                        {/* BREATHHOLD */}
+                                        <div className={styles.holdInputDiv}>  
+                                            {/* FORMATTING MINUTES/SECONDS STRING ACCORDING TO LENGTH OF HOLD */}
+                                            <p className={styles.showValueField}>
+                                                {inputFields[index].hold <= 60 ? 
+                                                    `Breathhold: ${inputFields[index].hold} sec`
+                                                : inputFields[index].hold % 60 == 0 ? 
+                                                    `Breathhold: ${Math.floor(inputFields[index].hold / 60)} min`
+                                                : 
+                                                    `Breathhold: ${Math.floor(inputFields[index].hold / 60)} : ${(inputFields[index].hold % 60)} min`
+                                                }
+                                            </p>
+                                            <label htmlFor='hold' />
+                                            <input className={styles.slider} 
+                                                type='range'
+                                                id='hold'
+                                                min='30'
+                                                max='180'
+                                                step='10'
+                                                value={inputFields[index].hold}
+                                                onChange={event => inputChangeHandler(index, event)}
+                                            />
+                                        </div>
+                                        
+                                        {/* BREATH PACE */}
+                                        <p className={styles.paceText}>
+                                            Pace: {inputFields[index].breathPace}
+                                            <motion.button 
+                                                initial={{ rotate:'0.25turn' }}
+                                                animate={openPaceSelectors ? 
+                                                    {rotate:'0.75turn'} : {rotate:'0.25turn'}}
+                                                whileHover={{ scale: 1.1, transition: { duration: 0.4 } }}
+                                                whileTap={{ scale: 0.95 }}
+                                                type='button' 
+                                                className={styles.openUpSelectorsBtn}
+                                                onClick={() => setOpenPaceSelectors(!openPaceSelectors)} 
+                                            />
+                                        </p> 
+
+                                        <motion.div 
+                                            animate={openPaceSelectors ? 
+                                                {height: 40, display: 'flex', alignItems: 'center' } : 
+                                                {height: 0, display: 'none'}}
+                                            transition={{ duration: 0.5 }}
+                                            id='breathPace' 
+                                        >
+                                            <label htmlFor='breathPace'>
+                                                <input
+                                                    id='breathPace'
+                                                    type='radio'
+                                                    value='slow'
+                                                    checked={inputFields[index].breathPace == 'slow'}
+                                                    onChange={(event) => inputChangeHandler(index, event)}
+                                                />
+                                                Slow
+                                            </label> 
+
+                                            <label htmlFor='breathPace'>
+                                                <input
+                                                    id='breathPace'
+                                                    type='radio'
+                                                    value='medium'
+                                                    checked={inputFields[index].breathPace == 'medium'}
+                                                    onChange={(event) => inputChangeHandler(index, event)}
+                                                />
+                                                Medium
+                                            </label> 
+
+                                            <label htmlFor='breathPace'>
+                                                <input
+                                                    id='breathPace'
+                                                    type='radio'
+                                                    value='quick'
+                                                    checked={inputFields[index].breathPace == 'quick'}
+                                                    onChange={(event) => inputChangeHandler(index, event)}
+                                                />
+                                                Quick
+                                            </label> 
+                                        </motion.div>  
+
+                                            {/* <label htmlFor='silentHold'>
+                                                <input
+                                                    name='silentHold'
+                                                    id='silentHold'
+                                                    type='checkbox'
+                                                    value='true'
+                                                    onChange={(event) => silentHoldChangeHandler(event)}
+                                                />Silent Breathhold?
+                                            </label>  */}
+                                    </>
                                     }
                                 </div>
-                                      
-                            </FormElement>
+                            </div>                                
                             )}   
                         )
                         }

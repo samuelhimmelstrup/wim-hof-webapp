@@ -34,18 +34,18 @@ function SessionItem({props, onChildClick, onPromptLogin}) {
                     const sec = hold % 60
                     
                     return (
-                        <>
+                        <div key={index}>
                             {type == 'Wim Hof' &&
-                                <p className={styles.singleHoldInfo} key={index}>
+                                <p className={styles.singleHoldInfo}>
                                     {min}:{sec < 10 ? `0${sec}` : sec}
                                 </p>
                             }
                             {type == 'Box' &&
-                                <p className={styles.singleBoxInfo} key={index}>
+                                <p className={styles.singleBoxInfo}>
                                     {cycles}
                                 </p>
                             }
-                        </>
+                        </div>
                     )
                 })}
                 </div>

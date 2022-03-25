@@ -11,7 +11,22 @@
     display: flex;
 }
 
-.flexDiv {
+.formElement {
+    position: relative;
+    margin: 0.5rem;
+    background-color: var(--color1);
+    border-radius: 45px;
+    width: 230px;
+    height: 400px;
+    padding: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--boxShadow);
+}
+
+.typeOfRoundContainer {
     position: absolute;
     top: 1rem;
     width: 70%;   
@@ -33,7 +48,7 @@
     font-style: italic;
 }
 
-.flexColumnDiv {
+.roundNumberAndRemoveCopyContainer {
     position: absolute;
     top: 3.5rem;
     display: flex;
