@@ -10,7 +10,7 @@
 .contentContainer {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
     height: 100%;
 }
@@ -18,6 +18,14 @@
 .title {
     font-size: 3rem;
     margin-top: 2rem;
+}
+
+.whatToShowButtonsDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    margin-top: 1rem;
 }
 
 .diaryContainer {
@@ -31,10 +39,12 @@
 }
 
 .favContainer {
+    position: relative;
     width: 50%;
-    height: 100%;    
+    height: 100%;
+    overflow: hidden;    
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
@@ -45,3 +55,30 @@
     left: 1rem;
     box-shadow: var(--boxShadow);
   }
+
+.backBtnDiv,
+.forwardBtnDiv {
+    position: absolute;
+    top: 8rem;
+    width: 50px;
+    display: flex;
+}
+
+.backBtnDiv {
+    left: 1rem;
+}
+
+.forwardBtnDiv {
+    right: 1rem;
+}
+
+.btnForward,
+.btnBack {  
+    background: none;
+    background-image: url('../public/images/arrows.svg');
+    background-repeat: no-repeat;
+}
+
+.hidden {
+    display: none;
+}

@@ -4,7 +4,6 @@ import { motion, useMotionValue } from 'framer-motion'
 import CountDown from './CountDown'
 import useSound from 'use-sound'
 import { BreathPaceValues } from '../api/fetchSessions'
-import Backdrop from '../layout/Backdrop'
 
 // THIS COMP HANDLES BREATHING SOUNDS, BUT NOT MUSIC (HANDLED BY BreathingSession)
 
@@ -14,36 +13,42 @@ function BreathingRound({
     onFadeMusic, 
     onPauseMusic, 
     onPlayMusic, 
-    onEndOfRound}) {
+    onEndOfRound
+    }) {
 
     // VARIABLES
     const round = roundNumber;
     const { breaths, hold, breathPace, silentHold } = roundData;
     const { slow, medium, quick } = BreathPaceValues;
-
     const breathLength = 
         breathPace == 'slow' ? slow : 
         breathPace == 'medium' ? medium : 
         quick;
-    const inhaleUrl = 
-        breathPace == 'slow' ? '/sounds/inhaleSlow.mp3' : 
-        breathPace == 'medium' ? '/sounds/inhaleMedium.mp3' : 
-        '/sounds/inhaleQuick.mp3';
-    const exhaleUrl = 
-        breathPace == 'slow' ? '/sounds/exhaleSlow.mp3' : 
-        breathPace == 'medium' ? '/sounds/exhaleMedium.mp3' : 
-        '/sounds/exhaleQuick.mp3';
-    
+
     // STATES
+    // 3count, breathing, last breath, breathhold, 15count 
     const [stage, setStage] = useState('3count')
+    
+    // inhale, exhale
     const [breathStage, setBreathStage] = useState('inhale');
     const [count, setCount] = useState(0);
     const [isPaused, setIsPaused] = useState(false); 
+    
+    const inhaleExhaleIDs = breathPace == 'slow' ? { inhale: 'inhaleSlow', exhale: 'exhaleSlow' }
+    : breathPace == 'medium' ? { inhale: 'inhaleMedium', exhale: 'exhaleMedium' } 
+    : { inhale: 'inhaleQuick', exhale: 'exhaleQuick' } 
 
-    // SOUNDS
-    const [playInhale] = useSound(inhaleUrl, { volume: 0.5 });
-    const [playExhale] = useSound(exhaleUrl, { volume: 0.5 });
-
+    // Breath sounds
+    const [playBreath, { pause }] = useSound('/sounds/BreathQuickMediumSlow.mp3', {
+        sprite: {        
+        inhaleQuick: [0, 1000],
+        exhaleQuick: [1000, 1000],
+        inhaleMedium: [2000, 2000],
+        exhaleMedium: [4000, 2000],
+        inhaleSlow: [6000, 3000],
+        exhaleSlow: [9000, 3000]}
+        })
+    
     // HELPER FUNCTIONS 
 
     const endOfThreeCountHandler = () => {
@@ -52,34 +57,37 @@ function BreathingRound({
 
     const inhaleHandler = () => { 
         setBreathStage('inhale');
-        playInhale();
+        playBreath({ id: inhaleExhaleIDs.inhale }); 
     }
 
     const exhaleHandler = () => {
         setBreathStage('exhale');
-        playExhale();
+        playBreath({ id: inhaleExhaleIDs.exhale });
         setCount(count + 1);
     }
 
     // lets BreathingSession know whether or not to fade music out with duration: breathLength:
     const lastInhaleHandler = () => {
+        setBreathStage('inhale');
         setStage('lastBreath');
         if (silentHold) onFadeMusic(breathLength);
     }
 
     const endOfBreathingHandler = () => {
-        playExhale();
+        setBreathStage('exhale');
+        playBreath({ id: 'exhaleMedium' });
         setStage('breathhold');
     }
 
     const endOfHoldHandler = () => {
-        playInhale();  
+        setBreathStage('inhale');
+        playBreath({ id: 'inhaleMedium' }); 
         setStage('15count')
     }
 
     // lets BreathingSession know whether or not to restart music (after silentHold) 
     const endOfRoundHandler = () => {
-        playExhale();
+        playBreath({ id: 'exhaleMedium' }); 
         onEndOfRound(silentHold, breathLength)
     }
 
@@ -87,10 +95,13 @@ function BreathingRound({
         if (!isPaused) {
             setIsPaused(true);
             onPauseMusic();
+            pause();
         } 
         if (isPaused) {
             setIsPaused(false);
             onPlayMusic();
+            if (breathStage == 'inhale') playBreath({ id: inhaleExhaleIDs.inhale });
+            else if (breathStage == 'exhale') playBreath({ id: inhaleExhaleIDs.exhale });
         }
     }
 
@@ -98,11 +109,9 @@ function BreathingRound({
     const scaleOfBubble = useMotionValue(1);
     const colorOfBubble = useMotionValue('#2BB1F5');
     const color1 = '#2BB1F5';
-    const color2 = '#0025C7';
     const bubbleVariants = {
         animationInhale: {
             scale: [scaleOfBubble.get(), 3],
-            // backgroundColor: [colorOfBubble.get(), color2],
             transition: {
                 duration: breathLength / 2,
                 easing: 'easeInOut',
@@ -110,7 +119,6 @@ function BreathingRound({
         }, 
         animationExhale: {
             scale: [scaleOfBubble.get(), 1],
-            // backgroundColor: [colorOfBubble.get(), color1],
             transition: {
                 duration: breathLength / 2,
                 easing: 'easeInOut',
@@ -118,7 +126,6 @@ function BreathingRound({
         }, 
         animationLastInhale: {
             scale: [scaleOfBubble.get(), 3.5],
-            // backgroundColor: [color1 , color2],
             transition: {
                 duration: breathLength,
                 easing: 'easeInOut',
@@ -126,7 +133,6 @@ function BreathingRound({
         },
         animationHold: {
             scale: [scaleOfBubble.get(), 1],
-            // backgroundColor: [color2 , color1],
             transition: {
                 duration: hold, 
                 easing: 'easeInOut',
@@ -134,7 +140,6 @@ function BreathingRound({
         },
         animation15Count: {
             scale: [scaleOfBubble.get(), 3.5, 1],
-            // backgroundColor: [color1 , color2],
             transition: { 
                 duration: 15,
                 times: [0, 0.05, 1],
@@ -243,7 +248,7 @@ function BreathingRound({
                     {/* 15 COUNT TIMER */}
                     {stage == '15count' &&
                         <CountDown 
-                            time={2}
+                            time={5}
                             onComplete={endOfRoundHandler}
                             onPaused={pauseRoundHandler}
                         />

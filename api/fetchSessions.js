@@ -2,7 +2,7 @@
 export const BreathPaceValues = {
     slow: 6,
     medium: 4,
-    quick: 2
+    quick: 2,
 }
 
 export const defaultWimHofRound = {
@@ -12,6 +12,7 @@ export const defaultWimHofRound = {
     hold: 90,
     silentHold: false
 }
+
 export const defaultBoxRound = {
     type: 'Box',
     cycles: 25,
@@ -67,7 +68,7 @@ export const DUMMY_SESSIONS = [
         {    
             type: 'Wim Hof', 
             breaths: 2,
-            breathPace: 'quick',
+            breathPace: 'slow',
             hold: 2,
             silentHold: false,
         }
@@ -83,7 +84,7 @@ export const DUMMY_SESSIONS = [
         { 
             type: 'Wim Hof', 
             breaths: 4,
-            breathPace: 'quick',
+            breathPace: 'medium',
             hold: 4,
             silentHold: false,
         },

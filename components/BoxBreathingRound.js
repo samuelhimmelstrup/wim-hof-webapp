@@ -142,7 +142,7 @@ function BoxBreathingRound({
                         {(stage == 'breathing' || stage == 'lastBreath' ) &&
                             <div className={styles.hidden}>
                                 <BoxCountDown 
-                                    time={cycles * breathPace}
+                                    time={cycles * breathPace * 4}
                                     onExhale={exhaleHandler}
                                     onInhale={inhaleHandler}
                                     onBreak1={break1Handler}

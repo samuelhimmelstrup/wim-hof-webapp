@@ -21,15 +21,6 @@ function BreathingSession({ data }) {
     { interrupt: true },
     );
 
-  // stop music on unMount
-  useEffect(() => {
-    console.log("mounted")
-    return () => {
-      console.log(pauseMusicHandler())
-      console.log("unmounted")
-    }
-  }, [])
-
   const fadeMusicHandler = (breathLength) => {
     sound.fade(musicVolume, 0, breathLength * 1000)
   }
@@ -53,6 +44,17 @@ function BreathingSession({ data }) {
     };
     setRoundNumber(roundNumber + 1);
   }
+
+  // stop music on unMount
+  // TODO: make it work. doesnt stop music when unmounting??
+  useEffect(() => {
+    console.log("mounted")
+    return () => {
+      // stop();
+      // pauseMusicHandler();
+      console.log("unmounted")
+    }
+  }, [])
 
   // RETURNS
   return (

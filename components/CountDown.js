@@ -3,16 +3,15 @@ import useCountdown from "@bradgarropy/use-countdown"
 import { useEffect } from "react";
 
 
-function CountDown({ time, breathLength, onPaused, onInhale, onExhale, onLastInhale, onComplete, onTimeLeft }) {
+function CountDown({ time, breathLength, onPaused, onInhale, onExhale, onLastInhale, onComplete }) {
 
     const countdown = useCountdown({
         seconds: time,
         onCompleted: onComplete,
     })
-
-
-    const { minutes, seconds, isRunning, pause, resume } = countdown;
     
+    const { minutes, seconds, isRunning, pause, resume } = countdown;
+
     const pauseHandler = () => {
         if (isRunning) pause(); 
         if (!isRunning) resume();
